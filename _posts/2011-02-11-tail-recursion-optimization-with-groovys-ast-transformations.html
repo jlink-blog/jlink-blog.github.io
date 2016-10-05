@@ -1,0 +1,84 @@
+---
+layout: post
+title: Tail Recursion Optimization with Groovy's AST Transformations
+date: 2011-02-11 11:57:17.000000000 +01:00
+type: post
+published: true
+status: publish
+categories: []
+tags: []
+meta:
+  _edit_last: '3482422'
+  geo_public: '0'
+  _oembed_d9bfc6b33f2e69a4188b4a12f373d819: "{{unknown}}"
+  _oembed_e6f22c702b4fb4b156e52564b69ba5b0: "{{unknown}}"
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>The <a href="http://en.wikipedia.org/wiki/Java_Virtual_Machine">JVM</a> is notorious for not being able to optimze tail recursive functions. <a href="http://en.wikipedia.org/wiki/Tail_recursion">Tail recursion</a> is a special case of recursion which can be changed to iteration. In simple terms: If the call to itself is the last thing a function does before returning, then it's tail recursive. Changing the actual execution model from recursive to iterative saves the runtime machine from putting the just finished funtion's context on the stack. Among other advantages this saves you from getting the infamous <code>java.lang.StackOverflowError</code> when feeding large numbers into a recursive function in Java.</p>
+<p>Let's look at a classical example: Calculating the factorial of a number. A recursive  - but not tail recursive! - solution is this:</p>
+<pre>
+int factiorial(int number) {
+     if (number == 1)
+          return 1;
+     return number * factorial(number - 1);
+}
+</pre>
+<p>We can see here that tail recursion is not about the recursive call being the last thing in the function's source code but <em>in the function's control flow</em>!</p>
+<p>For many recursive problems there's an easy way to transform it to a tail recursive solution. Often the trick is to introduce <em>an aggregator</em>, i.e. an additional parameter that takes the intermediate result of a calculation. Doing that our function becomes:</p>
+<pre>
+int factorial(int number, int aggregator) {
+    if (number == 1)
+        return aggregator;
+    return factorial(number - 1, number * aggregator);
+}
+</pre>
+<p>Using this function requires a start value for the aggregator, in this case <code>factorial(10, 1)</code> would evaluate to <code>3628800</code> which sound reasonable. So how can we translate this into an iterative version? Let's see:</p>
+<pre>
+int iFactorial(int number, int aggregator = 1) {
+    int _number = number;
+    int _aggregator = aggregator;
+    while(true) {
+        if (number == 1)
+            return _aggregator;
+        _aggregator = _number * _aggregator;
+        _number = _number - 1;
+    }
+}
+</pre>
+<p>The trick is to wrap our function into an endless loop, save the function args into local temps, replace all usages of the args with temps and replace recursive calls by setting the temps to the recursive call args. Sounds easy, eh? If the JVM won't do that for usautomaticall why not build a recursion to iteration translator ourselves? Since <a href="http://groovy.codehaus.org/">Groovy</a> is my favourite language on the JVM it seemed the perfect time and target to give my first shot at <a href="http://groovy.codehaus.org/Compile-time+Metaprogramming+-+AST+Transformations">AST transformations</a>. <em>AST transformations</em> are @nnotations that will be invoked at compile time to let you analyze and manipulate a programs <em>abstract syntax tree</em>. AST transformations can be used on different levels, in my case a <a href="http://groovy.codehaus.org/Local+AST+Transformations">local transformation</a> seemed to suffice and I started my dive into the world of ASTNodes, expressions, statements and other weired things...</p>
+<p>Actually, I don't want to bother you with the details of how to test-drive AST transformations; I'm still at the very beginning of figuring things out. What I want to show you is my first prototype: <a href="https://github.com/downloads/jlink/tailrec/tailrec.jar">tailrec 0.1</a>. Look what we can do now:</p>
+<pre>
+import groovyx.transform.*
+@TailRecursive
+int factorial(int number, int aggregator = 1) {
+    if (number == 1)
+        return aggregator;
+    return factorial(number - 1, number * aggregator);
+}
+
+assert factorial(10, 1) == 3628800
+assert factorial(10) == 3628800
+</pre>
+<p>The code runs as is in Groovy's console as soon as you add <a href="https://github.com/downloads/jlink/tailrec/tailrec.jar">tailrec jar file</a> to your classpath. As you can see, when making use of Groovy's default arguments we even get rid of the clumsy aggregator initialization. To prove that <em>tailrec</em> really does what it promises try the next example with and without @TailRecursive:</p>
+<pre>
+import groovyx.transform.*
+@TailRecursive //remove line to get StackOverflowError
+def countDown(long from) {
+    if (from == 0)
+        return 0
+    countDown(from - 1)
+}
+
+countDown(1000000)
+</pre>
+<p>So far tailrec only handles non static functions, i.e. instance methods that have some real (non-void) return type. Moreover, there are a few cases I can think of that tailrec should and could handle correctly but does not (think: ternary operator in return statement). And there are a few difficult problems where I have no current idea how to solve; consider for example the use of recursive calls within closures. </p>
+<p>The current version is a proof of concept. I want you to experiment with it and <a href="mailto:business@johanneslink.net">give me your feedback</a>. In my opinion tailrec should become part of standard GDK if it's worth doing it at all.</p>
+<p><strong>Update:</strong><br />
+The code has now moved to <a href="https://github.com/jlink/tailrec">github</a>. I'm actually planning to enhance and stabilize it since the groovy team encouraged me to. It meanwhile supports static functions as well and has many more tests to earn your trust.</p>
+<p><strong>Update 2:</strong><br />
+@TailRecursive has become part of core Groovy since <a href="http://java.dzone.com/articles/groovy-goodness-more-efficient">version 2.3</a></p>

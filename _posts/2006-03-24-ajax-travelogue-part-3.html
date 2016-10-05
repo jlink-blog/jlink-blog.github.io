@@ -1,0 +1,56 @@
+---
+layout: post
+title: 'AJAX Travelogue (Part 3): Model View Presenter'
+date: 2006-03-24 13:07:00.000000000 +01:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- ajax
+- model-view-presenter
+- mvp
+meta:
+  _edit_last: '3482422'
+  _oembed_4865ce7c785be26e3a90d9eeadeabfd6: "{{unknown}}"
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>In my <a href="/2006/03/22/ajax-travelogue-part-2/">last travelogue entry</a> I concluded that having an application facade instead of coupling the user interface directly to domain objects (or even the database) always seems a good idea when it comes to enhancing, changing and testing an application.</p>
+<h3>Presentation Model</h3>
+<p>Let's look at a very simple example to demonstrate the basic principle. Consider an application that will search for books when given a search string and display the results. A UML diagram of the facade and the book class looks like this:</p>
+<p><img src="{{ site.baseurl }}/assets/facade.gif" alt="Facade" /></p>
+<p class="diagram">&nbsp;</p>
+<p>All the details of how the search is actually implemented does not interest the user interface (developer). All the graphical part of the application has to do is grab the search string (e.g. out of an input field), invoke the <span class="code">searchTitles</span> method and present the resulting list of book objects to the user in whatever way it wants to.</p>
+<p>This kind of application facade is called an <i><a href="http://www.martinfowler.com/eaaDev/PresentationModel.html">Presentation Model</a></i>. The <i>View</i>, i.e. the presenting part of the application, pulls all information it needs from the presentation model and sends all changes made by the user back to the model in return. There's one additional complication, though. Since the view won't realize a change in the model's state it must either poll for updates in regular intervals or register itself as an observer of the model:</p>
+<p><img src="{{ site.baseurl }}/assets/observer.gif" alt="Observer" /></p>
+<p class="diagram">&nbsp;</p>
+<p>On a model change the view will be notified (<span class="code">changeOccurred</span>) and can thus ask the model for the updated data. That's basically all you have to know about presentation models - for now, at least.</p>
+<h3>Model View Presenter</h3>
+<p>There's another specialization of the facade thingy, called <i><a href="http://www.martinfowler.com/eaaDev/ModelViewPresenter.html">Model View Presenter</a></i> (MVP). The supporting idea behind MVP is for the GUI (alias <i>view</i>) to do even less, just signal all user input to the to the facade (alias <i>presenter</i>). The presenter will then invoke methods on the domain objects, deciding afterwards about how - and if at all - to change the view. When distributing responsibilities that way the class diagram looks slightly different:</p>
+<p class="diagram"><a title="mvp" name="mvp"></a></p>
+<p>This kind of separating view from application might look more involved than a straightforward presentation model. Nevertheless, it comes with a couple of advantages:</p>
+<ul>
+<li>It's as good as you can get in removing all logic from the actual dialog implementation.</li>
+<li>By stubbing the view you can test the application logic plus parts of the presentation logic without actually going through the real user interface.</li>
+<li>The view does not have to poll the facade or pull data from it. Everything is being pushed onto it.</li>
+<li>The communication that takes place between view and facade is almost perfectly asynchronous. Most (or even all) methods in the presenter interface do not have return values and all the presenter does to the view is sending messages about how to change display state.</li>
+</ul>
+<p>The last two arguments got me hooked eventually. In distributed applications not polling means preventing unnecessary network traffic. Moreover, Ajax communication is asynchronous by definition; therefore MVP is a good fit when we run the view implementation (BookSearchDialog) in the browser and the presenter implementation (BookSearcher) on the server.</p>
+<h3>Programming Model of Choice</h3>
+<p>What I'd like to do (and not do) in Ajax-driven application development is:</p>
+<ul>
+<li>Define the presenter interface (e.g. as a Java interface), implement it on the server and have a proxy for it on client-side, which can be accessed in a very easy way, e.g:<br />
+<span class="code">searcher.search('.*AJAX.*');</span></li>
+<li>Define the view interface (e.g. as a Java interface), implement it on client-side using JavaScript and have a proxy for it on the server. Usage should be as simple as:<br />
+<span class="code">searchView.displayList(listOfRetrievedBooks);</span></li>
+<li>The translation of calls to the facade into XMLHttpRequest objects and dispatching all resulting calls to the view should happen behind the scenes and not bother me as an application developer.</li>
+<li>All (un-)marshalling and (de-)serialization of message calls, invocation results, exceptions and data transfer objects should be done automatically and not further strain my age-stricken set of grey cells.</li>
+</ul>
+<p>Starting with this list of how I'd like to work, I scanned a few dozens of frameworks like Prototype, Rico, DWR, Dojo - to name just a few. None of them did what I wanted, i.e. none of them provided information that made me think they did. I must confess though, that I exclusively focused on those which use Java on the server.</p>
+<p>Enter <i><a href="http://sf.net/projects/jayjax">JayJax</a></i>, the yet unknown little Ajax framework...</p>
+<p>Johannes</p>

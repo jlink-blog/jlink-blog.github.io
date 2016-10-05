@@ -1,0 +1,60 @@
+---
+layout: post
+title: 'Veterans of TDD: Ron Jeffries'
+date: 2014-04-30 16:03:00.000000000 +02:00
+type: post
+published: true
+status: publish
+categories: []
+tags: []
+meta:
+  _publicize_pending: '1'
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _edit_last: '3482422'
+  geo_public: '0'
+  _oembed_a6f93d250798aed41f5b2317d067cc2e: "{{unknown}}"
+  _oembed_750f313c2e1650ab1d30fba0e58ee539: "{{unknown}}"
+  _oembed_3cd845b577ee0319c7c6a0ef89f58c71: "{{unknown}}"
+  _oembed_0b0ee01b5d7cd6b567a488b811a4a2b8: "{{unknown}}"
+  _oembed_75d12f89f10158905b9350d0c74d7565: "{{unknown}}"
+  _oembed_f1bebd8362c825860f1f34915e88fa1b: "{{unknown}}"
+  _oembed_a467228f2e9ceb78b0ee2d183d78cd9f: "{{unknown}}"
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>My readers already know that <a href="/2014/03/05/crowdfunding-a-book-about-tdd-and-cryptography/">I'm in the midst of writing a book about TDD. </a>One thing I deemed worthwhile when rethinking the test-driven state of the art is collecting opinions form those who have been practicing TDD for quite a while -- and no, I'm not talking about DHH. When doing the interviews - some asynchronously via email, others on Skype - I learned a lot, and I'm sure you will too.</p>
+<p>So, here is the first episode (of at least six)...</p>
+<hr />
+<p>Ron Jeffries is one of the very early pioneers of Extreme Programming and one of the original signees of the Agile Manifesto. Ron has written a few books about XP and development practices related to it.</p>
+<p>You can follow his activities and contact him on<a href="http://www.XProgramming.com"> http://www.XProgramming.com</a>.</p>
+<p><strong>Q:</strong> <em>When was your first contact with TDD and what did you think about it at the time?</em></p>
+<p><strong>RJ:</strong> That must have been in 1996 on the C3 project. I was willing to try it, because Kent Beck is a very convincing guy. I was probably of the opinion that it wouldn’t help much because I figured I was already a great programmer.</p>
+<p><strong>Q:</strong> <em>What did eventually convince you that TDD is a worthwhile approach?</em></p>
+<p><strong>RJ:</strong> Doing it and paying attention. I found that it changes the work from something like standing cards on end to stacking them up the right way.</p>
+<p><strong>Q:</strong> <em>What has changed in the way you practice and teach TDD since the early days?</em></p>
+<p><strong>RJ:</strong> I suppose I try to sell it less, because I try less to sell anything. I just show people what I do, explain how I do it, explain why I do it, and leave it up to them.</p>
+<p><strong>Q:</strong> <em>Do you apply TDD differently now than you did it in the beginning? Do you use smaller or bigger steps? </em></p>
+<p><strong>RJ:</strong> I use smaller and smaller steps. I am of course always thinking but i let the code tell me what to do, not my design theories. Except when I do the opposite.</p>
+<p><strong>Q:</strong> <em>Do you approach dependencies with different tools or changed tactics (think doubles, stubs, mocks)?</em></p>
+<p><strong>RJ:</strong> As a member of the “Detroit School” i do not use test doubles as a matter of course, though I might use one to disconnect from a database or to represent some larger collection.<br />
+Instead, I let the objects grow in place, testing them all as they grow.</p>
+<p><strong>Q:</strong> <em>Are there situations in which you consider TDD not to be the right approach for developing software? If so, what other techniques and approaches would you recommend in those situations?</em></p>
+<p><strong>RJ:</strong> I find TDD difficult when writing software that affects the real world directly. If one’s base system calls just move objects or other “physical” behavior, I find it hard to test with TDD because there is no place to intercept and check the behavior without it happening. I find it hard to use TDD if there is no existing framework and the system is too rudimentary to make building one easy, for example with no reflection and no objects. In that case, I go in small steps and print out intermediate results. I find that I do not often check them other than visually. In rare cases I might write a little TDD-style test that checks an expected result. I never use a debugger. In most systems I don’t even know how.</p>
+<p><strong>Q:</strong> <em>What do you think is TDD's relevance in today's world of lean startups, functional and concurrent programming, continuous delivery and mobile everywhere?</em></p>
+<p><strong>RJ:</strong> It’s still the best way I know to program. Where applicable — which is almost everywhere — it helps the code grow smoothly, it tends to produce simple but good designs, and it keeps me from having to stand cards on edge.</p>
+<p><em>Many thanks, Ron, for answering my questions!</em></p>
+<hr />
+<p>&nbsp;</p>
+<p>Other episodes of the series:</p>
+<ul>
+<li><a href="/2014/05/02/veterans-of-tdd-steve-freeman/">Steve Freeman</a></li>
+<li><a title="Veterans of TDD: James Shore" href="http://blog.johanneslink.net/2014/05/09/veterans-of-tdd-james-shore/">James Shore</a></li>
+<li><a title="Veterans of TDD: J B Rainsberger" href="http://blog.johanneslink.net/2014/05/16/veterans-of-tdd-j-b-rainsberger/">J B Rainsberger</a></li>
+<li><a title="Veterans of TDD: Willem van den Ende" href="http://blog.johanneslink.net/2014/05/22/veterans-of-tdd-willem-van-den-ende/">Willem van den Ende</a></li>
+<li><a title="Veterans of TDD: Lasse Koskela" href="http://blog.johanneslink.net/2014/05/26/veterans-of-tdd-lasse-koskela/">Lasse Koskela</a></li>
+</ul>

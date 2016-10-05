@@ -1,0 +1,84 @@
+---
+layout: post
+title: A Unified Theory of Software Design, Architecture and Everything
+date: 2009-03-06 13:08:32.000000000 +01:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- architecture
+- design
+- DRE
+meta:
+  _edit_last: '3482422'
+  _oembed_58e6efbf259d4568a3e9d6dd7f45d2d0: "{{unknown}}"
+  _oembed_85d44060428dfb8ab2b7c3e568a313d4: "{{unknown}}"
+  _oembed_05f8e53cd47c0e44c2f929a9fa13a26d: "{{unknown}}"
+  _oembed_3eaab98901de9f02ee9903c1bbc18306: "{{unknown}}"
+  _oembed_d0cfa18c4924b0b31f8cfed9db73a476: "{{unknown}}"
+  _oembed_46b6bc93f18bb6676dcf426d0a1687b2: "{{unknown}}"
+  _oembed_8e2bfe3dc4b3baff3cc5081f28b733f0: "{{unknown}}"
+  _oembed_13e94df96d1daa18369c5583e2148acc: "{{unknown}}"
+  _oembed_7b06cb5cdf77b8b04fef240e264630a9: "{{unknown}}"
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>It's probably an obvious symptom for my being on a downward spiral from software activist to theoretician, but I'll do it anyway. I'm going to present you with a naive unified theory of software design, which I will call DRE: <em><strong>D</strong>ependencies <strong>R</strong>ule <strong>E</strong>verything</em>. I consider it a real pity that the most common use of this abbreviation <em>until today</em> is <strong>D</strong>igital <strong>R</strong>ectal <strong>E</strong>xamination. This has to change.</p>
+<p>I have been wondering for a while now why software design principles, heuristics and trade-offs are being described in so many different terms: coupling, cohesion, SOLID, LSP, DRY, LoD, you name it. It has always seemed obvious <em>to me</em> that there is only one concept that covers all the others: dependencies.</p>
+<h3>Here is my definition:</h3>
+<p><em>Party A depends on party B</em> means: If party B changes one or more of its observable aspects, there is some probability (greater than zero) that party A will have to adapt.</p>
+<p>Let's examine the building blocks of this definition and its implications more closely:</p>
+<ul>
+<li>I use the word <em>"party"</em> instead of some more code-centric expression like <em>"module"</em> or <em>"component"</em>. Rationale: There are dependencies between pieces of my software (functions, classes, modules, subsystems, components etc) but there are also dependencies onto the outer world - the domain. For instance, within DRE I would consider <em>the method who implements the logic</em> for withdrawing money from an account <em>as dependent on the domain rule</em> how money should be withdrawn. Thus, DRE dependencies are a superset of static code dependencies.</li>
+<li> <em>Change, </em>the probability of the change and the probability of the change to affect the dependent together define the <em>strength</em> of a dependency. If the dependee can change (eg. disappear) without forcing the dependent to adapt there is no dependency worth mentioning. In that sense <em>loose coupling</em> has the goal to lower the probability of a change affecting the dependent and <em>static typing</em> usually raises the probability, e.g. by enforcing the number of arguments to a function call.</li>
+<li>I am only interested in the <em>observables</em> of a party like interface, timing behaviour, error conditions, availability, cost. To put it differently: I don't care about unobservable implementation details or anything that can change without the dependent noticing.</li>
+<li>A dependency between individual parts results in a dependency between the respective aggregates. The more and the stronger the dependencies between the parts, the stronger the dependency between the aggregates.</li>
+<li>Dependencies are directed and that's a good thing. On an atomic level there must not be bidirectional dependencies since otherwise change would result in an unstable state. On an aggregate level bidirectional dependencies arise much too easy if you are not careful.</li>
+<li>For most cases the dependency relation is <em>not</em> transitive. In some programming languages it seems like they are, but that's usually because public visibility of inner parts is the default and the <a href="http://c2.com/cgi/wiki?LawOfDemeter" target="_blank">Law of Demeter</a> strikes. One notable exception to the rule is facilitated by C/C++ compilers, which enforce recompilation of statically dependent components and thus propagate change all the way up.</li>
+<li>There exist at least three different major species of dependencies: <em>compile-time</em> dependencies, <em>runtime</em> dependencies and <em>domain-rule</em> dependencies. Statically typed and dynamically typed languages do different trade-offs between compile-time and runtime dependencies; type information is one kind of explicit dependency, which is obviously preferable over implicit - i.e. potentially unknown - dependencies. Speaking of explicitness: unit tests and acceptance tests are a different way of making dependencies explicit. Many of the techniques that promise  you a loosely coupled design do nothing else than going from explicit dependencies (a statically enforced method call) to implicit dependency by putting some obfuscating mechanism (e.g. XML serializing) in-between. This does not help you a thing, it just makes the system slower and more complex by introducing additional dependencies to libraries and structured documents. Unless, of course, if you really really really need it for cross-platform, cross-version, cross-process communication.</li>
+</ul>
+<h3>What is Good Design then?</h3>
+<p>A good design - or architecture for that matter - in DRE is one in which the overall of dependencies and their strengths is minimized. Since strength is defined as the probability that a change will hit you there is quite some fortune telling involved in finding "the best" of all designs. In other words: if you cannot agree on a probable future you cannot agree on a good design. That's why <em>Agile designers use a simple heuristic</em> to foretell the future: Everything will change but we don't know how. In DRE-terms that means: optimizing dependencies within the system and assuming that the world outside (the domain and its rules) has zero probability to change. In practice this leads to lots of design changes in early stages of a project until the typical domain changes have been incorporated in internal design elements and will only affect the outer-most "parties" (e.g. the adapter class, the configuration file, the business rules database).</p>
+<p>What follows from that is: If you really know the future, the agile approach of evolutionary design is not the best. But be honest, who the hell does?</p>
+<h3>Reformulating OO Design Principles</h3>
+<p>For most heuristics of good OO design it's quite easy to see why they work at least as well in the DRE universe. I leave it to the  astute reader to translate the <a href="http://butunclebob.com/ArticleS.UncleBob.PrinciplesOfOod" target="_blank">SOLID</a> principles into DRE speak. One central rule is not so easy to reconcile with DRE, namely <a href="http://en.wikipedia.org/wiki/Don%27t_repeat_yourself" target="_blank">Don't Repeat Yourself</a>. I'll try it anyway:</p>
+<p>Consider a simple case of duplication:</p>
+<pre>def calculationOne() {
+  ...
+  def salesTax = amount * 0.19
+  ...
+}
+def calculationTwo() {
+  ...
+  def salesTax = amount * 0.19
+  ...
+}</pre>
+<p>Given a probability of <code>p</code> that the sales tax rate will change during the system's life cycle, you have two dependencies with a strength of p, so your total dependency number is <code>2p</code>. Let's now apply DRY in a straightforward matter:</p>
+<pre>def calculationOne() {
+  ...
+  def salesTax = calculateSalesTax(amount)
+  ...
+}
+def calculationTwo() {
+  ...
+  def salesTax = calculateSalesTax(amount)
+  ...
+}
+def calculateSalesTax(amount) {
+  return amount * 0.19
+}</pre>
+<p>Given a probability of <code>r</code> that we will have to change the interface of <code>calculateSalesTax</code> later on, the overall dependency number is now <code>2r + p</code>; if we have chosen our abstraction wisely, this figure will be lower than <code>2p</code>. Thus, the code with less duplication is better design in DRE theory. Quod erat demonstrandum.</p>
+<h3>So what?</h3>
+<p>There are two striking reasons why the unified theory appears attractive to me:</p>
+<ol>
+<li>It gives me the vocabulary to talk about the relation between different design approaches and thereby tackle questions like "What has loose coupling to do with the SOLID principles?" and "Does this decoupling technique really decouple anything?".</li>
+<li>It might provide me with a quantifiable means to compare different designs. Any tool vendors, contact me for licensing the approach!</li>
+</ol>
+<p>Now it's up to you all to tell me why this is utter nonsense or perfectly useless or both. And I do appreciate congratulations for my future nobel prize on computer science. Shoot!</p>
+<p><strong>Update:</strong></p>
+<p>To make that clear, it was not my intention to suggest that simply adding up propabilities would make for a mathematically sound model for a "design quality number"; it was just the simplest thing to do and it felt intuitive enough.</p>

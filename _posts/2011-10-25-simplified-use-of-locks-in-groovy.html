@@ -1,0 +1,59 @@
+---
+layout: post
+title: Simplified Use of Locks in Groovy
+date: 2011-10-25 08:40:43.000000000 +02:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- concurrency
+- groovy
+- lock
+meta:
+  _edit_last: '3482422'
+  _oembed_fe9cde3d7713abc48cf070a540489be9: "{{unknown}}"
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>I am currently writing an article about the challenges and pitfalls of concurrent programming for a German software magazine. Since the magazine's readers come from all kinds of platforms and programming languages I've chosen <a href="http://groovy.codehaus.org/" target="_blank">Groovy</a> as a concise means to present my examples. Groovy - together with its associated library <a href="http://gpars.codehaus.org/" target="_blank">GPars</a> - comes with good support for easy synchronization and locking (e.g. @WithReadLock, @WithWriteLock and @Synchronized). However, I do not want to introduce the concept of AST transformations so I came up with a new way of using locks in Groovy - originally motivated by <a href="http://chrisbroadfoot.id.au/2008/08/06/groovy-threads/" target="_blank">Chris Broadfoot</a>. Here's a short example:</p>
+<p><code>
+<pre>
+class Shelf {
+    final products = []
+    final lock = new ReentrantLock()
+    void putIn(Product product) {
+        lock {
+            if (isFull())
+                throw new StorageException("shelf is full.")
+            products &lt;&lt; product
+        }
+    }
+    boolean takeOut(Product product) {
+        lock {
+            return products.remove(product)
+        }
+    }
+}
+</pre>
+<p></code></p>
+<p>It looks like <em>lock</em> was a new keyword but actually I achieved that with a tiny bit of <a href="http://groovy.codehaus.org/ExpandoMetaClass" target="_blank">Groovy meta programming</a>:</p>
+<p><code>
+<pre>
+Lock.metaClass.useFor = { Closure operation -&gt;
+    lock()
+    try {
+        operation()
+    } finally {
+        unlock()
+    }
+}
+Lock.metaClass.call = { Closure operation -&gt; delegate.useFor(operation) }
+</pre>
+<p></code></p>
+<p>Now that I used it in a couple of examples I suggest it should be considered for inclusion in <a href="http://groovy.codehaus.org/groovy-jdk/">GDK</a>. What do YOU think?</p>
+<p>P.S.: Don't get me wrong about the usefulness of explicit locking. In most cases other concepts - like parallel collections, data flows and agents - should be preferred.</p>

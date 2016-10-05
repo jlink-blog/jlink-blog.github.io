@@ -1,0 +1,36 @@
+---
+layout: post
+title: The Janitor's Configuration Dilemma
+date: 2006-10-09 09:17:00.000000000 +02:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- configuration
+- programming
+meta: {}
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>The right amount of configurability in software has always bothered me. Most of the time when using off-the-shelf software I've wished for LESS options to choose from, for BETTER DEFAULT configurations and for UNDERSTANDABLE DOCUMENTATION of the product's configurability. Most of the time when using programming libraries and frameworks I've wished for a special hook to extend or change a certain facet of the lib's behaviour that didn't fit my needs.</p>
+<p>In the first case I've often decided to not use a product anymore, judging it too complex for my simple purposes. In the latter case, however, I almost always found a way around a missing extensibility hook - provided the library was doing a good job in the first place. So I personally prefer to have less configurational flexibility or - even better - to have all the flexibility you can think of but it's being hidden from me unless I really need it. A library that requires me to change properties in a few-hundred-line XML file before it can do even the simplest things is useless to my plain and already overloaded mind. Since I'm not the only one who thinks so, tools like <a href="http://www.rubyonrails.org/">Ruby on Rails</a> and its countless clones (e.g. <a href="http://grails.codehaus.org/">Grails</a>) are spreading and flourishing. One of the fundamentals behind those tools is <i>convention over configuration</i> which is supposed to make standard usage as easy as possible - and in many cases really lives up to this promise.</p>
+<p>The trigger to write this entry did not come from software, though. It was the electric lighting in the gym where I play basketball occasionally. During summer holidays all lights, from gym over changing rooms to lavatories, have been connected to an <i>intelligent and allegedly power-saving</i> central control system which is supposed to switch lights off if - and only if - a room is not being used. Installing all those motion detectors and control units was certainly no minor investement. That's what happened when we were playing basketball - well, trying to play:</p>
+<ul>
+<li>We used the one and only light switch in the gym to bring up the overheads - bright and shining.</li>
+<li>Immediately brightness slowly went down to approach complete darkness within three minutes.</li>
+<li>Sometimes a motion detector decided to relight the lights after a few seconds; sometimes one of us had to use the switch again to start over.</li>
+</ul>
+<p>Of course, we contacted the janitor at once only to learn that "he didn't know YET how to configure the system correctly". He did try for two weeks, supported by the responsible technicians, only to achieve a slightly better situation: The lights didn't go out any more - if we ran around sufficiently - but they were hardly bright enough to see from one end of the hall to the other. And yes, one problem couldn't be tackled at all: The missing motion detectors at the urinals offered you the challenge of a dark piss within 10 seconds after entering the room.</p>
+<p>Yesterday. Competition day. Surprise. All lights on and bright. What I found out is that the janitor has discovered the one configuration option he's sufficiently comfortable with: Switching light control from AUTOMATIC to MANUAL.</p>
+<p>I hope you could spot the teachings hidden in this involved story:</p>
+<dl>
+<dt><i>Getting configurability right is difficult but important for user acceptance.</i></dt>
+<dt><i>Less is more (most of the time).</i></dt>
+<dt><i>Have reasonable configuration defaults.</i></dt>
+<dt><i>There might be more than one type of target audience for your configuration features.</i></dt>
+</dl>

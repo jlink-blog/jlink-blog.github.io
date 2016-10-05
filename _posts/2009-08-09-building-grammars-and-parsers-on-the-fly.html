@@ -1,0 +1,76 @@
+---
+layout: post
+title: Building Grammars (and Parsers) on the Fly
+date: 2009-08-09 13:36:11.000000000 +02:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- groovy
+- java
+- pars4sjm
+- parsing
+meta:
+  _edit_last: '3482422'
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>I've always <em>felt</em> that code generation is mostly a means to optimize performance of stuff (e.g. DSL execution) that could as well be done during runtime. I might be - and probably are - wrong about that, but, c'mon, you don't want to argue about feelings, do you. Keep this prejudice of mine in mind when asking yourself why I am doing this and writing about it in the first place.</p>
+<p>Recently, on my ongoing quest for the wholly grail of acceptance testing, I examined and reconsidered the available AT frameworks such as <a href="http://fitnesse.org/" target="_blank">FitNesse</a>, <a title="Concordion" href="http://www.concordion.org/" target="_blank">Concordion</a>, <a title="Cucumber" href="http://cukes.info/" target="_blank">Cucumber</a> and some of their siblings. At some point or other all of them have to solve the task of parsing text snippets from the application domain in order to extract some information which will then be used to execute <em>the real code</em>, aka the system under test. Consider for example the following step definition from Cucumber's introductory tutorial:</p>
+<pre>
+Given /I have entered (.*) into the calculator/ do |n|
+     calculator = new Calculator()
+     calculator.push(n.to_i)
+end</pre>
+<p>What this code does is  straightforward: It checks if the line in the test scenarios, ehm sorry, in the behaviour specification matches "I have entered...", extracts the value of the number and tries to feed a calculator object with it. This allows for nearly natural language specifications of requirements, if - and only if - you stick exactly to the given pattern. Slight variations, like using "put in" instead of "entered into" will either break the spec execution or require you to write more and more complex (and unreadable) regular expressions. What if - so my line of thoughts - if we could use parsing technology to make text snippet interpretation in testing tools more robust and thus more liable to be used by people from the application domain?</p>
+<p>No sooner said than done. Being mostly located in the JVM world of Java &amp; Groovy, I figured that <a title="Antlr" href="http://www.antlr.org/" target="_blank">ANTLR</a> would be a safe bet to use. Since buying (and sometimes reading) books has been one of my favourite coping strategies for a couple of years, I ordered "The definitive ANTLR Reference", installed the <a title="Eclipse Antlr plugin" href="http://antlreclipse.sourceforge.net/" target="_blank">Eclipse Antlr plugin</a> and dived in. Well, to tell you the truth, it was a short - and cold - swim since I couldn't find any really simple examples, had to use special editors, go through a code generation step, look for where the generated classed had been placed and so on and so on.</p>
+<p>This meant it was time for thinking <em>yet again</em>: If I really wanted parsing technology to be an intergrated part of a testing framework this technology would have to be lighter, meaning at least: no code generation required, no extra tooling required except what the language requires anyway. As a consequence, the ANTLR Reference has joined the fate (the shelf that is) of a dozen other unread books, but I rememered a book I read in 2001: "Building Parsers with Java" by Steven John Metsker. Therein John introduces a framework to build left recursive parsers by programming only. This was exactly what I needed, despite the fact that the library is in  fin de siecle Java style, i.e. JDK 1.1 without the new collections and without generics and with enumerators instead of iterators... You get the picture. That's why I tried to find out if Steve had maintained and modernized his library only to learn the sad truth that he had passed way in 2008. The book is still available and his <a title="Steve John Metsker" href="http://oozinoz.xp123.com/steve.htm" target="_blank">website</a> is still up; you can download the original version of his library and the examples <a href="http://oozinoz.xp123.com/bpwj.htm" target="_blank">there</a>.</p>
+<p>Since the topic fascinated me so much I eventually ended up modernizing Steve's original library. Moreover, I added an additional layer to  facilitate the creation of grammars. The whole thing is called <a title="Parse4SJM on github" href="http://wiki.github.com/jlink/Parse4SJM" target="_self"><em>Parse4SJM</em></a> in order to give continuous credit to Steve John Metsker. The library is basically an implementation of a <a title="recursive descent parser on wikipedia" href="http://en.wikipedia.org/wiki/Recursive_descent_parser" target="_blank">recursive descent parser</a> with backup; this type of parser has the comfortable property that you do not need to specify any look ahead since all possible interpretations of a grammar will be tried - if necessary. Of course, this feature comes with a price: potentially exponential execution time.</p>
+<p>Let's consider a simple example. You want to create a language to parse and evaluate simple math expression with addition, e.g. "3 + 5" or "1.0 + 2  + 3.1". Your final grammar should look like that:</p>
+<pre>
+expr = term ('+' term)*;
+term = Num;
+</pre>
+<p>Being agile we get to the end result in small steps, of course. A simple step is to start with the <em>term</em> rule:</p>
+<pre>
+import sjm.grammar.Grammar
+Grammar mathGrammar = new Grammar("simple math");
+mathGrammar.defineRule("term = Num;", new IParserMatched() {
+  public void apply(List&lt;Object&gt; matches, 
+        Stack&lt;Object&gt; stack) {
+    stack.push(((Token) matches.get(0)).value());
+  }
+});
+
+IParsingResult result = mathGrammar.parse("5.1");
+assert result.getStack().pop() == new BigDecimal("5.1");</pre>
+<p>This is as easy as it gets - in Java. In Groovy you can get rid of a bit ceremony:</p>
+<pre>    
+def mathGrammar = new Grammar("simple math")
+mathGrammar.defineRule("term = Num;") 
+  { matches, stack -&gt;
+    stack.push(matches[0].value())
+  }
+def result = mathGrammar.parse("5.1")
+assert result.stack.pop() == 5.1</pre>
+<p>What the code in the closure does is fairly simple: Whenever the rule matches, take the token from the stack and put its (mathematical) value on the stack instead. This kind of combined parsing and evaluation works quite often; if it doesn't, Parse4SJM has other options as well. The full example looks like that:</p>
+<pre>
+def mathGrammar = new Grammar("simple math")
+mathGrammar.discardAllConstants()
+mathGrammar.defineRule("expr = term ('+' term)*;") 
+  { matches, stack -&gt;
+    def sum = matches.inject(0) {sum, each -&gt; sum + each}
+    stack.push(sum)
+  }
+mathGrammar.defineRule("term = Num;") 
+  { matches, stack -&gt;
+    stack.push(matches[0].value())
+  }
+result = mathGrammar.parse("5.1 + 2.0 + 1.8")
+assert result.stack.pop() == 8.9</pre>
+<p>What's my conclusion, then? Creating parsers can be easier than you think - and it doesn't even require a code generation step. Maybe this approach can open the door for DSLs even a bit more. If you're interested, just grab the jar or make your on clone from github. And then give me feedback. If you don't the project will probably fall into oblivion, which should give you pangs of remorse.</p>

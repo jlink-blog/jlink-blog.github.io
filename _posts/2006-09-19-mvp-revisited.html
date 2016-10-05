@@ -1,0 +1,30 @@
+---
+layout: post
+title: MVP revisited
+date: 2006-09-19 08:56:00.000000000 +02:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- jayjax
+- model-view-presenter
+- mvp
+meta: {}
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>In one of my <a href="http://jlink.blogger.de/20060324/">early postings</a> I introduced the <i>model view presenter</i> pattern as a feasible way to implement testable GUIs. <a href="http://jlink.blogger.de/20060330/">Later</a>  I showed how you can easily apply the MVP style to Ajax applications using the <a href="http://sourceforge.net/projects/jayjax">JayJax</a> framework.</p>
+<p>In my description of MVP and <a href="http://www.martinfowler.com/eaaDev/PresentationModel.html">presentation model</a> I (over)simplified a bit about the many subtleties that come with those patterns. This was partly due to my endeavour for comprehensibility and partly due to my ignorance. When I revisited my postings a couple of weeks ago I found that one of my major sources for those GUI related patterns, namely <a href="http://martinfowler.com/eaaDev/">Martin Fowler's <i>Further Patterns of Enterprise Application Architecture</i></a> had undergone a significant change in this respect.</p>
+<p>To cut a long story short, Martin goes into <a href="http://martinfowler.com/eaaDev/uiArchs.html">quite some details</a> about the history of MVP, its relation to other MVC derivates and MVP's two main flavours:</p>
+<ul>
+<li><a href="http://martinfowler.com/eaaDev/SupervisingPresenter.html">Supervising Controller</a></li>
+<li><a href="http://martinfowler.com/eaaDev/PassiveScreen.html">Passive View</a></li>
+</ul>
+<p>The flavour I propose is basically the <a href="http://martinfowler.com/eaaDev/PassiveScreen.html">Passive View</a> taken to extremes. This variant has been around for a while called <a href="http://www.objectmentor.com/resources/articles/TheHumbleDialogBox.pdf">the humble dialog box</a>, a phrase coined by Michael Feathers in order to describe a GUI approach which lends itself well to test-driven development (TDD). Martin Fowler puts it <a href="http://martinfowler.com/eaaDev/uiArchs.html">like this</a>:</p>
+<blockquote><p> The Humble Dialog Box [...] uses a presenter, but in a much deeper way than the original MVP. Not just does the presenter decide how to react to user events, it also handles the population of data in the UI widgets themselves. As a result the widgets no longer have, nor need, visibility to the model; they form a Passive View, manipulated by the presenter.</p></blockquote>
+<p>By the way, check out <a href="http://www.artima.com/weblogs/index.jsp?blogger=mfeathers">Michael Feathers' weblog</a> which will give you many insights into the subtleties and strengths of test-driven development. Michael is one of the pioneers in the field and has challenged one of the most difficult aspects of TDD in a great book: <a href="http://www.amazon.com/dp/0131177052/">Working Effectively with Legacy Code</a>.</p>

@@ -1,0 +1,50 @@
+---
+layout: post
+title: 'Veterans of TDD: Lasse Koskela'
+date: 2014-05-26 14:12:05.000000000 +02:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- tdd
+meta:
+  _publicize_pending: '1'
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>I "recorded" episode 6 using email ping pong with Lasse. Since I knew that his company is involved in funding start-ups, the TDD vs learning-what-product-to-built angle was especially interesting to me.</p>
+<hr />
+<p>Lasse Koskela has been practicing test-driven development for over a decade. He has written two books on the topic and introduced many teams to the technique. Lasse works as "Principal Generalist" for Reaktor. You can reach him through lasse.koskela@reaktor.fi.</p>
+<p><em><strong>Q:</strong> When was your first contact with TDD and what did you think about it at the time?</em></p>
+<p><strong>Lasse:</strong> It’s hard to say exactly when the first contact was. I have a goldfish-like memory but I do remember reading up on Extreme Programming around 2001 when I was switching jobs and soon started promoting agile methods within the company so I guess it was around 2001 when I first learned about TDD. It would take a couple of years for me to become really infected, though.</p>
+<p><em><strong>Q:</strong> What did eventually convince you that TDD is a worthwhile approach?</em></p>
+<p><strong>Lasse:</strong> There’s no one specific thing or moment when that happened but I’ll tell you a story that kind of describes how I got to the point of being convinced: In the early 2000’s I was working on projects at big companies – Fortune 500 type of places – meaning there were usually a lot of people involved, responsibilities were spread around, half of the project staff seemed to be managers, and there was hardly any test automation to speak of, not to mention manual environment setup, deployment, and things like that. Very often, deploying a new version of a web application to a testing environment would go through a third party infrastructure team and a separate testing team might take a couple of days before they would actually get to test what you had built.</p>
+<p>In that place I couldn’t afford to deliver code that didn’t work – the slow feedback loop would have cost my sanity – so I started writing unit tests more thoroughly, refactoring code more, and looking at integration and system-level test automation. On one project we even got a non-technical business representative write executable acceptance tests for us in an Excel spreadsheet, which we would then feed into our homegrown test automation framework.</p>
+<p>At some point, being in this mental mode of wanting to write a lot of unit tests, seeing a clear value to creating them and repeatedly executing them, it wasn’t much of a jump to give TDD a try. I had read about the method before and “understood” how it was supposed to work and how it would purportedly help me. So I started doing it. And kept trying. I vaguely remember it taking maybe 6 months before TDD had become second nature but all that time I “knew” that it worked, despite me forgetting and slipping every now and then. I felt like programming test-first made perfect sense.</p>
+<p>I credit much of that transition being so unnoticeable to the fact that I was already intimately familiar with unit testing and the kind of designs that make unit testing easy or difficult. I was already bought into the idea that code should be modular and testable. TDD simply made it easier to end up with such designs. At times it felt like magic even though it’s really a very simple dynamic.</p>
+<p><em><strong>Q:</strong> What has changed in the way you practice and teach TDD since the early days?</em></p>
+<p><strong>Lasse:</strong> Well, for one thing I don’t teach TDD as much as I used to. Nowadays I seem to be doing a small handful of trainings a year whereas in 2005-2006 I remember doing a class every other week.</p>
+<p>What’s changed in my practice? Clearly the biggest thing is that I find myself doing less test-first programming than before. That’s not because I wouldn’t find TDD useful but rather because certain system conditions required for test-first programming aren’t in place.</p>
+<p><em><strong>Q:</strong> This is closely related to my next question: Are there situations in which you consider TDD not to be the right approach for developing software? If so, what other techniques and approaches would you recommend in those situations?</em></p>
+<p><strong>Lasse:</strong> One specific situation, which is why I’ve recently done less test-first programming, is one where you simply don’t know what you want the code to do. For instance, if it’s the first time our team is doing video recording on an Android device I have no idea what API’s the code should call, in which order, what constitutes as valid input, etc. I can read all the documentation I want but really the best approach I know of in such a situation is to go ahead and hack something together that seems to work. You might call it a spike, a prototype or exploration but it wasn’t done test-first. And, me working with all these new technologies and API’s, I find myself doing that kind of exploration much more often than back in the day when I stayed firmly within my technical expertise, Java-based web apps and backend systems.</p>
+<p><em><strong>Q:</strong> What do you think is TDD's relevance in today's world of lean startups, functional and concurrent programming, continuous delivery and mobile devices everywhere?</em></p>
+<p><strong>Lasse:</strong> I’ve been pondering that every now and then, especially regarding the startup context. Our company funds early stage startups through our Reaktor Polte arm and I get to advise and consult these startups every now and then. What it boils down to is that whether the code is written test-first or test-last generally isn’t even near my major concern. I guess it’s a bit like agile development in that the first thing to do is to make sure we’re doing the right thing. Once you start feeling comfortable that this is the case, that’s when it starts to make much more sense to invest your energy in doing things right.</p>
+<p>Some people say that you don’t need to do TDD if the software you’re working on doesn’t have to work. In a way, for a startup that’s kind of the case. The code doesn’t have to be bulletproof from day one. It doesn’t have to be sustainable. On the other hand, when you’ve found an angle that does generate revenue it becomes increasingly important that the technology is solid and maintainable.</p>
+<p><em>Many thanks, Lasse, for answering my questions!</em> </p>
+<hr />
+<p> </p>
+<p>Other episodes of the series:</p>
+<ul>
+<li><a title="Veterans of TDD: Ron Jeffries" href="http://blog.johanneslink.net/2014/04/30/veterans-of-tdd-ron-jeffries/">Ron Jeffries</a></li>
+<li><a title="Veterans of TDD: Steve Freeman" href="http://blog.johanneslink.net/2014/05/02/veterans-of-tdd-steve-freeman/">Steve Freeman</a></li>
+<li><a title="Veterans of TDD: James Shore" href="http://blog.johanneslink.net/2014/05/09/veterans-of-tdd-james-shore/">James Shore</a></li>
+<li><a title="Veterans of TDD: J B Rainsberger" href="http://blog.johanneslink.net/2014/05/16/veterans-of-tdd-j-b-rainsberger/">J B Rainsberger</a></li>
+<li><a title="Veterans of TDD: Willem van den Ende" href="http://blog.johanneslink.net/2014/05/22/veterans-of-tdd-willem-van-den-ende/">Willem van den Ende</a></li>
+</ul>

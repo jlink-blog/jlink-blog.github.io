@@ -1,0 +1,51 @@
+---
+layout: post
+title: 'AJAX Travelogue (Part 1): The Pilot'
+date: 2006-03-17 13:09:00.000000000 +01:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- ajax
+meta:
+  _oembed_0720c33a2483c98eaa7c25a830f91d17: "{{unknown}}"
+  _oembed_915e8ac503492550f481026ba6fdba9a: "{{unknown}}"
+  _oembed_f929b1022e0fe45e6502a3d24a8cd559: "{{unknown}}"
+  _oembed_5eddfcb2661544a9b849e9cc4262d3d2: "{{unknown}}"
+  _oembed_3e900ad32c7317b46555345c5bc3fcb3: "{{unknown}}"
+  _oembed_d25792dd317e79903ec0053a4c969d6d: "{{unknown}}"
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>There's hardly ever been a term in software development which has been picked up, digested and (ab)used as fast as  AJAX (Asynchronous JavaScript and XML). Thirteen month after the acronym was coined by <a href="http://www.adaptivepath.com/publications/essays/archives/000385.php"><br />
+Jesse James Garrett</a> there are more than 20 English books listed on the topic, many of them already in print.</p>
+<p>My personal dive into the <a href="http://en.wikipedia.org/wiki/AJAX">AJAX</a> sea took place early this year when I tried to come up with a simple demo application to show the practices and pitfalls of Test-Driven Development with SAP's Netweaver technology. My colleague Marco and I decided to use two technologies to show the universal applicability of <a href="http://www.andrena.de/ObjektForum/Veranstaltungen/27/TDD%20Mit%20SAP%20NetWeaver.pdf"> our approach</a>: WebDynpro (the SAP way to generate web user interfaces) and plain JSPs.</p>
+<p>It didn't take me long to realize that WebDynpro was going to be a real pain in my behind, so I kept morale up by adding a couple of AJAX features (inline editing, drag&amp;drop, no page rerendering etc.) to the JSP variant. Although I had done some reading on AJAX implementation techniques and patterns, I ended up with a solution of almost 500 lines unreadable JavaScript code, which - to make things worse - only worked with my specific version of Firefox.</p>
+<p>So I decided to do it right for once. My goal was to implement the same thing over again, but additionally I intended</p>
+<ul>
+<li>to leverage the best Javascript and Ajax libraries available.</li>
+<li>to have automatic tests for both server-side and client-side code.</li>
+<li>to make standard stuff (like communication and dom handling) as easy as possible.</li>
+<li>to come up with a cross-browser-enabled solution.</li>
+</ul>
+<p>In case you wonder, these are the exact goals of many of the 500+ existing AJAX frameworks.</p>
+<p>Being the thorough guy that I am once in a while I started by purchasing (and reading) a couple of books:</p>
+<ul>
+<li><a href="http://www.amazon.com/gp/product/1590595823">Foundations of Ajax</a> by Ryan Asleson and Nathaniel Schutta</li>
+<li><a href="http://www.amazon.com/gp/product/1932394613">Ajay in Action</a> by Dave Crane, Eric Pascarello and Darren James</li>
+<li><a href="http://www.amazon.com/gp/product/0764579088">Professional JavaScript for Web Devlopers</a> by Nickolas Zakas</li>
+</ul>
+<p>Additionally I subscribed to <a href="http://ajaxian.com/">Ajaxian</a> which IMO is a very convenient place if you want to learn latest news about Ajax technologies, libraries and applications.</p>
+<p>In the stories to come I'll probably ramble about lots of details like client-server communication models, browser (in-)compatibilities, JavaScript effects, testing, templates and a few more.  For today I send you to bed with the most striking lessons I learned in the last two months:</p>
+<ul>
+<li>If you want to make a really cool Ajax application, you won't get around programming in JavaScript. You'll probably be able to make use of many useful libraries for communication, effects and widgets. But that only gets you so far. </li>
+<li>JavaScript is not a bad language per se. What really sucks is the bad support for debugging and testing. I have yet to know a JS debugger that works with the latest version of either Firefox or Internet Explorer. The JS interpreters in Firefox and IE are not even able to recognize all syntax errors or to produce sufficient error messages from compilation and runtime errors. IE doesn't even tell you about the real line number in which an error occurs.</li>
+<li>Browser incompatibilities slow me down much more than I would have guessed from reading the books. Although I'm using libraries which are supposed to hide the cross-browser issues I spend at least a third of development time to sort out the problems when getting Firefox ready code to work in IE. And I haven't even tried Opera and Safari yet.</li>
+</ul>
+<p>The produce that I accomplished during the last two months (working mostly in the evening and on weekends) is a <a href="http://sf.net/projects/JayJax">little framework called JayJax</a>. There's no release yet, but there will be one soon.  And I will present you all my lame excuses why I just couldn't resist writing yet another one...</p>
+<p>Johannes</p>

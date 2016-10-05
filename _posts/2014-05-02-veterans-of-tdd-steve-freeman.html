@@ -1,0 +1,54 @@
+---
+layout: post
+title: 'Veterans of TDD: Steve Freeman'
+date: 2014-05-02 11:30:02.000000000 +02:00
+type: post
+published: true
+status: publish
+categories: []
+tags: []
+meta:
+  _publicize_pending: '1'
+  _rest_api_published: '1'
+  _rest_api_client_id: "-1"
+  _edit_last: '3482422'
+  geo_public: '0'
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>Episode 2 of the series welcomes Steve Freeman as its guest...</p>
+<hr />
+<p>&nbsp;</p>
+<p>Steve Freeman is the most prominent representative of the "London School of TDD". Together with Nat Price he's author of "Growing Object-Oriented Software, Guided by Tests" which is arguably the most influential TDD book in recent years. You can follow Steve's tweets (@sf105) and contact him through <a href="http://www.higherorderlogic.com">www.higherorderlogic.com</a>.</p>
+<p><strong>Q:</strong> <em>When was your first contact with TDD and what did you think about it at the time?</em></p>
+<p><strong>SF:</strong> Sometime around 1997/1998. I was working at OTI in London and we were following the emerging discussion about the C3 project on the C2 wiki. At first our general response was "this couldn't possibly work", but we kept trying things and it turned out that they did work. The other event around that time, was that Kent Beck spoke at the SPA conference, so we were able to find out more about how the various practices actually worked.</p>
+<p><strong>Q:</strong> <em>What did eventually convince you that TDD is a worthwhile approach?</em></p>
+<p><strong>SF:</strong> Trying it and finding it helpful for me. I also had a couple of nice counter examples where one member of the team stayed up all night to "fix" something which took the rest of the team the following morning to recover.</p>
+<p><strong>Q:</strong> <em>What has changed in the way you practice and teach TDD since the early days?</em></p>
+<p><strong>SF:</strong> Some of it is raw technique, such as learning how to slice a feature into increments, and how to work with levels of testing. Nowadays, I put a great deal of emphasis on making the tests readable and expressive, rather than asserting every last little detail; actually, I always did but now it's my top priority. I've also come to a better understanding of the use of TDD as a "thinking tool", to help me clarify my ideas before coding. I've also been thinking about using system-level testing to influence large-scale designs.</p>
+<p>Finally, I've learned that TDD is a deep skill, like anything in programming. A couple of days of training and a flip through a book (even one as good as ours :) is no more than a taster.</p>
+<p><strong>Q:</strong> <em>Are there situations in which you consider TDD not to be the right approach for developing software? If so, what other techniques and approaches would you recommend in those situations?</em></p>
+<p><strong>SF:</strong> Nat Pryce likes to cite Manny Lehman's categories of software. There are some kinds of "algorithmic" system (P-Systems) that should be addressed by thinking hard -- although I'd still think that TDD can contribute to the implementation. I mostly work on "messy" E-Systems that evolve with their environments and don't have clean requirements. This is where I think TDD, in its larger sense, is particularly appropriate.</p>
+<p>Other possible exceptions are where something has to be thrown together to prove a point or where the programmer is exploring a space (I'm thinking of Sam Aaron's live music coding). There's also a new generation of "Test in Production", where the production infrastructure is so robust that programmers can safely experiment with the real system. The point here is to be aware of what I'm prioritising and of what risks I might be accumulating. Kent Beck has a metaphor about prioritising for low-latency vs. sustained throughput of features.</p>
+<p>Whatever techniques I'm using, I find there's usually still value in stopping to think about what I want to have happen before I start coding--even if those assertions aren't automated.</p>
+<p><strong>Q:</strong> <em>What do you think is TDD's relevance in today's world of lean startups, functional and concurrent programming, continuous delivery and mobile everywhere?</em></p>
+<p><strong>SF:</strong> That's quite a list, and I'm not sure it describes a majority of software environments yet. The short version is that it seems like a good idea to me to have some kind of regression testing, especially if I want to move fast safely. Given that, I find it easier to write the tests first because, in practice, I won't write them afterwards and that's too late to help the code. There are some advanced environments where this doesn't apply, but I wouldn't risk that until I really understood what I was giving up and what I would do to compensate.</p>
+<p><strong>Q:</strong> <em>You are one of the prominent figures of the "London school of TDD" which stresses the use of mock objects to specify the collaboration contracts between objects - as opposed to merely  checking an individual object's behaviour. Would you say that collaboration testing is more valuable than state-based testing? What do you reply to critics who dismiss mock objects for missing out on the "real" integration?</em></p>
+<p><strong>SF:</strong> I've become very tired of having this argument with people who haven't read the book and don't understand what we're talking about. I don't prioritise one over the other absolutely, I prioritise the one that's appropriate for the type of object being tested. If I have an object that has behaviour and I'm doing "Tell, Don't Ask" then I can only test interactions. That doesn't apply to other kinds of objects.</p>
+<p>The thing about integration only applies if you use mocks to test against external interfaces, which I don't (we've been saying that for over a decade). I use integration tests for that.</p>
+<p>The one thing I literally don't get, although I see it with some good people, is the inability to cope with pre-defined constraints which led to, amongst other things, mockito. That can go away once Java finally has closures. I've now stopped fighting this one and use it as a competitive advantage. If people want to listen, we can have a civilised discussion.</p>
+<p><em>Many thanks, Steve, for answering my questions!</em></p>
+<hr />
+<p>&nbsp;</p>
+<p>Other episodes of the series:</p>
+<ul>
+<li><a href="/2014/04/30/veterans-of-tdd-ron-jeffries/">Ron Jeffries</a></li>
+<li><a title="Veterans of TDD: James Shore" href="http://blog.johanneslink.net/2014/05/09/veterans-of-tdd-james-shore/">James Shore</a></li>
+<li><a title="Veterans of TDD: J B Rainsberger" href="http://blog.johanneslink.net/2014/05/16/veterans-of-tdd-j-b-rainsberger/">J B Rainsberger</a></li>
+<li><a title="Veterans of TDD: Willem van den Ende" href="http://blog.johanneslink.net/2014/05/22/veterans-of-tdd-willem-van-den-ende/">Willem van den Ende</a></li>
+<li><a title="Veterans of TDD: Lasse Koskela" href="http://blog.johanneslink.net/2014/05/26/veterans-of-tdd-lasse-koskela/">Lasse Koskela</a></li>
+</ul>

@@ -1,0 +1,77 @@
+---
+layout: post
+title: 'AJAX Travelogue (Part 2): Communication'
+date: 2006-03-22 11:48:00.000000000 +01:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- ajax
+- asynchronous
+meta:
+  _oembed_32221333f819f53d607736b2e419b353: "{{unknown}}"
+  _oembed_bf6c4eeaaec87594861f00c6b584360e: "{{unknown}}"
+  _oembed_8d3e0f3d530ac23c264c6dad70739bad: "{{unknown}}"
+  _oembed_4403b4679b637c314e774555b79f8900: "{{unknown}}"
+  _oembed_bc3b28c0e2c920ead494800d6d9a291b: "{{unknown}}"
+  _oembed_bfe40df9864230fb851deb7d6cb23c88: "{{unknown}}"
+  _oembed_ced6c9e73aebb9043d47f6a6730244ab: "{{unknown}}"
+  _oembed_f043adb4894bfe4a31e03f41b39992dd: "{{unknown}}"
+  _oembed_86426ef2a73abdf113472c38a97ab678: "{{unknown}}"
+  _oembed_15ebc28694fca92a77e7524c4e970117: "{{unknown}}"
+  _oembed_cd18ecc1260840fe79a66564736b50d8: "{{unknown}}"
+  _oembed_eadda41817c27a7e4449a302fa99ec60: "{{unknown}}"
+  _oembed_27651a42d8edf9b69efc9c0cd5f41982: "{{unknown}}"
+  _oembed_7c8af8b4257a0c4dac51fd78844bba57: "{{unknown}}"
+  _oembed_4b1f38ac076e2a8621535e7e36c4c50a: "{{unknown}}"
+  _oembed_7d5e9389ef1f1adabe03cba68e33774e: "{{unknown}}"
+  _oembed_7a0ea06f56c4a2df4aa26d53af1c490d: "{{unknown}}"
+  _oembed_5c9f92080a9551c7afa14716b9bf3bae: "{{unknown}}"
+  _oembed_1a2aa45703f6e07dea8f6ac1b8bba552: "{{unknown}}"
+  _oembed_a1e30adbf0b8ce3f892540db5e0e37f4: "{{unknown}}"
+  _oembed_fd19b4c3e4bd2f5fb437b3f55d433324: "{{unknown}}"
+  _oembed_c2ee1203595b29d043cf70d7375f3107: "{{unknown}}"
+  _oembed_185eb2493fe94915d5a7c9f67cc34545: "{{unknown}}"
+  _oembed_e0ce5c256144a1066bfe2e1e1294ad5b: "{{unknown}}"
+  _oembed_3d47976e03619062724a9961d46eed53: "{{unknown}}"
+  _oembed_2e5ee4dd5aed67ebd902668c66e0573f: "{{unknown}}"
+  _oembed_0d8fef1ece52335bc685f332d2458945: "{{unknown}}"
+  _oembed_206278aff403f527c7fd3b27bd0fd4b1: "{{unknown}}"
+  _oembed_53c60c7b1d285caed3941479a69e722f: "{{unknown}}"
+  _oembed_9ea4d4fbed1304651277a0d9e15ec3d5: "{{unknown}}"
+  _oembed_049bd6bea519a2dd4aafc3c93ef4e2d8: "{{unknown}}"
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>Are you looking for an online tutorial on <b>A</b>synchronous <b>J</b>avaScript <b>A</b>nd <b>X</b>ML? This is not the place for you then, but  Max Kiesler's <a href="http://www.maxkiesler.com/index.php/weblog/round_up_of_30_ajax_tutorials/">round up</a> of Ajax online courses might be. Nevertheless, before reading on you should be aware of what AJAX is all about. Here's the quote from Jesse's <a href="http://www.adaptivepath.com/publications/essays/archives/000385.php">original paper</a>:</p>
+<blockquote><p> Ajax isn’t a technology. It’s really several technologies, each flourishing in its own right, coming together in powerful new ways. Ajax incorporates:</p>
+<ul>
+<li>standards-based presentation using XHTML and CSS;</li>
+<li>dynamic display and interaction using the Document Object Model;</li>
+<li>data interchange and manipulation using XML and XSLT;</li>
+<li>asynchronous data retrieval using XMLHttpRequest;</li>
+<li>and JavaScript binding everything together.</li>
+</ul>
+</blockquote>
+<p>Strangely enough, communication via JavaScript's XMLHttpRequest object is - despite its name - not limited to XML contents. You can send and receive anything which can be transmitted via HTTP.</p>
+<p>Ajax techniques can be used in a billion ways to embellish traditional flow-oriented web apps. However, more interesting for me is the foreseeable shift to web-based SPAs (single page applications), yet another acronym that tries to manipulate our subconscious mind with its standard English meaning.</p>
+<p>As for the connection between domain and presentation logic SPAs resemble much more rich client applications than web apps. One of the more complex decisions you have to make when distributing a program between two computers (the client and the server) is: What code should we have on the server and what code should we develop for and deploy on the client.</p>
+<p>On the extreme ends of the imaginable solution space you have the "SOA-infected guys" and the "composable widgets people". The first group advocates to have all integrating business logic, i.e. the application logic, on the client and to only invoke application-independent "service calls" on the server. The latter crowd even compose the user interface layout on the server - usually doing some JavaScript generation behind the scenes - and wire the individual widgets living on the client to their counterparts on the server.</p>
+<p>Personally, I have issues with both ends:</p>
+<ul>
+<li>Building user interface experiences with Html, CSS, JavaScript and DOM does not lend itself very well to the composable widgets perspective. Moreover, the tight coupling between client- and server-side widgets leads to high-frequency communication; in many cases this communication is conceptually synchronous.</li>
+<li>"Just" calling services and aggregating their results into application-specific behaviour, however, requires that you have (at least large parts of) the domain model available on client-side, i.e. you have to do some non-trivial mapping from your server-side language to and from JavaScript. The generic kind of services often delivers more information than actually needed for display, thus bandwidth becomes more of a problem. Additionally, interpreted JavaScript is not fit for large amount of computation.</li>
+</ul>
+<p>So, I decided to search for an approach that allows me to have all *presentation* logic and code in the browser but all *application* and domain logic on the server. As a surplus gift I'd get testability of application logic for free! I didn't have to look for long, though. Hiding all application logic behind an <i>application facade</i> has been my favourite architectural refactoring for years. There are two basic forms of application facades (see e.g. Martin Fowler's <a href="http://www.martinfowler.com/eaaDev/index.html">presentation patterns</a>):</p>
+<ul>
+<li>Presentation Model</li>
+<li>Model View Presenter</li>
+</ul>
+<p>Common to both is their strong ambition to decouple user interface from logic. And both can - in theory and praxis - be used for Ajax-driven SPAs...</p>
+<p>I hope that's enough of a cliff-hanger to keep you tuned.</p>
+<p>Johannes</p>

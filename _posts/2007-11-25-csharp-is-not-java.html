@@ -1,0 +1,53 @@
+---
+layout: post
+title: C# is not Java is not C# is not Java
+date: 2007-11-25 11:43:00.000000000 +01:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- csharp
+- java
+meta: {}
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>Switching regularly between .NET and Java definitely does not facilitate remembering the details of one platform or the other. For me, however, it made me see how similar both platforms are and consider C# to be a (slightly) improved version of Java.</p>
+<p>For the most part, I still think that´s true. Explicit properties, delegates and events make coding certain programming idioms somewhat smoother and more readable than using bean conventions and anonymous inner classes. That said, I still shy away from doing serious development with C# since the programming experience and the available tool set is so much worse for C# that it makes me shudder. And yes, I tried many of the 3rd-party add-ons; they can relieve some of the pain but they don't go half the way towards IDEA IntelliJ or Eclipse. To be frank, I haven't used MS Visual Studio 2008 yet, but I cannot imagine Microsoft to really change the equation.</p>
+<p>Let's get back to the core topic of this entry. There's one thing where I consider that the designers of Java made a much wiser choice than the C# folks: In Java any <code>public</code> method which is not declared to be <code>final</code> is virtual and can be overridden in a subclass. In C# the default assumption is the other way round: Unless you declare a method explicitly to be <code>virtual</code> it will be statically bound, i.e. a subclass can declare a <code>new</code> method with the same signature but calling the method on a reference of the superclass will always invoke the superclass's implementation regardless of the object's actual class.</p>
+<p>This difference bit me when I wanted to extend a tool that exists in both Java and .NET: <a href="http://fitnesse.org/">FitNesse</a>. FitNesse comes with a <code>TestRunner</code> to enable running the tests outside the wiki. The implementation (approx. 200 LOC) is very similar in Java and C# and all I wanted to do was to add two lines to a single method:</p>
+<pre>
+public class TestRunner...
+  public void Run(string[] args)
+  {
+    ...
+    fitServer.EstablishConnection(MakeHttpRequest());
+    ...
+  }
+  public string MakeHttpRequest()
+  {
+    string request = "GET /" + pageName +
+      "?responder=fitClient";
+    ...
+    return request + " HTTP/1.1\r\n\r\n";
+  }</pre>
+<p>This sounds easy enough, so I created a sublass</p>
+<pre>
+public class MyTestRunner : TestRunner...
+  public string MakeHttpRequest()
+  {
+    return base.MakeHttpRequest() + "&amp;myParam=myValue";
+  }</pre>
+<p>If you replace "base" by "super" and  make the M of "MakeHttpRequest" lower case, this solution works as expected in Java. It does not work in C#, though, because my overridden implementation of "MakeHttpRequest" will never be called. Of course, the compiler warned me about that on first build, but since I did not want to change the original library I ended up with copying all code from <code>TestRunner</code> into <code>MyTestRunner</code> plus copying another 40 lines from <code>TestRunnerFixtureListener</code> into <code>MyTestRunnerFixtureListener</code>.</p>
+<p>Thus, the seemingly "more secure" design choice of C#'s founding fathers lead to 250 lines of IMHO completely unnecessary duplication. Two reasons for this decision come to mind:</p>
+<ul>
+<li><i>Performance:</i> Calling virtual functions is more expensive than statically binding method calls.</li>
+<li><i>Security:</i> Overriding a method by accident might create harm.</li>
+</ul>
+<p>I trust the statements of JVM experts on the first issue, who claim that in our days of highly optimized Hot-Spot-Just-In-time compilation there is no longer a performance hit. As for the second point, a compiler warning, which encourages me to use the <code>override</code> keyword, is enough security for my taste.</p>
+<p>In the end it boils down to a rather fundamental difference in attitude: Should I consider extensibility a basically good thing or do I want to protect developers against their own errors as much as possible? I'm strongly rooted in the first camp because <i>There is no such thing as a foolproof programming language!</i></p>

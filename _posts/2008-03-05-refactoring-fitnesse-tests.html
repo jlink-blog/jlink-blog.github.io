@@ -1,0 +1,40 @@
+---
+layout: post
+title: Refactoring FitNesse Tests
+date: 2008-03-05 09:25:00.000000000 +01:00
+type: post
+published: true
+status: publish
+categories: []
+tags:
+- fitnesse
+- groovy
+- refactoring
+- testing
+meta:
+  _edit_last: '3482422'
+author:
+  login: johanneslink
+  email: jl@johanneslink.net
+  display_name: johanneslink
+  first_name: Johannes
+  last_name: Link
+---
+<p>Have you ever had a <a href="http://fitnesse.org" target="_blank">Fit(Nesse)</a> test suite of more than just a few pages? Have you ever tried to consistently change the names of test pages, fixtures, columns, commands or anything that is being used a few dozen or a few hundred times across the whole suite? Have you ever wanted to get rid of the 14 setup tables that were copied from your first test page into all others? Have you ever wished you could reorder columns, arguments or parameters in your fixtures?</p>
+<p>You get my point. Doing "refactoring" in large FitNesse test collections is a real pain in the neck. I put "refactoring" into quotes, because - strictly speaking - the kind of changes you want to bring about your test pages don't support the definition of the word <a href="http://en.wikipedia.org/wiki/Refactoring" target="_blank">refactoring</a>:</p>
+<blockquote><p> Code refactoring is any change to a computer program's code that improves its readability or simplifies its structure without changing its results.</p></blockquote>
+<p>Since we are not dealing with code (one could argue that) and since many changes actually do change the test suite's behaviour, I probably should call it "reorganization". But <i>refactoring</i> sounds way cooler; at least it did in 1999.</p>
+<p>Well, to perform these <i>reorganizations</i> your current best choice is to use some regex-based search and replace mechanism and hope that you get the stars, dots, backslashes and question marks right. And even then you never feel sure that you found everything and kept the somewhat weired wiki syntax in place when pressing the "Replace All" button. I haven't seen - and could not find - a tool for FitNesse that tries to tackle these problems. So I went boldly ahead and made my own: <a href="http://johanneslink.net/refit.html">ReFit</a></p>
+<p>The long term goal of <a href="http://johanneslink.net/refit.html">ReFit</a> is to provide test maintainers with a DSL for refitting (puns++) their tests to the testing language they have in mind and to the code base under test. Currently <a href="http://johanneslink.net/refit.html">ReFit</a> is nothing more - and nothing less - than an extended <a href="http://groovy.codehaus.org/">Groovy</a>-Console which provides you with a way to navigate through a FitNesse test suite, change objects of the suite and finally commit all changes back to the file system.</p>
+<p>How you go about installing ReFit, starting the console and hooking up to a particular suit is <a href="http://johanneslink.net/refit.html#howto">described here</a>. To make your mouth water - or your bowels contract in pain - I'll present a single example script:</p>
+<pre>
+suite.pages.findAll { page -&gt;
+    page.name.normalize() == "setup" &amp;&amp;
+    page.fixtures.any {
+        it.name.normalize() == "import"
+    }
+}.each {page -&gt;
+    page.fixtures[0].remove()
+}</pre>
+<p>This script will find all "SetUp" pages that also have an "Import" fixture and then remove the first fixture of those pages. What you can guess from it is that one can use all of Groovy's capabilities as a dynamic language to manipulate a straightforward <a href="http://johanneslink.net/refit.html#model">object model</a> of a FitNesse test suite.</p>
+<p>This hardly couldn't be further from a real refactoring DSL. I am awaiting the astute users' recommendations to move ReFit further into that directions. And please, if you think that's the wrong path to follow, tell me as well!</p>
