@@ -1,0 +1,3 @@
+- Enable archive
+- Enable tags
+- Add old comments (maybe through disqus)
