@@ -1,6 +1,3 @@
-- Get rid of trash in blog posts' meta data
-- Enable archive
-- Enable tags
 - Only show last 10/20/50 blogs on starting page
 - Show full blog posts on starting page
 - Add old comments (maybe through disqus)

@@ -9,16 +9,7 @@ categories: []
 tags:
 - groovy
 - java
-- pars4sjm
 - parsing
-meta:
-  _edit_last: '3482422'
-author:
-  login: johanneslink
-  email: jl@johanneslink.net
-  display_name: johanneslink
-  first_name: Johannes
-  last_name: Link
 ---
 <p>I've always <em>felt</em> that code generation is mostly a means to optimize performance of stuff (e.g. DSL execution) that could as well be done during runtime. I might be - and probably are - wrong about that, but, c'mon, you don't want to argue about feelings, do you. Keep this prejudice of mine in mind when asking yourself why I am doing this and writing about it in the first place.</p>
 <p>Recently, on my ongoing quest for the wholly grail of acceptance testing, I examined and reconsidered the available AT frameworks such as <a href="http://fitnesse.org/" target="_blank">FitNesse</a>, <a title="Concordion" href="http://www.concordion.org/" target="_blank">Concordion</a>, <a title="Cucumber" href="http://cukes.info/" target="_blank">Cucumber</a> and some of their siblings. At some point or other all of them have to solve the task of parsing text snippets from the application domain in order to extract some information which will then be used to execute <em>the real code</em>, aka the system under test. Consider for example the following step definition from Cucumber's introductory tutorial:</p>
@@ -41,7 +32,7 @@ term = Num;
 import sjm.grammar.Grammar
 Grammar mathGrammar = new Grammar("simple math");
 mathGrammar.defineRule("term = Num;", new IParserMatched() {
-  public void apply(List&lt;Object&gt; matches, 
+  public void apply(List&lt;Object&gt; matches,
         Stack&lt;Object&gt; stack) {
     stack.push(((Token) matches.get(0)).value());
   }
@@ -50,9 +41,9 @@ mathGrammar.defineRule("term = Num;", new IParserMatched() {
 IParsingResult result = mathGrammar.parse("5.1");
 assert result.getStack().pop() == new BigDecimal("5.1");</pre>
 <p>This is as easy as it gets - in Java. In Groovy you can get rid of a bit ceremony:</p>
-<pre>    
+<pre>
 def mathGrammar = new Grammar("simple math")
-mathGrammar.defineRule("term = Num;") 
+mathGrammar.defineRule("term = Num;")
   { matches, stack -&gt;
     stack.push(matches[0].value())
   }
@@ -62,12 +53,12 @@ assert result.stack.pop() == 5.1</pre>
 <pre>
 def mathGrammar = new Grammar("simple math")
 mathGrammar.discardAllConstants()
-mathGrammar.defineRule("expr = term ('+' term)*;") 
+mathGrammar.defineRule("expr = term ('+' term)*;")
   { matches, stack -&gt;
     def sum = matches.inject(0) {sum, each -&gt; sum + each}
     stack.push(sum)
   }
-mathGrammar.defineRule("term = Num;") 
+mathGrammar.defineRule("term = Num;")
   { matches, stack -&gt;
     stack.push(matches[0].value())
   }
