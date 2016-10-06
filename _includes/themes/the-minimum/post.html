@@ -34,6 +34,13 @@
 
 					{{ content }}
 
+					{% if page.hasOriginalComments %}
+					<hr />
+					<div style="padding-bottom: 2em">
+					  <a style="font-weight:bold;font-size:larger" href="https://johanneslink.wordpress.com{{page.url}}#comments">Original Answers &amp; Comments</a>
+					</div>
+					{% endif %}
+
 				</div><!-- entry-content -->
 				<div class="misc-content">
 					<div class="social">

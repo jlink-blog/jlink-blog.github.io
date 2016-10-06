@@ -1,3 +1,2 @@
-- Add old comments (through link to wordpress)
 - Enable disqus commenting
 - Show full blog posts on starting page

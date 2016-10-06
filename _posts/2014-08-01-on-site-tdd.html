@@ -9,6 +9,7 @@ categories: []
 tags:
 - tdd
 - tdddecrypted
+hasOriginalComments: true
 ---
 <p>One of the recurring questions in TDD workshops is "How do I test private methods?“. My usual answer is worded along the following lines: "You don’t. Any private method should be tested through the public interface. If you think the private method is complex enough for deserving its own test(s), extract it to a public place and test it there.“ I still think this is the best general answer I can give, however, I recently discovered a set of situations that I handle differently.</p>
 <p>Imagine yourself trying to implement some non-trivial solution to a problem. By "non-trivial“ I mean that the necessary algorithm is complicated enough so that you cannot oversee all intermediate steps and decision points in your mind alone.&nbsp; You’re tackling the problem step by step — pardon-me — test by test. At some point, there will be one test that forces you to implement at least part of the algorithm. The tests you created will eventually be sufficient to cover the logic, but they are not fine-grained enough to let you grow the solution in tiny, controllable steps.</p>

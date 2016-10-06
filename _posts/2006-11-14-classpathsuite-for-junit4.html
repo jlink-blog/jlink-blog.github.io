@@ -10,6 +10,7 @@ tags:
 - cpsuite
 - junit
 - testing
+hasOriginalComments: true
 ---
 <p><a href="http://www.stefanroock.de/weblog/2006/11/unit-testing-in-multi-projekt-settings.html" target="_blank">Stefan Roock</a> made me aware of the fact that Eclipse (3.2) does not have support for JUnit testing in a multi project setting. He points to <a href="http://www.jroller.com/page/bjornmartensson/20050728" target="_blank"> some code by Björn Martensson</a> which tackles the problem by searching the classpath for test classes. However, the code works for JUnit 3.8 only, so I set up to tackle the problem for JUnit 4.1.</p>
 <p>I tried to come up with a JUnit4-like solution, i.e. using the <code>RunWith</code> annotation. You can download my JUnit extension <a href="http://johanneslink.net/cpsuite.html">here</a>.</p>

@@ -10,6 +10,7 @@ tags:
 - groovy
 - java
 - parsing
+hasOriginalComments: true
 ---
 <p>I've always <em>felt</em> that code generation is mostly a means to optimize performance of stuff (e.g. DSL execution) that could as well be done during runtime. I might be - and probably are - wrong about that, but, c'mon, you don't want to argue about feelings, do you. Keep this prejudice of mine in mind when asking yourself why I am doing this and writing about it in the first place.</p>
 <p>Recently, on my ongoing quest for the wholly grail of acceptance testing, I examined and reconsidered the available AT frameworks such as <a href="http://fitnesse.org/" target="_blank">FitNesse</a>, <a title="Concordion" href="http://www.concordion.org/" target="_blank">Concordion</a>, <a title="Cucumber" href="http://cukes.info/" target="_blank">Cucumber</a> and some of their siblings. At some point or other all of them have to solve the task of parsing text snippets from the application domain in order to extract some information which will then be used to execute <em>the real code</em>, aka the system under test. Consider for example the following step definition from Cucumber's introductory tutorial:</p>
