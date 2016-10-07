@@ -1,2 +1,1 @@
-- Enable disqus commenting
 - Show full blog posts on starting page
