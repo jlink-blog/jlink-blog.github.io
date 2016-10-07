@@ -9,4 +9,4 @@ tags:
 {% include JB/setup %}
 I migrated my blog to Github and Jekyll. What's more to say about that?
 
-Well, the new RSS feed is <a href="/rss.xml">here</a>.
+Well, the new RSS feed is <a href="/feed/">here</a>.
