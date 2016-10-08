@@ -10,7 +10,6 @@ tags:
 - concurrency
 - groovy
 - locking
-hasOriginalComments: true
 ---
 <p>I am currently writing an article about the challenges and pitfalls of concurrent programming for a German software magazine. Since the magazine's readers come from all kinds of platforms and programming languages I've chosen <a href="http://groovy.codehaus.org/" target="_blank">Groovy</a> as a concise means to present my examples. Groovy - together with its associated library <a href="http://gpars.codehaus.org/" target="_blank">GPars</a> - comes with good support for easy synchronization and locking (e.g. @WithReadLock, @WithWriteLock and @Synchronized). However, I do not want to introduce the concept of AST transformations so I came up with a new way of using locks in Groovy - originally motivated by <a href="http://chrisbroadfoot.id.au/2008/08/06/groovy-threads/" target="_blank">Chris Broadfoot</a>. Here's a short example:</p>
 <p><code>

@@ -8,7 +8,6 @@ status: publish
 categories: []
 tags:
 - groovy
-hasOriginalComments: true
 ---
 <p>The <a href="http://en.wikipedia.org/wiki/Java_Virtual_Machine">JVM</a> is notorious for not being able to optimze tail recursive functions. <a href="http://en.wikipedia.org/wiki/Tail_recursion">Tail recursion</a> is a special case of recursion which can be changed to iteration. In simple terms: If the call to itself is the last thing a function does before returning, then it's tail recursive. Changing the actual execution model from recursive to iterative saves the runtime machine from putting the just finished funtion's context on the stack. Among other advantages this saves you from getting the infamous <code>java.lang.StackOverflowError</code> when feeding large numbers into a recursive function in Java.</p>
 <p>Let's look at a classical example: Calculating the factorial of a number. A recursive  - but not tail recursive! - solution is this:</p>
