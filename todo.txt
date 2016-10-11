@@ -1,1 +1,1 @@
-- Show full blog posts on starting page
+- Move layout changes in "style"-tags into css

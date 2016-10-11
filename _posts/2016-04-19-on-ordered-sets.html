@@ -11,6 +11,7 @@ tags:
 - java
 ---
 <p>General purpose OO languages - like Java or C# - come with a library for collection type objects like arrays, lists, and <em>sets</em>. If you throw in a static type system those languages usually differentiate between collection interfaces (<code>List, Queue, Set</code>) and implementing classes (<code>ArrayList, PriorityQueue, HashSet</code>). It's considered good practice to only expose the interface types in your API and use a suitable implementation under the hood. So far so good.</p>
+
 <h3>The Problem</h3>
 <p>Sometimes however, when designing an API, you feel there's an interface missing that would better epress the semantics of what you want to communicate. One of the more common examples is an <code>OrderedSet</code>. You want to specify that the collection you return contains any value only once: set semantics. But you also want to tell the user in which order those values should be processed. Here's a concrete example taken from <a href="https://github.com/junit-team/junit5/blob/f7d9f40d535987a11766fdc57df3d6463b6bbe65/junit-launcher/src/main/java/org/junit/gen5/launcher/TestIdentifier.java#L136">JUnit 5's TestIdentifier</a>:</p>
 <pre>  public class TestIdentifier...
@@ -19,6 +20,7 @@ tags:
     }
 </pre>
 <p>Tests, which can usually be mapped to a method in a test class, may have tags. Those tags can come from an annotation on the method itself, but also from an annotation at class level or even from a superclass. Since we can imagine tags that contradict each other, e.g. "fast" vs "slow", a consumer of &lt;code&gt;getTags&lt;/code&gt; is interested in knowing the order in which those tags were added - from superclass to class to method itself - so that they can derive tag evaluation priority. In Java there even exists a set implementation that provides a predictable order of values added to a set: <code>LinkedHashSet</code>. All that seems missing is an <code>OrderedSet</code> interface.</p>
+
 <h3>There is no such thing as an unambiguous ordered set</h3>
 <p>Neither Java nor C# provide an ordered set interface and there is a very good reason for it: Set semantics and ordering semantics do not go well together. Here is why:</p>
 <ul>
@@ -27,11 +29,14 @@ tags:
 <li>Now consider the "ordered set" <code>[a, b, c]</code>. What's the ordering after you re-add value <code>a</code>. Is it still <code>[a, b, c]</code> or should it change to <code>[b, c, a]</code>?</li>
 </ul>
 <p>If you want to keep set semantics in place you have to break either part a) or part b) of ordering semantics.</p>
+
 <h3>What's the Solution, Then?</h3>
 <p>The solution is simple but might not feel satisfactory: You have to decide for <em>either dropping ordering</em> in your API <em>or keeping duplicate entries</em>. If you can go with the former, it's a simplification of your contract and thereby reduces coupling in your code. If you go with the latter, the client of your code will have to figure out an unambiguous way how to deal with duplicate values and their order.</p>
 <p>A variation of keeping the duplicates is to introduce a domain specific interface, e.g. <code>PrioritizedTagSet</code>, and define the concrete and unambiguous semantics yourself, but not for all ordered sets, just for your specific use case of it.</p>
 <p><strong>What you should not do</strong> is to just have a <code>Set</code> interface and document (in Javadoc or elsewhere) that the underlying implementation will take care of some kind of ordering. That way, you'd be hiding an important part of your contract in documentation only.</p>
+
 <h3>What about SortedSet?</h3>
 <p>Sorting is a different beast, although it sounds similiar. Sorting means "ordering a given collection by an external criterion". In our case we might want to display all tags in alphanumeric "order". Well, natural languages are a mess when it comes to non-ambiguity.</p>
+
 <h2>TL;DR</h2>
 <p><em>Set semantics</em> and <em>order by entry</em> semantics contradict each other. Choose one.</p>
