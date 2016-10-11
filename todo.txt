@@ -1,3 +1,4 @@
+- Improve syntax highlighting of code snippets in TailRecursion and older posts
 - Move layout changes in "style"-tags into css
 - Style publish date and tags in posts differently
 - Enable analytics

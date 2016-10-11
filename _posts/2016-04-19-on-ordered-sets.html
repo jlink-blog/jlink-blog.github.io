@@ -14,11 +14,14 @@ tags:
 
 <h3>The Problem</h3>
 <p>Sometimes however, when designing an API, you feel there's an interface missing that would better epress the semantics of what you want to communicate. One of the more common examples is an <code>OrderedSet</code>. You want to specify that the collection you return contains any value only once: set semantics. But you also want to tell the user in which order those values should be processed. Here's a concrete example taken from <a href="https://github.com/junit-team/junit5/blob/f7d9f40d535987a11766fdc57df3d6463b6bbe65/junit-launcher/src/main/java/org/junit/gen5/launcher/TestIdentifier.java#L136">JUnit 5's TestIdentifier</a>:</p>
-<pre>  public class TestIdentifier...
+
+{% highlight java %}
+public class TestIdentifier...
     public Set getTags() {
       return tags;
     }
-</pre>
+{% endhighlight %}
+
 <p>Tests, which can usually be mapped to a method in a test class, may have tags. Those tags can come from an annotation on the method itself, but also from an annotation at class level or even from a superclass. Since we can imagine tags that contradict each other, e.g. "fast" vs "slow", a consumer of &lt;code&gt;getTags&lt;/code&gt; is interested in knowing the order in which those tags were added - from superclass to class to method itself - so that they can derive tag evaluation priority. In Java there even exists a set implementation that provides a predictable order of values added to a set: <code>LinkedHashSet</code>. All that seems missing is an <code>OrderedSet</code> interface.</p>
 
 <h3>There is no such thing as an unambiguous ordered set</h3>

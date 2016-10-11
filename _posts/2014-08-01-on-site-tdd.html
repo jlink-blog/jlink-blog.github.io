@@ -18,26 +18,32 @@ tags:
 <p><a href="https://johanneslink.files.wordpress.com/2014/08/columnartransposition.jpg"><img src="{{ site.baseurl }}/assets/columnartransposition.jpg?w=300" alt="columnarTransposition" width="300" height="168" class="alignnone size-medium wp-image-451" /></a></p>
 <p>In order to reduce the usual testing framework noise I’ll go with a simple Groovy script for both test code and production code. I’ll leave it to the astute reader to imagine test classes and production classes.</p>
 <p>We start with the trivial case:</p>
-<pre>
+
+{% highlight groovy %}
 assert encrypt('ab', 2) == 'ab'
 
 def encrypt(text, key) {
   text
 }
-</pre>
+{% endhighlight %}
+
 <p>And proceed to an example that requires to really work with the input text:</p>
-<pre>
+
+{% highlight groovy %}
 assert encrypt('abcdef', 3) == 'adbecf'
-</pre>
+{% endhighlight %}
+
 <p>which can trivially be fulfilled like this:</p>
-<pre>
+
+{% highlight groovy %}
 def encrypt(text, key) {
-<strong>  if (text == 'abcdef' &amp;&amp; key == 3) {
+  if (text == 'abcdef' && key == 3) {
     return 'adbecf'
   }
-</strong>  text
+  text
 }
-</pre>
+{% endhighlight %}
+
 <p>At this point we have several options:</p>
 <ul>
 <li>Adding another example and then try to come up with the implementation all at once. This is called <em>triangulation</em>.</li>
@@ -45,44 +51,50 @@ def encrypt(text, key) {
 <li>Evolving the algorithm and tests step by step -- inside the production code. This is what I will show here...</li>
 </ul>
 <p>We focus on the non-trivial branch and specify the first piece on our way to a working algorithm, which is splitting the text into individual characters:</p>
-<pre>
+
+{% highlight groovy %}
 def encrypt(text, key) {
-  if (text == ‚abcdef' &amp;&amp; key == 3) {
-<strong>    def chars
+  if (text == 'abcdef' && key == 3) {
+    def chars
     assert chars == ['a', 'b', 'c', 'd', 'e', 'f']
-</strong>    return 'adbecf'
+    return 'adbecf'
   }
   text
 }
-</pre>
+{% endhighlight %}
+
 <p>Now our tests will fail, but we can easily fix this:</p>
-<pre>
+
+{% highlight groovy %}
 def encrypt(text, key) {
-  if (text == 'abcdef' &amp;&amp; key == 3) {
+  if (text == 'abcdef' && key == 3) {
     def chars = <strong>text.toList()</strong>
     assert chars == ['a', 'b', 'c', 'd', 'e', 'f']
     return 'adbecf'
   }
   text
 }
-</pre>
+{% endhighlight %}
+
 <p>Next, we add an assertion for splitting the chars into lines of length 3:</p>
-<pre>
+
+{% highlight groovy %}
 def encrypt(text, key) {
-  if (text == 'abcdef' &amp;&amp; key == 3) {
+  if (text == 'abcdef' && key == 3) {
     def chars = text.toList()
     assert chars == ['a', 'b', 'c', 'd', 'e', 'f']
-<strong>    def lines
+    def lines
     assert lines == [['a', 'b', 'c'], ['d', 'e', 'f']]
-</strong>    return 'adbecf'
+    return 'adbecf'
   }
   text
 }
-</pre>
+{% endhighlight %}
 <p>And again, fixing the broken test is just a matter of looking up the correct method in Groovy’s Development Kit:</p>
-<pre>
+
+{% highlight groovy %}
 def encrypt(text, key) {
-  if (text == 'abcdef' &amp;&amp; key == 3) {
+  if (text == 'abcdef' && key == 3) {
     def chars = text.toList()
     assert chars == ['a', 'b', 'c', 'd', 'e', 'f']
     def lines = <strong>chars.collate(key)</strong>
@@ -91,43 +103,30 @@ def encrypt(text, key) {
   }
   text
 }
-</pre>
+{% endhighlight %}
+
 <p>Let’s speed up a bit. Here come assertion and implementation for converting the lines to columns:</p>
-<pre>
+
+{% highlight groovy %}
 def encrypt(text, key) {
-  if (text == 'abcdef' &amp;&amp; key == 3) {
-    def chars = text.toList()
-    assert chars == ['a', 'b', 'c', 'd', 'e', 'f']
-    def lines = chars.collate(key)
-    assert lines == [['a', 'b', 'c'], ['d', 'e', 'f']]
-<strong>    def columns = lines.transpose()
-    assert columns == [['a', 'd'], ['b', 'e'], ['c', 'f']]
-</strong>    return 'adbecf'
-  }
-  text
-}
-</pre>
-<p>The last but one step is flattening the columns:</p>
-<pre>
-def encrypt(text, key) {
-  if (text == 'abcdef' &amp;&amp; key == 3) {
+  if (text == 'abcdef' && key == 3) {
     def chars = text.toList()
     assert chars == ['a', 'b', 'c', 'd', 'e', 'f']
     def lines = chars.collate(key)
     assert lines == [['a', 'b', 'c'], ['d', 'e', 'f']]
     def columns = lines.transpose()
     assert columns == [['a', 'd'], ['b', 'e'], ['c', 'f']]
-<strong>    def cryptedChars = columns.flatten()
-    assert cryptedChars == ['a', 'd', 'b', 'e', 'c', 'f']
-</strong>    return 'adbecf'
+    return 'adbecf'
   }
   text
 }
-</pre>
-<p>What remains is assembling the letters into a string:</p>
-<pre>
+{% endhighlight %}
+
+<p>The last but one step is flattening the columns:</p>
+
+{% highlight groovy %}
 def encrypt(text, key) {
-  if (text == 'abcdef' &amp;&amp; key == 3) {
+  if (text == 'abcdef' && key == 3) {
     def chars = text.toList()
     assert chars == ['a', 'b', 'c', 'd', 'e', 'f']
     def lines = chars.collate(key)
@@ -136,15 +135,36 @@ def encrypt(text, key) {
     assert columns == [['a', 'd'], ['b', 'e'], ['c', 'f']]
     def cryptedChars = columns.flatten()
     assert cryptedChars == ['a', 'd', 'b', 'e', 'c', 'f']
-<strong>    def result = cryptedChars.join('')
-    assert result == 'adbecf'
-</strong>    return result
+    return 'adbecf'
   }
   text
 }
-</pre>
+{% endhighlight %}
+
+<p>What remains is assembling the letters into a string:</p>
+
+{% highlight groovy %}
+def encrypt(text, key) {
+  if (text == 'abcdef' && key == 3) {
+    def chars = text.toList()
+    assert chars == ['a', 'b', 'c', 'd', 'e', 'f']
+    def lines = chars.collate(key)
+    assert lines == [['a', 'b', 'c'], ['d', 'e', 'f']]
+    def columns = lines.transpose()
+    assert columns == [['a', 'd'], ['b', 'e'], ['c', 'f']]
+    def cryptedChars = columns.flatten()
+    assert cryptedChars == ['a', 'd', 'b', 'e', 'c', 'f']
+    def result = cryptedChars.join('')
+    assert result == 'adbecf'
+    return result
+  }
+  text
+}
+{% endhighlight %}
+
 <p>Now we can get rid of asserts and the special-case branch:</p>
-<pre>
+
+{% highlight groovy %}
 assert encrypt('ab', 2) == 'ab'
 assert encrypt('abcdef', 3) == 'adbecf'
 
@@ -156,7 +176,8 @@ def encrypt(text, key) {
   def result = encryptedChars.join('')
   return result
 }
-</pre>
+{% endhighlight %}
+
 <p>Et voilà, we arrived at a working algorithm in tiny steps; much tinier than would have been possible by sticking to assertions within the test class only. Of course, you should choose the step size according to your knowledge of language and domain. When in doubt, take a smaller step to stay in full control. </p>
 <p>Most of the times I am happy with deleting the assertions now that they've fulfilled their duty. When I feel they should stick around after all, I will make real tests out of them by extracting the logic into a class of its own and moving the assertions to a test class - an existing or a new one, depending on where I extracted the code to.</p>
 <p>One precondition for doing <em>On-site TDD</em> is the ability to write assertions - or something to the same effect - inside your production code without thereby creating a dependency on the test framework. If you cannot do that, there is another way of achieving something similar: First, move the parts of the production code you want to evolve over to your test class. Second, go about implementing your solution in the way I’ve demonstrated above. Last, move the code back to the production class. This is - by the way - what you’re supposed to do when practicing <a href="http://gojko.net/2009/08/02/tdd-as-if-you-meant-it-revisited/">"TDD as if you meant it“</a>.</p>
