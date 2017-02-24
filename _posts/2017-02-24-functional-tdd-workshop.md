@@ -7,8 +7,6 @@ categories: []
 tags:
 - tdd
 ---
-## A Workshop on TDD with Functional Programming
-
 Test-Driven development is a technique that's mostly being practiced within
 the object-oriented development community. I've done and teached TDD in
 many contexts over the last 15+ years but all of it in OO-centric codebases.
