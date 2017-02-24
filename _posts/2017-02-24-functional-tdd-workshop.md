@@ -25,7 +25,7 @@ Therefore, I'm planning to organize a workshop for people who want to explore:
 - If functional style programming should change the way we develop and test-drive
   code in more classical OO environments.
 
-Basic Parameters:
+### Basic Parameters:
 - The workshop will be 3 days.
 - It's completely non-profit.
 - Attendees pay for their own travel and accomodation.
@@ -43,11 +43,9 @@ I have two alternative dates to offer:
 - June 27 to 29
 - July 4 to 6
 
-If you are interested to attend [send me an email](business@johanneslink.net)
+If you are interested to attend _[send me an email](mailto:business@johanneslink.net?subject=Functional TDD Workshop)_
 with your choice(s) of dates, as well as your experiences and interests considering
 the workshop topic "TDD with functional programming". Feel free to suggests
 workshop sessions, execrcises and topics.
 
 The decision about actual date and participants will hopefully be taken by end of March.
-
-Thank you!
