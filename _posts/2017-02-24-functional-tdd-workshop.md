@@ -41,7 +41,7 @@ Therefore, I'm planning to organize a workshop for people who want to explore:
 The workshop will take place in Heidelberg, Germany, or nearby.
 I have two alternative dates to offer:
 - June 27 to 29
-- July 4 to 6
+- ~~July 4 to 6~~
 
 If you are interested to attend _[send me an email](mailto:business@johanneslink.net?subject=Functional TDD Workshop)_
 with your choice(s) of dates, as well as your experiences and interests considering
@@ -49,3 +49,7 @@ the workshop topic "TDD with functional programming". Feel free to suggests
 workshop sessions, execrcises and topics.
 
 The decision about actual date and participants will hopefully be taken by end of March.
+
+## Update:
+
+The date has been fixed: **June 27 to 29, 2017**
