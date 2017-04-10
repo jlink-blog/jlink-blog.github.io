@@ -31,19 +31,19 @@ I try hard to follow a few principles while developing Jqwik:
 - Every additional feature must solve a _real testing problem_ that cannot be
   tackled by existing mechanism in a reasonably simple way.
 - Keeping the design simpler - and thereby more maintainable - is a feature
-  itself and will often prevail over adding another feature of unprove or rather
+  itself and will often prevail over adding another feature of unproven or rather
   esoteric value.
-- Microtesting (see [video by Mike Hill](https://www.youtube.com/watch?v=H3LOyuqhaJA))
-  is the foundation of all Agile test automation approaches. When in doubt,
-  I'll rank features that simplify micro tests over those that are intended
-  to facilitate or enable integrated testing.
+- [Microtests](https://www.industriallogic.com/blog/history-microtests/)
+  are the foundation of scalable and maintainable Agile test automation.
+  When in doubt, I'll rank features that simplify microtesting over those that
+  are intended to facilitate or enable integrated testing.
 
 ## Contribute
 
 Please, please, please add your suggestion, ideas and bug reports using the project's
 [issue tracker on github](https://github.com/jlink/jqwik/issues).
 
-Of course, you can also send in pull requests; be prepared, though, that
-I'll be very strict with what I accept, since I consider
-the first months of a project to be crucial for shaping and preparing the design core
-for the mid and long-term future.
+Of course, you can also send in pull requests. Be prepared, though, that
+I'll be very strict about what I accept, since I consider
+the first months of a project to be crucial for shaping the mid and long-term
+future of a project's design and architecture.
