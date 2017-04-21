@@ -53,3 +53,12 @@ The decision about actual date and participants will hopefully be taken by end o
 ## Update:
 
 The date has been fixed: **June 27 to 29, 2017**
+
+Location: [Holiday Inn Heidelberg City Center](http://www.fmhos.de/de/hotels/holiday-inn-express-heidelberg-city-centre)
+
+Costs: Approx. 150 EUR / participant (without lunch and dinner)
+
+## Update 2:
+
+There are two free spots. Please _[send me an email](mailto:business@johanneslink.net?subject=Functional TDD Workshop)_
+if you want to attend.
