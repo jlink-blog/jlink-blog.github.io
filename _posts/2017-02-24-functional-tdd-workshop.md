@@ -60,7 +60,4 @@ Costs: Approx. 150 EUR / participant (without lunch and dinner)
 
 ## Update 2:
 
-After deciding on the location I had to limit the number of participants to a max of 10; there are two free spots left.
-
-Please _[send me an email](mailto:business@johanneslink.net?subject=Functional TDD Workshop)_
-if you want to attend.
+After deciding on the location I had to limit the number of participants to a max of 10; there are no free spots left.
