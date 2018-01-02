@@ -75,5 +75,5 @@ Most of the code we produced can be found
 ### Personal Focus
 
 I've personally focused on integrating property-based testing into my
-style of TDD. Since the JVM is still the main platform I use for money-work,
-I started developping and using [jqwik](http://jqwik.net/).
+style of TDD. Since the JVM is still the main platform I fight with for money,
+I started to develop and use [jqwik](http://jqwik.net/).
