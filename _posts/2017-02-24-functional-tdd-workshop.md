@@ -61,3 +61,8 @@ Costs: Approx. 150 EUR / participant (without lunch and dinner)
 ## Update 2:
 
 After deciding on the location I had to limit the number of participants to a max of 10; there are no free spots left.
+
+## Update 3:
+
+I've written a short
+[summary about the workshop take-aways]({% post_url 2018-01-02-functional-tdd-workshop-results %}).
