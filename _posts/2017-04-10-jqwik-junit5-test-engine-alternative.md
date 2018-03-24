@@ -7,7 +7,7 @@ categories: []
 tags:
 - jqwik
 - junit5
-- property testing
+- property-based testing
 ---
 As one of the original designers and contributors of [JUnit 5](https://github.com/junit-team/junit5)
 I've always been intrigued by its basic idea to not only be a fresh start for a maintainable test framework
