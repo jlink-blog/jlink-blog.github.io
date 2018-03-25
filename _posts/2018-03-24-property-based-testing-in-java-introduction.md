@@ -45,7 +45,7 @@ I found a way to integrate these new type of tests into my well-dried style
 of TDD.
 
 In the weeks to come I'll publish a series of blog entries describing the essence of what I
-learned about PBT on the way, and how one can use it in Java. So far, five parts are
+learned about PBT on the way, and how one can use it in Java. So far, six parts are
 in the making:
 
 - From Example Tests to Properties
