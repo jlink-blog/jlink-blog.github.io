@@ -52,6 +52,7 @@ in the making:
 - Jqwik and other Tools
 - The Importance of Being Shrunk
 - Patterns to Find Good Properties
+- Stateful Testing
 - PBT and Test-driven Development
 
 I hope to see you again on my journey!
