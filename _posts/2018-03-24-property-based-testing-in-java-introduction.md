@@ -48,7 +48,7 @@ In the weeks to come I'll publish a series of blog entries describing the essenc
 learned about PBT on the way, and how one can use it in Java. So far, six parts are
 in the making:
 
-- From Example Tests to Properties
+- [From Examples to Properties]({% post_url 2018-03-26-from-examples-to-properties %})
 - Jqwik and other Tools
 - The Importance of Being Shrunk
 - Patterns to Find Good Properties
