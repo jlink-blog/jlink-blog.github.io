@@ -45,11 +45,11 @@ I found a way to integrate these new type of tests into my well-dried style
 of TDD.
 
 In the weeks to come I'll publish a series of blog entries describing the essence of what I
-learned about PBT on the way, and how one can use it in Java. So far, six parts are
-in the making:
+learned about PBT on the way, and how one can use it in Java. So far, six parts have
+already been published or are in the making:
 
 - [From Examples to Properties]({% post_url 2018-03-26-from-examples-to-properties %})
-- Jqwik and other Tools
+- [Jqwik and other Tools]({% post_url 2018-03-29-jqwik-on-junit5 %})
 - The Importance of Being Shrunk
 - Patterns to Find Good Properties
 - Stateful Testing

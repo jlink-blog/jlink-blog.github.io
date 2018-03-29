@@ -193,5 +193,6 @@ thinking nevertheless, and some questions started to cross your sceptic mind:
   stateful objects and side-effects?
 
 These and other questions will show up again in later articles,
-but next time we will first have a closer glance at how _jqwik_ works,
+but next time
+[we will first have a closer glance at how _jqwik_ works]({% post_url 2018-03-29-jqwik-on-junit5 %}),
 but also at alternative PBT libs on the JVM.
