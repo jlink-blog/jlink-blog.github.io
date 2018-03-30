@@ -286,6 +286,11 @@ If you cannot or do not want to use JUnit 5 yet, there are a few alternatives
 - [KotlinTest](https://github.com/kotlintest/kotlintest) also has basic support for PBT.
   Currently no shrinking yet.
 
+- [Frege, a Haskell for the JVM,](https://github.com/Frege/frege)
+  comes with a classical QuickCheck implementation.
+  [This article](https://dierk.gitbooks.io/fregegoodness/content/src/docs/asciidoc/qc_property.html)
+  from Dierk König's Frege book provides a short introduction.
+
 
 ## Next Episode
 
