@@ -50,7 +50,7 @@ already been published or are in the making:
 
 - [From Examples to Properties]({% post_url 2018-03-26-from-examples-to-properties %})
 - [Jqwik and other Tools]({% post_url 2018-03-29-jqwik-on-junit5 %})
-- The Importance of Being Shrunk
+- [The Importance of Being Shrunk]({% post_url 2018-04-20-the-importance-of-being-shrunk %})
 - Patterns to Find Good Properties
 - Stateful Testing
 - PBT and Test-driven Development

@@ -295,4 +295,4 @@ If you cannot or do not want to use JUnit 5 yet, there are a few alternatives
 ## Next Episode
 
 The next article will focus on a crucial feature of mature Property-based
-Testing libraries: Shrinking.
+Testing libraries: [Shrinking]({% post_url 2018-04-20-the-importance-of-being-shrunk %}).
