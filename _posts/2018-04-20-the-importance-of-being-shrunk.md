@@ -68,14 +68,15 @@ fails for (hopefully) the same reason. This searching phase is called
 _shrinking_ because it starts with the original sample and tries to
 make it smaller and check the property again.
 
-In the case of integral numbers shrinking is rather simple because _smaller_
-is well defined. If you want to see which steps _jqwik_ tries inbetween
+<!-- In the case of integral numbers shrinking is rather simple because _smaller_
+is well defined.
+If you want to see which steps _jqwik_ tries inbetween
 the original and the final sample, you can switch on reporting of
 falsified values:
 
 ```
 @Poperty(reporting = Reporting.FALSIFIED)
-```
+``` -->
 
 In this example 46341 is indeed the smallest integer
 number that can falsify the property. And what's the special thing about it?
