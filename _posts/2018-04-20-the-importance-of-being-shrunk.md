@@ -15,7 +15,7 @@ we've been looking at some important features of jqwik and other PBT libraries.
 It's now time to check out how those libs try to help us with overcoming
 some of the drawbacks of random generation.
 
-# Property-based Testing in Java - The Importance of Being Shrunk
+# The Importance of Being Shrunk
 
 One problem that comes with random generation is the loose relation between
 the randomly chosen falsifying example and the problem underlying the failing
@@ -247,5 +247,6 @@ quite an accomplishment. Don't you think so, too?
 
 ## Next Episode
 
-In the next article we will look at a few patterns that can guide you to identify
+In the [next article]({% post_url 2018-07-16-patterns-to-find-properties %})
+we will look at a few patterns that can guide you to identify
 and formulate properties for your own code.
