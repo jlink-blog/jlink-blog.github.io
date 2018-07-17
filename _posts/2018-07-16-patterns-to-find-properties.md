@@ -258,3 +258,21 @@ testing completely.
 
 In the forthcoming article I will have a closer look at _Stateful Testing_,
 which is well suited to be tackled by Property-Based-Testing ideas.
+
+# Update
+
+As a reaction to this blog post, Dierk König [suggested additional
+patterns](https://twitter.com/mittie/status/1018958458949984256):
+
+- __PureFunction__
+
+  Check that multiple calls with same arguments produce the same result
+
+
+- __Corridor__
+
+  Check that the returned value of a function or metho call is in its required range
+
+- __Rules__
+
+  Test associativity, commutativity, symmetry, neutrality, transitivity where applicable
