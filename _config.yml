@@ -15,7 +15,7 @@ author :
   email : business@johanneslink.net
   github : jlink
   twitter : johanneslink
-  website: http://johanneslink.net
+  website: https://johanneslink.net
   feedburner : null
 
 # Tags to be displayed
@@ -29,7 +29,7 @@ tags: []
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://blog.johanneslink.net
+production_url : https://blog.johanneslink.net
 
 gems: ["jekyll-sitemap"]
 
