@@ -10,7 +10,7 @@ tags:
 - jqwik
 ---
 In [the previous episode]({% post_url 2018-03-26-from-examples-to-properties %})
-you've already seen [jqwik](http://jqwik.net) in action.
+you've already seen [jqwik](https://jqwik.net) in action.
 One of the interesting aspects of this PBT library is the fact that it's not
 a standalone framework but that it hooks into JUnit 5 in order to "inherit"
 IDE and built-tool support.
@@ -39,7 +39,7 @@ IntelliJ has been an early platform adopter for over a year now. As of March 201
 we also see native support from Eclipse, Gradle and Maven-Surefire. If you're already
 using JUnit 5, using _jqwik_ as additional engine requires a single additional dependency.
 If _jqwik_ is your first contact with the platform you should check out
-[this part in jqwik's user guide](http://jqwik.net/user-guide.html#how-to-use).
+[this part in jqwik's user guide](https://jqwik.net/user-guide.html#how-to-use).
 
 
 ## Wildcards and Type Parameters
@@ -129,7 +129,7 @@ examples:
   E.g. use `@StringLength(min = 1, max = 5) @AlphaChars` to generate strings of 1 to 6 characters
   with only upper and lower case letters.
 
-Here is the [full list of built-in constraining annotations](http://jqwik.net/user-guide.html#constraining-default-generation).   
+Here is the [full list of built-in constraining annotations](https://jqwik.net/user-guide.html#constraining-default-generation).   
 
 ## Programmatic Generation
 

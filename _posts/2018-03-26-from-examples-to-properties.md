@@ -97,7 +97,7 @@ or are they "just a complement"?
 ## Let's do it in Java
 
 Translating the above QuickCheck function into Java with just JUnit is not simple.
-That's why we pull in another test engine: [jqwik](http://jqwik.net).
+That's why we pull in another test engine: [jqwik](https://jqwik.net).
 We will have a closer look at _jqwik_ in the next article.
 For a start all we do is translate the Haskell from above into a jqwik test method:
 

@@ -12,7 +12,7 @@ tags:
 - testing
 ---
 <p><a href="http://www.stefanroock.de/weblog/2006/11/unit-testing-in-multi-projekt-settings.html" target="_blank">Stefan Roock</a> made me aware of the fact that Eclipse (3.2) does not have support for JUnit testing in a multi project setting. He points to <a href="http://www.jroller.com/page/bjornmartensson/20050728" target="_blank"> some code by Björn Martensson</a> which tackles the problem by searching the classpath for test classes. However, the code works for JUnit 3.8 only, so I set up to tackle the problem for JUnit 4.1.</p>
-<p>I tried to come up with a JUnit4-like solution, i.e. using the <code>RunWith</code> annotation. You can download my JUnit extension <a href="http://johanneslink.net/cpsuite.html">here</a>.</p>
+<p>I tried to come up with a JUnit4-like solution, i.e. using the <code>RunWith</code> annotation. You can download my JUnit extension <a href="https://johanneslink.net/cpsuite.html">here</a>.</p>
 <p>The mechanism is simple. Just create a new project in Eclipse and add all projects that contain tests you want to run to its build path. Now create a class like that:</p>
 <pre>
 import org.junit.extensions.cpsuite.ClasspathSuite;
@@ -32,4 +32,4 @@ import org.junit.extensions.cpsuite.ClasspathSuite.*;
 @ClassnameFilters({"mytests.*", ".*Test"})
 public class MySuite...</pre>
 <p>The filter patterns work disjunctively; if <i>any</i> one filter matches, the class will be added to the suite of tests.</p>
-<p>P.S.: <a href="http://johanneslink.net/cpsuite.html">ClasspathSuite</a> solves another problem (bug?) in the JUnit 4 integration of Eclipse 3.2: test classes derived from an abstract test class which do not have test methods of their own are being ignored by Eclipse's test runner. When using <code>RunWith(ClasspathSuite.class)</code> you will catch those test classes as well.</p>
+<p>P.S.: <a href="https://johanneslink.net/cpsuite.html">ClasspathSuite</a> solves another problem (bug?) in the JUnit 4 integration of Eclipse 3.2: test classes derived from an abstract test class which do not have test methods of their own are being ignored by Eclipse's test runner. When using <code>RunWith(ClasspathSuite.class)</code> you will catch those test classes as well.</p>

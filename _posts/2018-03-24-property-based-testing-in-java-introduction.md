@@ -36,8 +36,8 @@ Call it a lucky coincidence that at this time - two years ago -
 I left the JUnit-5 core team but decided to experiment with the
 [JUnit platform](https://junit.org/junit5/docs/current/user-guide/#overview-what-is-junit-5).
 That's why I created
-[a test engine](http://blog.johanneslink.net/2017/04/10/jqwik-junit5-test-engine-alternative/)
-called [jqwik](http://jqwik.net) with a strong focus on property-based tests.
+[a test engine](https://blog.johanneslink.net/2017/04/10/jqwik-junit5-test-engine-alternative/)
+called [jqwik](https://jqwik.net) with a strong focus on property-based tests.
 Besides diving into the intricacies of Java's completely messed-up approach
 to reflection, this task also required that I experimented with different ways
 to write properties, that I looked at how other PBT libraries worked, and that

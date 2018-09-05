@@ -20,7 +20,7 @@ I wanted to try out if this platform idea really holds the value it's promising.
 
 ## Jqwik
 
-[Jqwik](http://jqwik.net/) is a test engine of its own; built from the ground up.
+[Jqwik](https://jqwik.net/) is a test engine of its own; built from the ground up.
 It focuses on both example-based and property-based testing and
 can therefore both replace standard Jupiter tests and add the additional
 perspective of [QuickCheck-like](https://en.wikipedia.org/wiki/QuickCheck)

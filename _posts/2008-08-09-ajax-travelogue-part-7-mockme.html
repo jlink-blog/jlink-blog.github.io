@@ -11,7 +11,7 @@ tags:
 - javascript
 - mocking
 ---
-<p>In the <a href="{% post_url 2008-08-08-ajax-travelogue-part-6-mocking-in-javascript %}">previous episode</a> you've learned why a mocking framework seems to be a reasonable idea even in a language that provides closures and duck typing. <a title="MockMe" href="http://johanneslink.net/projects/mockme.html" target="_self">MockMe</a> is such a framework. I started to develop it after fighting the usability war with the existing ones I found out there.</p>
+<p>In the <a href="{% post_url 2008-08-08-ajax-travelogue-part-6-mocking-in-javascript %}">previous episode</a> you've learned why a mocking framework seems to be a reasonable idea even in a language that provides closures and duck typing. <a title="MockMe" href="https://johanneslink.net/projects/mockme.html" target="_self">MockMe</a> is such a framework. I started to develop it after fighting the usability war with the existing ones I found out there.</p>
 <p>MockMe has two fundamental ideas:</p>
 <ul>
 <li>The basic granularity of mocking should be the function. If I want to, I can fake the behaviour of a single function without influencing the rest (of an object or a prototype or the global namespace or whatever).</li>
@@ -35,7 +35,7 @@ tags:
         verify(Speaker.say)('oopsoops');
     });
   }},</pre>
-<p>That's fairly easy, isn't it. It has only a third of the lines compared to the <a href="http://blog.johanneslink.net/2008/08/08/ajax-travelogue-part-6-mocking-in-javascript#longTest">hand-crafted version</a>. </p>
+<p>That's fairly easy, isn't it. It has only a third of the lines compared to the <a href="https://blog.johanneslink.net/2008/08/08/ajax-travelogue-part-6-mocking-in-javascript#longTest">hand-crafted version</a>. </p>
 <p>There are mainly two reasons I prefer spying over mocking: (a) It does not break the standard testing flow of setup -&gt; test -&gt; assert. (b) It's harder to <em>overspecify</em> your implementation's behaviour. </p>
 <p>The difference between spying and mocking has been described by Gerard Meszaros in his <a title="xUnit Test Patterns" href="http://www.amazon.com/xUnit-Test-Patterns-Refactoring-Addison-Wesley/dp/0131495054" target="_blank">book on test patterns</a>. Among many other valuable contributions he succeeds in sorting out the differences in the terms used by different writers. That said, I still call MockMe a mocking framework for the selfish reason that mock has become the term that is being used most in the agile testing community.</p>
 <p>To wrap up, the next example demonstrates that stubbing with MockMe is equally straightforward:</p>
@@ -46,4 +46,4 @@ tags:
       assertEqual('hiho', f(1, 'two'));
     });
   }}</pre>
-<p><a href="http://johanneslink.net/projects/mockme.html#howto">Here</a> is where you can find more on how to use MockMe.</p>
+<p><a href="https://johanneslink.net/projects/mockme.html#howto">Here</a> is where you can find more on how to use MockMe.</p>
