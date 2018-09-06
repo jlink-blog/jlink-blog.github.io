@@ -13,8 +13,8 @@ tags:
 The last episode was about
 [patterns to find good properties]({% post_url 2018-07-16-patterns-to-find-properties %}).
 One pattern I mentioned there is _Stateful Testing_. Some PBT proponents treat this one
-with some condescension since _state_ is considered as something that should be avoided
-- at least in functional programming. I tend to look at it with more tolerance.
+with some condescension since _state_ is considered as something that should be
+avoided - at least in functional programming. I tend to look at it with more tolerance.
 
 # Stateful Testing
 
@@ -47,7 +47,7 @@ public class MyStringStack {
 
 ## Finite State Machines
 
-As any object with state a stack can be considered to be a
+As any object with state, a stack can be considered to be a
 [finite state machine](https://en.wikipedia.org/wiki/Finite-state_machine)
 which comes with a few characteristics:
 
@@ -56,8 +56,8 @@ which comes with a few characteristics:
    that bring the state machine into its next state.
 3. Transitions are often triggered by _actions_ (aka _events_).
 
-One way to display a finite state machine is a _state transition table_.
-Here's one for our example:
+One way to represent a state machine is a _state transition table_.
+Here's one for `MyStringStack`:
 
 |Current State|Action|Next State|
 |-------------|------|----------|
@@ -78,12 +78,9 @@ Here's one for our example:
   in the transition table, e.g. `pop` should always return the last
   element that was `push`ed on the stack. Those functional properties
   can typically be considered as postconditions or invariants.
-- Most of the time you should be able to look at a stateful
-  object as a state machine. If this seems extremely difficult the purpose
-  of your object might not be clear or it violates the single responsibility principle.
 
-Looking at this from a property-based testing point of view will suggests
-the following approach:
+Looking at this from a property-based testing point of view
+the following approach seems viable:
 
 1. Generate a random sequence of actions.
 2. Apply this sequence to a state machine in its initial state.
@@ -207,14 +204,13 @@ class MyStringStackActions {
 
 This class contains both, the action implementations and methods to create
 arbitrary instances for those actions.
-
-From the outside only the static `actions` method is relevant because
+From the outside only the static `actions()` method is relevant because
 it will be used to generate sequences.
 
 
 ## Formulate the Property
 
-The most common property test is very straightforward:
+A basic property test is very straightforward:
 
 ```java
 @Property
@@ -232,6 +228,9 @@ The `ActionSequence` interface is part of _jqwik_ and therefore the library
 knows how to create sequences - given a method to generate actions -,
 how to apply a sequence to a model, and how to shrink a sequence if a
 failing example has been found.
+
+If we wanted to we could have additional properties, e.g. for running sequences
+against other intial states or adding invariants.
 
 
 ## Running the Property
@@ -272,7 +271,7 @@ expected:<[[]]> but was:<[[AAAAA, AAAAA, AAAAA, AAAAA]]>
 You find the complete example code [here](https://github.com/jlink/property-based-testing/tree/master/pbt-java/src/test/java/pbt/stateful/stack)
 
 
-## Advanced State Testing
+## Advanced Aspects of State Testing
 
 In the example above the model can be the stack implementation itself since
 the `MyStringStack` contains everything required for executing and
@@ -281,9 +280,12 @@ checking. In other situation
 you might have to implement a model explicitly for testing purposes.
 That example also shows how invariants can be added to state machine testing.
 
-
 Since `Action.run(M model)` is supposed to return the model in its new state
 the approach works perfectly fine for immutable models.
+
+Some PBT frameworks also allow the concurrent execution of actions in a "sequence".
+That way you might be able to detect some concurrency-related bugs; what you
+will loose is repeatability.
 
 State properties can also be used in integration testing. Consider a RESTful
 API that exposed some state. Actions might consist of sending out certain types
