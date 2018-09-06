@@ -256,7 +256,8 @@ testing completely.
 
 ## Next Episode
 
-In the forthcoming article I will have a closer look at _Stateful Testing_,
+In the [forthcoming article]({% post_url 2018-09-06-stateful-testing %})
+I will have a closer look at _Stateful Testing_,
 which is well suited to be tackled by Property-Based-Testing ideas.
 
 # Update

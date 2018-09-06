@@ -52,7 +52,7 @@ already been published or are in the making:
 - [Jqwik and other Tools]({% post_url 2018-03-29-jqwik-on-junit5 %})
 - [The Importance of Being Shrunk]({% post_url 2018-04-20-the-importance-of-being-shrunk %})
 - [Patterns to Find Good Properties]({% post_url 2018-07-16-patterns-to-find-properties %})
-- Stateful Testing
+- [Stateful Testing]({% post_url 2018-09-06-stateful-testing %})
 - PBT and Test-driven Development
 
 I hope to see you again on my journey!
