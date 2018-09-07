@@ -204,7 +204,7 @@ class MyStringStackActions {
 ```
 
 This class contains both, the action implementations and methods to create
-`Arbitrary<Action<MyStringStack>>` instances for those actions.
+the necessary `Arbitrary<Action<MyStringStack>>` instances for those actions.
 From the outside only the static `actions()` method is relevant because
 it will be used to generate sequences.
 
