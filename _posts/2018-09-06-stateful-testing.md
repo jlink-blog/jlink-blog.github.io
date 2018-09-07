@@ -151,6 +151,7 @@ class MyStringStackActions {
 			model.push(element);
 			Assertions.assertThat(model.isEmpty()).isFalse();
 			Assertions.assertThat(model.size()).isEqualTo(sizeBefore + 1);
+			Assertions.assertThat(model.top()).isEqualTo(element);
 			return model;
 		}
 
@@ -165,7 +166,7 @@ class MyStringStackActions {
 		@Override
 		public MyStringStack run(MyStringStack model) {
 			model.clear();
-			Assertions.assertThat(model).isEqualTo(new MyStringStack());
+			Assertions.assertThat(model.isEmpty()).isTrue();
 			return model;
 		}
 
@@ -210,7 +211,7 @@ it will be used to generate sequences.
 
 ## Formulate the Property
 
-A basic property test is very straightforward:
+The basic property test is rather straightforward:
 
 ```java
 @Property
@@ -230,7 +231,7 @@ how to apply a sequence to a model, and how to shrink a sequence if a
 failing example has been found.
 
 If we wanted to we could have additional properties, e.g. for running sequences
-against other intial states or adding invariants.
+against other intial states or with added invariants.
 
 
 ## Running the Property
