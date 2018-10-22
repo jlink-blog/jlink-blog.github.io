@@ -154,6 +154,7 @@ and look at the test output:
 
 ```
 timestamp = 2018-01-18T11:57:17.027,
+generation-mode = RANDOMIZED,
 tries = 2,
 checks = 2,
 seed = -6748802811761023649,
@@ -167,10 +168,12 @@ Quite a bunch of information: You can see the number of test `tries`,
 the number of actually run `checks`, the random `seed`, the originally falsified sample,
 and the simplest found falsified `sample`.
 
-If you want to see all the generated lists, just add a `reporting` attribute to the property annotation like this:
+If you want to see all the generated lists, just add a `@Report` annotation
+to the property annotation like this:
 
 ```java
-@Property(reporting = Reporting.GENERATED)
+@Property
+@Report(Reporting.GENERATED)
 ```
 
 You will see a surprisingly large variety in both list size and number range.

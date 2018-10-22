@@ -47,7 +47,8 @@ If _jqwik_ is your first contact with the platform you should check out
 Let's get back to the concrete property test of the previous episode:
 
 ```java
-@Property(reporting = Reporting.GENERATED)
+@Property
+@Report(Reporting.GENERATED)
 boolean reverseWithWildcardType(@ForAll List<?> original) {
     return reverse(reverse(original)).equals(original);
 }
@@ -57,11 +58,11 @@ You might miss [the tiny change]({% post_url 2018-03-26-from-examples-to-propert
 Instead of a concretely typed `List<Integer>`
 I used the _wildcard_ variant: `List<?>`. Actually, this reflects the precondition better,
 since the method under test - `Collections.reverse()` - should work with any element type.
-Under the hood _jqwik_ will create instances of an anonymous subtype of `Object`.
+Under the hood _jqwik_ will create instances of a special subtype of `Object`.
 Just run the property with reporting switched on.
 
 This would, by the way, also work with a _type variable_ instead of a wildcard.
-Upper or lower bounds, however, are not supported yet.
+Upper or lower bounds, however, are not fully supported yet.
 
 ## Many Parameters
 
@@ -69,7 +70,7 @@ You might have guessed that parameter generation is not restricted to a single o
 but works for as many as you need:
 
 ```java
-@Property(reporting = ReportingMode.GENERATED)
+@Property
 boolean joiningTwoLists(
     @ForAll List<String> list1,
     @ForAll List<String> list2
@@ -147,7 +148,7 @@ void letsGenerateGermanZipCodes(@ForAll("germanZipCodes") String zipCode) {
 
 @Provide
 Arbitrary<String> germanZipCodes() {
-    return Arbitraries.strings('0', '9', 5, 5);
+    return Arbitraries.strings().withCharRange('0', '9').ofLength(5);
 }
 ```
 
@@ -222,11 +223,14 @@ boolean anyValidPersonHasAFullName(@ForAll("validPerson") Person aPerson) {
 
 @Provide
 Arbitrary<Person> validPerson() {
-    Arbitrary<Character> initialChar = Arbitraries.chars('A', 'Z');
-    Arbitrary<String> firstName = Arbitraries.strings('a', 'z', 2, 10);
-    Arbitrary<String> lastName = Arbitraries.strings('a', 'z', 2, 20);
-    return Combinators.combine(initialChar, firstName, lastName)
-       .as((initial, first, last) -> new Person(initial + first, last));
+  Arbitrary<String> firstName = Arbitraries.strings()
+      .withCharRange('a', 'z')
+      .ofMinLength(2).ofMaxLength(10)
+      .map(this::capitalize);
+  Arbitrary<String> lastName = Arbitraries.strings()
+      .withCharRange('a', 'z') 
+      .ofMinLength(2).ofMaxLength(20);
+  return Combinators.combine(firstName, lastName).as(Person::new);
 }
 ```
 

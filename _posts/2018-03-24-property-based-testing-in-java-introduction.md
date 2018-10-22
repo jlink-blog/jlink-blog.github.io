@@ -56,3 +56,7 @@ already been published or are in the making:
 - PBT and Test-driven Development
 
 I hope to see you again on my journey!
+
+### Update
+
+I updated all examples to jqwik 0.9.0 where necessary.
