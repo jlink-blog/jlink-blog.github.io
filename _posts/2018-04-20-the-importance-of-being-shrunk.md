@@ -189,7 +189,7 @@ boolean shouldShrinkTo101(@ForAll("numberStrings") String aNumberString) {
 
 @Provide
 Arbitrary<String> numberStrings() {
-    return Arbitraries.integers().between(100, 1000).map(String::valueOf);
+    return Arbitraries.integers().between(100, 10000).map(String::valueOf);
 }
 ```
 
