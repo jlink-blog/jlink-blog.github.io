@@ -53,7 +53,7 @@ already been published or are in the making:
 - [The Importance of Being Shrunk]({% post_url 2018-04-20-the-importance-of-being-shrunk %})
 - [Patterns to Find Good Properties]({% post_url 2018-07-16-patterns-to-find-properties %})
 - [Stateful Testing]({% post_url 2018-09-06-stateful-testing %})
-- PBT and Test-driven Development
+- [PBT and Test-driven Development]({% post_url 2019-05-11-property-based-driven-development %})
 
 I hope to see you again on my journey!
 

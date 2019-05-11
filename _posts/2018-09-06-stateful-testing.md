@@ -297,5 +297,5 @@ thousands of tests over a network might take a very long time!
 
 ## Next Episode
 
-In the next article I will show in an example how
-Test-Driven Development and Property-Based testing can work well together.
+In the next article I will show in an example how Test-Driven Development and Property-Based testing
+[can work well together]({% post_url 2019-05-11-property-based-driven-development %}).
