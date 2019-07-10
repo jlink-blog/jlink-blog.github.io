@@ -136,16 +136,16 @@ footer:
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:business@johanneslink.net"
+      # url: "mailto:business@johanneslink.net"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://johanneslink.net"
+      # url: "https://johanneslink.net"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
-      url: "https://twitter.com/johanneslink"
+      # url: "https://twitter.com/johanneslink"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/jlink"
+      # url: "https://github.com/jlink"
 
 
 # Reading Files
