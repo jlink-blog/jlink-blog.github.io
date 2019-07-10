@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: "Results of Workshop on TDD with Functional Programming"
 description: "A short summary of what we think we learned during the workshop."
 status: publish

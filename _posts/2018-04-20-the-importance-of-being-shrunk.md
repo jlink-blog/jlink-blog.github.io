@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: "Property-based Testing in Java: The Importance of Being Shrunk"
 description: "How PBT libraries try to be more helpful"
 status: publish

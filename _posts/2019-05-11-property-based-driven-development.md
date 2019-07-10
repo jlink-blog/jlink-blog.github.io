@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: "Property-based Testing in Java: PBT and Test-driven Development"
 description: "Do PBT and TDD go well together?"
 status: publish

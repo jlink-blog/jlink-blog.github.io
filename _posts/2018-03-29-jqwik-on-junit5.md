@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: "Property-based Testing in Java: Jqwik - a JUnit 5 Test Engine"
 description: "What's the difference between example-based testing and properties?"
 status: publish

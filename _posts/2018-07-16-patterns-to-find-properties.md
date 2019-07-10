@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: "Property-based Testing in Java: Patterns to Find Properties"
 description: "How to discover properties for your code"
 status: publish

@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: "Jqwik: An Alternative JUnit5 Test Engine"
 description: "Jqwik is supposed to be an alternative to Jupiter (JUnit 5's default). I'm building it from the ground up."
 status: publish

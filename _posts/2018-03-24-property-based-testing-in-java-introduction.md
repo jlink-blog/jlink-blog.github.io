@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: "Property-based Testing in Java: Introduction"
 description: "Introduction to a short series about PBT in Java"
 status: publish

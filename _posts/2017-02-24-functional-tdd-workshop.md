@@ -1,5 +1,5 @@
 ---
-layout: post
+
 title: "A Workshop on TDD with Functional Programming"
 description: "I'm organizing an open workshop about if and how TDD fits into the worls of functional programming."
 status: publish
