@@ -1,5 +1,4 @@
 ---
-
 title: "Property-based Testing in Java: From Examples to Properties"
 description: "What's the difference between example-based testing and properties?"
 status: publish
@@ -153,15 +152,18 @@ boolean reverseTwiceIsOriginal(@ForAll List<Integer> original) {
 and look at the test output:   
 
 ```
-timestamp = 2018-01-18T11:57:17.027,
-generation-mode = RANDOMIZED,
-tries = 2,
-checks = 2,
-seed = -6748802811761023649,
-originalSample = [[0, 1, -1, -2147483648, 2147483647]],
-sample = [[0, -1]]
-org.opentest4j.AssertionFailedError:
-    Property [reverseTwiceIsOriginal] falsified with sample [[0, -1]]
+ListReverseProperties:reverseTwiceIsOriginal =
+org.opentest4j.AssertionFailedError: Property [ListReverseProperties:reverseTwiceIsOriginal]
+    falsified with sample [[0, 1]]
+
+                              |-----------------------jqwik-----------------------
+tries = 1                     | # of calls to property
+checks = 1                    | # of not rejected calls
+generation-mode = RANDOMIZED  | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+seed = -6242034001699631739   | random seed to reproduce generated values
+sample = [[0, 1]]
+original-sample = [[0, 1453667410, -606426461, 0, 585908698, -1915683337, 48, -1748790884, 10, 1993507675, -325]]
 ```
 
 Quite a bunch of information: You can see the number of test `tries`,

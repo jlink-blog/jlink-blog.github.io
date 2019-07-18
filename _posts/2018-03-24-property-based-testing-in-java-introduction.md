@@ -1,5 +1,4 @@
 ---
-
 title: "Property-based Testing in Java: Introduction"
 description: "Introduction to a short series about PBT in Java"
 status: publish
@@ -59,4 +58,4 @@ I hope to see you again on my journey!
 
 ### Update
 
-I updated all examples to jqwik 0.9.0 where necessary.
+I updated all examples to jqwik 1.1.6 where necessary.

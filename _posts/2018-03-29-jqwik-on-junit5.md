@@ -1,5 +1,4 @@
 ---
-
 title: "Property-based Testing in Java: Jqwik - a JUnit 5 Test Engine"
 description: "What's the difference between example-based testing and properties?"
 status: publish
@@ -109,6 +108,7 @@ Out of the box _jqwik_ is able to generate objects of the most common JDK types:
 - All enum types
 - `List<T>`, `Set<T>`, `Stream<T>` and `Optional<T>` as long as T can be generated
 - Arrays of types that can be generated
+- `Map<K, V>` and `Map.Entry<K, V>` 
 - `java.util.Random` and `Object`
 
 You might notice that `Map` and all calendar related classes are not covered (yet).
@@ -228,7 +228,7 @@ Arbitrary<Person> validPerson() {
       .ofMinLength(2).ofMaxLength(10)
       .map(this::capitalize);
   Arbitrary<String> lastName = Arbitraries.strings()
-      .withCharRange('a', 'z') 
+      .withCharRange('a', 'z')
       .ofMinLength(2).ofMaxLength(20);
   return Combinators.combine(firstName, lastName).as(Person::new);
 }

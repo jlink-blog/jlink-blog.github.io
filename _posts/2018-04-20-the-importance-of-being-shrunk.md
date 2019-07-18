@@ -1,5 +1,4 @@
 ---
-
 title: "Property-based Testing in Java: The Importance of Being Shrunk"
 description: "How PBT libraries try to be more helpful"
 status: publish
@@ -36,11 +35,11 @@ the `shrinking` annotation attribute.
 Running this property will fail with something like the following message:
 
 ```
-originalSample = [1207764160],
-sample = [1207764160]
-
 org.opentest4j.AssertionFailedError:
     Property [rootOfSquareShouldBeOriginalValue] falsified with sample [1207764160]
+
+originalSample = [1207764160],
+sample = [1207764160]
 ```
 
 The falsified sample found by _jqwik_ is random. Unless you already have an inkling of what
@@ -114,11 +113,11 @@ boolean reverseShouldSwapFirstAndLast(@ForAll List<Integer> aList) {
 The output should look similar to this:
 
 ```
-originalSample = [[0, 1, -1, -2147483648, 2147483647, -932716982, ...]],
-sample = [[0, 0, 0, -1]]
-
 org.opentest4j.AssertionFailedError:
     Property [reverseShouldSwapFirstAndLast] falsified with sample [[0, 0, 0, -1]]
+
+sample = [[0, 0, 0, -1]]
+originalSample = [[0, 1, -1, -2147483648, 2147483647, -932716982, ...]],
 ```
 
 What we can see is that shrinking took place on different levels. Both the length of the list

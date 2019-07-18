@@ -1,5 +1,4 @@
 ---
-
 title: "Property-based Testing in Java: Patterns to Find Properties"
 description: "How to discover properties for your code"
 status: publish
@@ -197,14 +196,21 @@ What surprised me - and might surprise you: _Decode_ is NOT an inverse
 function of _encode_ for all charsets:
 
 ```
-timestamp = 2018-07-16T11:32:45.021,
-    seed = 1207350373430593188,
-    originalSample = ["萸偟쌴穎䀝珣亂兝뢏", "ISO-2022-JP-2"],
-    sample = ["", "Big5"]
+org.opentest4j.AssertionFailedError:
+  Expecting:
+   <"?">
+  to be equal to:
+   <"€">
+  but was not.
 
-org.junit.ComparisonFailure: expected:<"[]"> but was:<"[?]">
-    Expected :""
-    Actual   :"?"
+                              |-----------------------jqwik-----------------------
+tries = 13                    | # of calls to property
+checks = 13                   | # of not rejected calls
+generation-mode = RANDOMIZED  | parameters are randomly generated
+after-failure = SAMPLE_FIRST  | try previously failed sample, then previous seed
+seed = 4002273756594553579    | random seed to reproduce generated values
+sample = ["€", "Big5"]
+original-sample = ["⹡骞ḅ遈㻴謯갨㩌셖觯蔊⁕ṏ舰眸鿾꫆閨֒渺", "x-IBM1364"]
 ```
 
 Even a standard character like '€' cannot be reliably encoded in all charsets!

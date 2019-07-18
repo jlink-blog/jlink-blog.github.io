@@ -1,5 +1,4 @@
 ---
-
 title: "Property-based Testing in Java: Stateful Testing"
 description: "How to tackle state changes with properties"
 status: publish

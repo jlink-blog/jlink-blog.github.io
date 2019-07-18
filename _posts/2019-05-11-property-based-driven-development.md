@@ -1,5 +1,4 @@
 ---
-
 title: "Property-based Testing in Java: PBT and Test-driven Development"
 description: "Do PBT and TDD go well together?"
 status: publish
@@ -383,13 +382,13 @@ Well, at least I thought it would work. In reality the following
 error message was showing up:
 
 ```text
-sample = [101, 5]
-
 java.lang.AssertionError:
     Expecting:
       <[2147483647]>
     to contain only:
       <[101]>
+
+sample = [101, 5]
 ```
 
 What's happening here is that `101^5` is bigger than the maximum representable
