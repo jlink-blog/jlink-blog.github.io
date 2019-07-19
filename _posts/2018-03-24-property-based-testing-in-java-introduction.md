@@ -44,8 +44,8 @@ I found a way to integrate these new type of tests into my well-dried style
 of TDD.
 
 In the weeks to come I'll publish a series of blog entries describing the essence of what I
-learned about PBT on the way, and how one can use it in Java. So far, six parts have
-already been published or are in the making:
+learned about PBT on the way, and how one can use it in Java. So far, seven parts have
+already been published:
 
 - [From Examples to Properties]({% post_url 2018-03-26-from-examples-to-properties %})
 - [Jqwik and other Tools]({% post_url 2018-03-29-jqwik-on-junit5 %})
@@ -53,9 +53,10 @@ already been published or are in the making:
 - [Patterns to Find Good Properties]({% post_url 2018-07-16-patterns-to-find-properties %})
 - [Stateful Testing]({% post_url 2018-09-06-stateful-testing %})
 - [PBT and Test-driven Development]({% post_url 2019-05-11-property-based-driven-development %})
+- [How to Specify it! In Java]({% post_url 2019-07-19-how-to-specify-it %})
 
 I hope to see you again on my journey!
 
 ### Update
 
-I updated all examples to jqwik 1.1.6 where necessary.
+I updated all examples to jqwik 1.1.6.
