@@ -37,8 +37,9 @@ projects on Github.
 ### Reasons
 
 So maybe it's about OO languages not lending themselves well to this approach?  
-If you look at the number of hits for "hypothesis" in Python source code,
-which is larger than 37k, this argument seems not plausible.
+If you look at the number of hits for "hypothesis" (the best known
+Python PBT library) in Python source code you get 37k findingins.  
+That's why this argument seems not plausible to me.
 
 Maybe the Java libraries are not mature enough or miss out on important
 features? I don't think that's true either. I have been testing and using
