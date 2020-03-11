@@ -7,6 +7,7 @@ tags:
 - property-based testing
 - java
 - jqwik
+- stateful properties
 ---
 
 The last episode was about
@@ -271,28 +272,26 @@ expected:<[[]]> but was:<[[AAAAA, AAAAA, AAAAA, AAAAA]]>
 You find the complete example code [here](https://github.com/jlink/property-based-testing/tree/master/pbt-java/src/test/java/pbt/stateful/stack)
 
 
-## Advanced Aspects of State Testing
+## Further Aspects of Stateful Properties
 
-In the example above the model can be the stack implementation itself since
-the `MyStringStack` contains everything required for executing and
-checking. In other situation
-(see [CircularBuffer](https://github.com/jlink/property-based-testing/tree/master/pbt-java/src/test/java/pbt/stateful/circularbuffer))
-you might have to implement a model explicitly for testing purposes.
-That example also shows how invariants can be added to state machine testing.
-
-Since `Action.run(M model)` is supposed to return the model in its new state
+- Since `Action.run(M model)` is supposed to return the model in its new state
 the approach works perfectly fine for immutable models.
 
-Some PBT frameworks also allow the concurrent execution of actions in a "sequence".
-That way you might be able to detect some concurrency-related bugs; what you
-will loose is repeatability.
+- In the example above the model can be the stack implementation itself since
+the `MyStringStack` contains everything required for executing and
+checking. In other situation you might have to implement a model explicitly for testing purposes. This approach is called
+[model-based testing](https://johanneslink.net/model-based-testing/).
 
-State properties can also be used in integration testing. Consider a RESTful
+- State properties can also be used in integration testing. Consider a RESTful
 API that exposed some state. Actions might consist of sending out certain types
 of http requests. PBT will probably come up with sequences of requests
 that you'd never think of yourself and thereby stress your API in a different
 way than hand-made integrated tests do. One caveat, though: Running hundreds or
 thousands of tests over a network might take a very long time!
+
+- Some PBT frameworks also allow the concurrent execution of actions in a "sequence".
+That way you might be able to detect some concurrency-related bugs; what you
+will loose is repeatability.
 
 ## Next Episode
 
