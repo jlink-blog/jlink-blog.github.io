@@ -1,5 +1,5 @@
 ---
-title: "Property-based Testing in Java: PBT and Test-driven Development"
+title: "Property-based Testing in Java: Property-driven Development"
 description: "Do PBT and TDD go well together?"
 status: publish
 categories: []
@@ -765,3 +765,7 @@ A pattern that you could watch here twice is to start with an example first and
 to promote it to a property later. In cases where this approach
 works I end up with both more concise tests and more trust in my code.
 That's why I always look for those opportunities in my existing example tests.
+
+### Sample Code
+
+The example's source code [can be found on Github](https://github.com/jlink/property-driven-development/tree/master/src/test/java/primes).
