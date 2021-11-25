@@ -55,9 +55,11 @@ been published:
 - [PBT and Test-driven Development]({% post_url 2019-05-11-property-based-driven-development %})
 - [How to Specify it! In Java]({% post_url 2019-07-19-how-to-specify-it %})
 - [Model-based Testing]({% post_url 2020-03-11-model-based-testing %})
+- [PBT in Kotlin]({% post_url 2021-11-25-property-based-testing-in-kotlin %})
 
 I hope to see you again on my journey!
 
 ### Update
 
-I updated all examples to jqwik 1.1.6.
+- Updated all examples to jqwik 1.1.6.
+- Updated so that everything should still work with jqwik 1.6.0
