@@ -100,13 +100,13 @@ built-in support for state testing. There's two things you have to do:
 Actions have to implement the `Action` interface:
 
 ```java
-public interface Action<M> {
+public interface Action<S> {
 
-	default boolean precondition(M model) {
+	default boolean precondition(S state) {
 		return true;
 	}
 
-	M run(M model);
+	S run(S state);
 }
 ```
 
@@ -146,13 +146,13 @@ class MyStringStackActions {
 		}
 
 		@Override
-		public MyStringStack run(MyStringStack model) {
-			int sizeBefore = model.size();
+		public MyStringStack run(MyStringStack state) {
+			int sizeBefore = state.size();
 			model.push(element);
 			Assertions.assertThat(model.isEmpty()).isFalse();
 			Assertions.assertThat(model.size()).isEqualTo(sizeBefore + 1);
 			Assertions.assertThat(model.top()).isEqualTo(element);
-			return model;
+			return state;
 		}
 
 		@Override
@@ -164,10 +164,10 @@ class MyStringStackActions {
 	private static class ClearAction implements Action<MyStringStack> {
 
 		@Override
-		public MyStringStack run(MyStringStack model) {
-			model.clear();
-			Assertions.assertThat(model.isEmpty()).isTrue();
-			return model;
+		public MyStringStack run(MyStringStack state) {
+			state.clear();
+			Assertions.assertThat(state.isEmpty()).isTrue();
+			return state;
 		}
 
 		@Override
@@ -179,20 +179,20 @@ class MyStringStackActions {
 	private static class PopAction implements Action<MyStringStack> {
 
 		@Override
-		public boolean precondition(MyStringStack model) {
-			return !model.isEmpty();
+		public boolean precondition(MyStringStack state) {
+			return !state.isEmpty();
 		}
 
 		@Override
-		public MyStringStack run(MyStringStack model) {
-			int sizeBefore = model.size();
-			String topBefore = model.top();
+		public MyStringStack run(MyStringStack state) {
+			int sizeBefore = state.size();
+			String topBefore = state.top();
 
-			String popped = model.pop();
+			String popped = state.pop();
 			Assertions.assertThat(popped).isEqualTo(topBefore);
-			Assertions.assertThat(model.size()).isEqualTo(sizeBefore - 1);
+			Assertions.assertThat(state.size()).isEqualTo(sizeBefore - 1);
 
-			return model;
+			return state;
 		}
 
 		@Override

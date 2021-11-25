@@ -108,7 +108,7 @@ Out of the box _jqwik_ is able to generate objects of the most common JDK types:
 - All enum types
 - `List<T>`, `Set<T>`, `Stream<T>` and `Optional<T>` as long as T can be generated
 - Arrays of types that can be generated
-- `Map<K, V>` and `Map.Entry<K, V>` 
+- `Map<K, V>` and `Map.Entry<K, V>`
 - `java.util.Random` and `Object`
 
 You might notice that `Map` and all calendar related classes are not covered (yet).
@@ -127,7 +127,7 @@ examples:
 - All number types come with their respective range annotation.
   E.g. use `@DoubleRange(min=5.0, max=10.0)` to only generate doubles between 5 and 10.
 - Strings can be constrained in both their length and the pool of character to be used.
-  E.g. use `@StringLength(min = 1, max = 5) @AlphaChars` to generate strings of 1 to 6 characters
+  E.g. use `@StringLength(min = 1, max = 5) @AlphaChars` to generate strings of 1 to 5 characters
   with only upper and lower case letters.
 
 Here is the [full list of built-in constraining annotations](https://jqwik.net/user-guide.html#constraining-default-generation).   
@@ -179,7 +179,7 @@ alternatives to do that:
 
 Which way is better? Sometimes it's only a matter of style or readability. Sometimes, however,
 the way you choose can influence performance. When comparing the two options above, the former
-is close to the given spec but it will - through filtering - through away five sixth of all
+is close to the given spec but it will - through filtering - throw away five sixths of all
 generated values. The latter is therefore more efficient but also less comprehensible when
 coming from the spec. Usually generating primitive values is so fast that readability trumps
 efficiency.
@@ -249,7 +249,8 @@ There are two things _jqwik_ does to keep this problem in check:
   run directly in the property annotation:
 
 ```java
-  @Property(seed = "424242", reporting = ReportingMode.GENERATED)
+  @Property(seed = "424242")
+  @Report(ReportingMode.GENERATED)
   void alwaysTheSameValues(@ForAll int aNumber) { ... }
 ```  
 
