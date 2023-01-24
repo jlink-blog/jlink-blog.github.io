@@ -1,4 +1,9 @@
+# IntelliJ
 .idea/
+*.ipr
+*.iws
+*.iml
+
 *.gem
 *.sublime-project
 *.sublime-workspace
