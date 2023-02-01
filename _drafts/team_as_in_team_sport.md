@@ -74,6 +74,16 @@ Are you playing for the championship?
 Are you building-up a long-term organisation?
 
 
+## What is success in a team
+
+Winning a single match. -> Getting a feature out
+Winning a championship. -> Getting features out regularly
+Staying in the league.  -> Staying in the market
+Staying within budget.  -> Earning money
+No injuries.            -> No burnouts. 
+Developing players.     -> Happy employees. Little turn-over.
+
+
 ## The role of a  team coach?
 
 Coaches and team managers are often at the top of a hierarchy.
