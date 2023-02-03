@@ -1,6 +1,6 @@
 ---
 title: "Team as in Team Sport"
-description: "Are Team Sports a Good Analogy for Team Work?"
+description: "Are Team Sports a Good Analogy for Agile Team Work?"
 status: draft
 categories: [team]
 tags:
@@ -9,16 +9,15 @@ tags:
 ---
 
 In software development, we use lots of analogies.
-Examples are:
-- "Software should be like engineering"
-- "Software architecture should be like a city"
-- "We can aggregate technical debt"
-
-Finding a good analogy is important, when trying to explain a concept to people that are not familiar with it.
+Finding a good one can be crucial, when trying to explain a concept to people that are not familiar with it.
 But analogies are also dangerous. They can lead to wrong conclusions.
+To paraphrase a [common aphorism](https://en.wikipedia.org/wiki/All_models_are_wrong):
+"All analogies are wrong, but some are useful".
 
-One of my favourite analogies when dealing with team work and team dynamics is the analogy to _team sports_.
-Let's see how far it can carry us and where it breaks down.
+One of my favourite analogies when dealing with team work and team dynamics is _team sports_.
+I use it to communicate basic ideas about Agile team work to those 
+who tend to look at software development as mostly an individual activity. 
+Let's see how far this analogy can carry us and where it breaks down.
 
 ## Individuals are overrated
 
