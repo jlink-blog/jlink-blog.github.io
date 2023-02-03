@@ -19,10 +19,22 @@ I use it to communicate basic ideas about Agile team work to those
 who tend to look at software development as mostly an individual activity. 
 Let's see how far this analogy can carry us and where it breaks down.
 
-## Individuals are overrated
+## Individuals Are Overrated - Or Are They?
 
-What have Luka Dončić, Giannis Antetokounmpo and Nikola Jokić in common?
-    They were rated as 3 of the 5 best NBA players. But none got into semi-finals of Eurobasket.
+Ever heard about Luka Dončić, Giannis Antetokounmpo and Nikola Jokić?
+They are - if you allow this comparison - the 10x players of the north-american NBA,
+non arguably the best basketball league of the world.
+They are undoubtedly mega stars in their field and were
+- in summer 2022 - considered to be among the 5 best players of the world.
+All three were active participants of Eurobasket - the European basketball championship -
+leading their respective national teams through the tournament.
+
+Interestingly, not one of them made it into the semi-finals, despite outstanding individual performances from all.
+Instead, we saw teams dominate that consisted of players from European leagues and NBA role players.
+With Poland, a team ranked 4th place that did not even have a single Euroleague (2nd best league) player in its rows.
+The medal-winning teams were all convincing through team-play, discipline and morale.  
+
+----
 
 10x players can win a game, but don't win tournaments.
     A team of super-devs that don't want to collaborate only get so far.    
