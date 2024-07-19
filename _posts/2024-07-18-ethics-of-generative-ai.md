@@ -18,7 +18,7 @@ I've collected over the last few weeks.
 Even though I had been aware of most problems before, 
 I was still shocked by the sheer amount of ethical problems that arise from using generative AI.
 
-Therefore, the personal conclusion at the end is very clear:
+Therefore, my personal conclusion at the end is very clear:
 Stop using commercial generative AI and speak out against it!
-A bit surprising for me, most of my colleagues are on the same page.
+A bit surprisingly, most of my colleagues are on the same page.
 
