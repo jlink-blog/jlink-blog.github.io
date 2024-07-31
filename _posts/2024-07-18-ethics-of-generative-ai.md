@@ -22,3 +22,7 @@ Therefore, my personal conclusion at the end is very clear:
 Stop using commercial generative AI and speak out against it!
 A bit surprisingly, most of my colleagues are on the same page.
 
+__Update__: With all the feedback I got, I've updated the slides;
+so it's no longer the presentation I gave originally. 
+However, the conclusion still stands; it's even stronger now.
+
