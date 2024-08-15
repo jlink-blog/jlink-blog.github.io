@@ -58,3 +58,7 @@ Subscribe to the repo if you want to be in the loop.
 
 BTW, the workshop is still possible if a sponsor will show up!
 
+## Update (2024-08-15)
+
+As suggested by one of the readers of this blog post, 
+I have created [a GitHub sponsor page for Jqwik](https://github.com/sponsors/jqwik-team).
