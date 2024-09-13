@@ -40,54 +40,60 @@ The argument for Jqwik 2 has several parts:
 
 ## Next Generation Property-Based Testing
 
-For me the core of PBT boils down to two things:
+For me the core idea of PBT boils down to two things:
 
 - Define a property with constraints and invariants.
 - Exercise and evaluate the property by generating inputs that comply with the constraints.
 
-The standard way is to (pseudo)-randomly generate inputs, run the property,
+The standard way is to generate (pseudo)-random inputs, run the property,
 and shrink the input when the property fails.
 
-There are many more ways you can make use of this core, though. 
-Some ideas:
+There are many more ways you can make use of the core idea, though. 
+For example:
 
-- Generate all inputs exhaustively, if possible.
+- Generate all possible inputs exhaustively, if possible.
+  For combinatorial reasons this is only feasible for small input domains;
+  but when it is possible, it can be a powerful way to ensure correctness.
   Jqwik 1 already has that capability.
 
 - Guide your random generation by external criteria, e.g. code coverage.
-  One can also use these criteria to guide the shrinking process.
+  A few PBT libraries offer this approach.
+  Some studies suggest that this can be a good way to find bugs in fewer tries
+  than by going random only.
 
 - Generate "growing" inputs until the property fails or a threshold is reached.
   This idea is not new, some libs use it as a replacement for random generation.
+  In my opinion, it is a useful approach when combined with other ideas.
 
-- Generate only typical edge cases plus a small number of random ones in-between edge cases.
-  This is a good way to test the boundaries of your system.
+- Generate only edge cases plus a small number of random ones in-between edge cases.
+  This is what you would expect from handwritten test cases, but automated.
 
 - Generate inputs based on a domain model (e.g. describing relations and
   constraints) or a specification.
-    - Use those inputs to test implementation
+    - Use those inputs to test the implementation.
     - Use those inputs to test the model itself by displaying generated
       instantiations of the model.
       This could be helpful in the realm of domain-driven design.
 
-- When you have a failing property, analyse it by collecting additional information from the
-  falsified samples:
-     - Collect all falsified and satisfied samples and find common laws, eg: "p1 > 100 always fails"
+- Analyse a failing property by collecting additional information from the falsified samples:
+     - Detect common laws across failing and succeeding samples, eg: "p1 > 100 always fails"
      - Start from failing sample and vary on parts of the input 
        to find parameters that are not related to the failure.
 
 - Validate a property statistically, e.g. by requiring a certain percentage of successful runs.
   This is especially useful when you have non-deterministic systems like many machine learning applications.
 
-- Use a combination of growing inputs and edge cases to (semi-)automatically test-drive a feature.
-  Since this feels like a more crazy idea, I will show you how it could work in the next section.
+- Automate part of the test-driving process through a combination of growing inputs and edge cases.
+  This is a more crazy idea, and I will show you how it could work in the next section.
 
-## Automated Test-Driven Development
+## Semi-Automated Test-Driven Development
 
 I'll guide you through the steps of test-driving a simple FizzBuzz implementation
 using the proof-of-concept of Jqwik 2 and a class `TDD` that serves as an API 
 to the TDD process.
-The code can be run as a JUnit Jupiter test method or a jqwik example method.
+It's using a combination of generate growing input data and using edge cases. 
+
+Imaging the code to be run as a JUnit Jupiter test method or a jqwik example method.
 
 
 ### Step 1
@@ -106,12 +112,12 @@ NOT COVERED:
   [1]
 ```
 
-Mind that we did not have to write any assertion code yet. 
-Our TDD automator will take care of that for us.
+Mind that we did not write any assertion code yet. 
+Our TDD automator notices that and reports missing coverage.
 
 ### Step 2
 
-Let's tackle the failing test case (`1`) by verifying the expected output:
+In good TDD style let's tackle the simplest test case (`1`) first:
 
 ```java
 TDD.forAll(Numbers.integers().between(1, 1_000_000))
@@ -134,7 +140,7 @@ String fizzBuzz(int number) {
 }
 ```
 
-Now we have a first semantically failing test case:
+Now we have a first test failure:
 
 ```
 one:
@@ -154,7 +160,8 @@ String fizzBuzz(int number) {
 }
 ```
 
-Now we see that the TDD automator can differentiate between falsified cases, satisfied cases and uncovered input values:
+Now we see that the TDD automator can differentiate between falsified cases, 
+satisfied cases and uncovered input values:
 
 ```
 one:
