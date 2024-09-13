@@ -8,15 +8,18 @@ tags:
 - jqwik
 ---
 
-I've written about my struggle to [find funding for Jqwik 2 before](2024-08-09-jqwik-future-and-api.md).
-However, I have never publicly described why I think the next generation of Jqwik is worth doing at all.
+> __TLDR__: The current state of PBT tooling is not the end of the road 
+> and jqwik 2 could be a big step towards more powerful tooling.
+
+I've written about my struggle to [find funding for Jqwik 2](2024-08-09-jqwik-future-and-api.md) before.
+However, I have never publicly discussed why I think the next generation of Jqwik is worth doing at all.
 In short, I believe that the current choice of PBT tools is not yet where it could be.
 And I don't mean just in Java, but in general.
 
-The argument for Jqwik 2 has several parts:
+My argument for Jqwik 2 has several parts:
 
 - Jqwik's implementation has a few weaknesses that are hard to fix incrementally.
-  The most important ones:
+  The two most critical ones:
   1. The current way to generate values from random seeds has its limits.
     Using an approach similar to Python's Hypothesis will simplify the implementation
     of all the generators and allow for more sophisticated shrinking.
@@ -24,28 +27,28 @@ The argument for Jqwik 2 has several parts:
      But parallelization to speed up run times is essential for improving the dev experience.
 
   I will not write about implementation details today, but the
-  [proof of concept](https://github.com/jqwik-team/jqwik2-poc/) shows that both aspects 
-  can be solved.
+  [proof of concept](https://github.com/jqwik-team/jqwik2-poc/) shows that both weaknesses
+  (and a fewer others) can be solved.
 
 - The current API of Jqwik builds on top of JUnit's Platform API, especially the concept of test engines.
-  This is a powerful abstraction which allows to control a property's lifecycle to a very find degree.
-  However, using an additional test engine, is a barrier to entry for the plain-old Java developer,
+  A _test engine_ is a powerful abstraction which allows to control a property's lifecycle to a very fine degree.
+  However, using an additional test engine, is a barrier of entry for the plain-old Java developer,
   who just wants to go on using the well-known `@Test` annotation.
   Therefore, Jqwik 2 will also provide a more lightweight API that can be used with JUnit Jupiter -
   or any other testing framework.
 
 - The final part of the argument is that PBT could be about much more than just generating random values.
-  Some parts of Jqwik 1 already show this, but there is much more to explore.
+  Some parts of Jqwik 1 already show this, but there are new worlds to explore.
   This is what the rest of this article is about.
 
 ## Next Generation Property-Based Testing
 
 For me the core idea of PBT boils down to two things:
 
-- Define a property with constraints and invariants.
+- Define a property with pre-conditions, constraints and invariants.
 - Exercise and evaluate the property by generating inputs that comply with the constraints.
 
-The standard way is to generate (pseudo)-random inputs, run the property,
+The standard way of most PBT tools is to generate (pseudo)-random inputs, run the property,
 and shrink the input when the property fails.
 
 There are many more ways you can make use of the core idea, though. 
@@ -88,11 +91,10 @@ For example:
 
 ## Semi-Automated Test-Driven Development
 
-I'll guide you through the steps of test-driving a simple FizzBuzz implementation
+I'll guide you through the first steps of test-driving a simple FizzBuzz implementation
 using the proof-of-concept of Jqwik 2 and a class `TDD` that serves as an API 
-to the TDD process.
-It's using a combination of generate growing input data and using edge cases. 
-
+to automate some parts of the _Test-Code-Refactor_ TDD cycle.
+It's using a combination of _generating growing input data_ and injecting edge cases. 
 Imaging the code to be run as a JUnit Jupiter test method or a jqwik example method.
 
 
