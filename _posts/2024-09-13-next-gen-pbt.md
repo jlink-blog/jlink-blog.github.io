@@ -173,13 +173,14 @@ NOT COVERED:
 
 ### Step 4
 
-__TODO: Let's continue from here__
+The uncovered case `2` suggests that we can generalize our test case 
+to cover all "normal" numbers, i.e. those that are not divisible by 3 or 5:
 
 ```java
 TDD.forAll(Numbers.integers().between(1, 1_000_000))
    .verifyCase(
      "normal numbers", 
-     number -> true,
+     number -> i -> i % 3 != 0 && i % 5 != 0,
      number -> {
        var result = fizzBuzz(number);
        assertThat(result).isEqualTo(Integer.toString(number));
@@ -188,7 +189,7 @@ TDD.forAll(Numbers.integers().between(1, 1_000_000))
    .drive();
 ```
 
-_Result:_
+The result now differs slightly from the previous one:
 
 ```
 normal numbers:
@@ -199,7 +200,11 @@ normal numbers:
        but was: "1"
 ```
 
+We still see that `1` is satisfied, but `2` is failing.
+
 ### Step 5
+
+Let's fix the failing test case...
 
 ```java
 String fizzBuzz(int number) {
@@ -207,26 +212,38 @@ String fizzBuzz(int number) {
 }
 ```
 
-_Result:_
+... and rerun the property:
 
 ```
 normal numbers:
   [1]: SATISFIED
   [2]: SATISFIED
-  [100]: SATISFIED
+  [1..98]: SATISFIED
+  [999998]: SATISFIED
+  
+NOT COVERED:
+  [3]
 ```
 
-### Step 6
+And again, the TDD automator tells us two things:
+1. The "normal numbers" case is fully covered until `98`;
+   moreover, the edge case `999998` can also be satisfied.
+2. We have input data that is not covered, the smallest of which is `3`.
+
+### Alternative Syntax
+
+In the 5 steps above I showed you how to use the `TDD` class to guide you through the TDD process.
+The same could be achieved using a more JUnit-like syntax and test engine.
+Maybe you prefer this style:
 
 ```java
 @TestDrive
 class FizzBuzzTests {
     @ForAll @IntRange(min = 1) number;
-
-
+	
     @Case
     void normal_numbers() {
-        Assume.that(number % 3 != 0);
+        Assume.that(!isDivisibleBy(number, 3) && !isDivisibleBy(number, 5));
         var result = fizzBuzz(number);
         assertThat(result).isEqualTo(Integer.toString(number));
     }
@@ -244,145 +261,22 @@ class FizzBuzzTests {
 }
 ```
 
-### Result
-
-normal numbers
-  [1] SATISFIED
-  [2] SATISFIED
-  [1000] SATISFIED
-
+With this syntax the same TDD automator could be triggered, providing results of the same kind:
+  
+```
+normal numbers:
+  [1]: SATISFIED
+  [2]: SATISFIED
+  [1..98]: SATISFIED
+  [999998]: SATISFIED
+  
 three
   [3] FAILED: expected Fizz but was 3
-
-
-```java
-String fizzBuzz(int number) {
-    if (number % 3 == 0) {
-        return "Fizz";
-    }
-    return "" + number;
-}
 ```
 
-### Result
+## Conclusion
 
-normal numbers
-  [1] SATISFIED
-  [2] SATISFIED
-  [6] FAILED: expected Fizz but was 3
-
-three
-  [3] SATISFIED
-
-
-```java
-@TestDrive
-class FizzBuzzTests {
-    @ForAll @IntRange(min = 1) number;
-
-
-    @Case
-    void normal_numbers() {
-        Assume.that(number % 3 != 0);
-        var result = fizzBuzz(number);
-        assertThat(result).isEqualTo(Integer.toString(number));
-    }
-
-    @Case
-    void divisible_by_3() {
-        Assume.that(number % 3 == 0);
-        var result = fizzBuzz(number);
-        assertThat(result).isEqualTo("Fizz");
-    }
-
-    String fizzBuzz(int number) {
-        if (number % 3 == 0) {
-            return "Fizz";
-        }
-        return "" + number;
-    }
-}
-```
-
-### Result
-
-normal numbers
-  [1] SATISFIED
-  [2] SATISFIED
-  [1000] SATISFIED
-
-divisible by 3
-  [3] SATISFIED
-  [6] SATISFIED
-  [999] SATISFIED
-
-########################
-
-```java
-@TestDrive
-void fizzBuss(@ForAll @IntRange(min = 1) number) {
-    var result = fizzBuzz(number);
-    if (number % 3 == 0) {
-        assertThat(result).isEqualTo("Fizz");
-    } else if (number % 5 == 0) {
-        assertThat(result).isEqualTo("Buzz");
-    } else {
-        assertThat(result).isEqualTo(Integer.toString(number));
-    }
-    done();
-}
-```
-
-Result:
-- "Input: 1 -> Success"
-- "Input: 2 -> Success"
-- "Input: 3 -> Success"
-- "Input: 5 -> Failed: expected Buzz but was 5"
-
-```java
-@TestDrive
-void fizzBuss(@ForAll @IntRange(min = 1) number) {
-    var result = fizzBuzz(number);
-    if (number % 3 == 0) {
-        assertThat(result).isEqualTo("Fizz");
-    } else if (number % 5 == 0) {
-        assertThat(result).isEqualTo("Buzz");
-    } else {
-        assertThat(result).isEqualTo(Integer.toString(number));
-    }
-    done();
-}
-```
-
-Result:
-- "Input: 1 -> Success"
-- "Input: 2 -> Success"
-- "Input: 3 -> Success"
-- "Input: 5 -> Success"
-- "Input: 6 -> Success"
-- "Rest -> Success"
-
-```java
-@TestDrive
-void fizzBuss(@ForAll @IntRange(min = 1) number) {
-    var result = fizzBuzz(number);
-    if (number % 3 == 0) {
-        assertThat(result).startsWith("Fizz");
-    } 
-    if (number % 5 == 0) {
-        assertThat(result).endsWith("Buzz");
-    }
-    if (number % 3 != 0 && number % 5 != 0) {
-        assertThat(result).isEqualTo(Integer.toString(number));
-    }
-    done();
-}
-```
-
-Result:
-- "Input: 1 -> Success"
-- "Input: 2 -> Success"
-- "Input: 3 -> Success"
-- "Input: 5 -> Success"
-- "Input: 6 -> Success"
-- "Input: 15 -> Failed: expected Fizz to end with Buzz"
+I hope I could convince you that the current state of PBT tooling is not the end of the road.
+There are many more ways to use the core idea of Property-based Testing than just generating random values.
+If you want to see some of these ideas come true, help me make Jqwik 2 a reality,
+for example by becoming a [sponsor for the jqwik-team](https://github.com/sponsors/jqwik-team).
