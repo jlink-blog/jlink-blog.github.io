@@ -28,7 +28,7 @@ My argument for Jqwik 2 has several parts:
 
   I will not write about implementation details today, but the
   [proof of concept](https://github.com/jqwik-team/jqwik2-poc/) shows that both weaknesses
-  (and a fewer others) can be solved.
+  (and a few others) can be solved.
 
 - The current API of Jqwik builds on top of JUnit's Platform API, especially the concept of test engines.
   A _test engine_ is a powerful abstraction which allows to control a property's lifecycle to a very fine degree.
@@ -49,24 +49,25 @@ For me the core idea of PBT boils down to two things:
 - Exercise and evaluate the property by generating inputs that comply with the constraints.
 
 The standard way of most PBT tools is to generate (pseudo)-random inputs, run the property,
-and shrink the input when the property fails.
+and - when the property fails - [shrink](https://jqwik.net/docs/current/user-guide.html#result-shrinking) 
+the input to the smallest failing sample.
 
 There are many more ways you can make use of the core idea, though. 
 For example:
 
 - Generate all possible inputs exhaustively, if possible.
   For combinatorial reasons this is only feasible for small input domains;
-  but when it is possible, it can be a powerful way to ensure correctness.
+  but when it is possible, it can be a powerful way to ensure the correctness of a property.
   Jqwik 1 already has that capability.
 
 - Guide your random generation by external criteria, e.g. code coverage.
   A few PBT libraries offer this approach.
-  Some studies suggest that this can be a good way to find bugs in fewer tries
-  than by going random only.
+  Some studies suggest that this can be a good way to find bugs in fewer tries -
+  and thus in less time - than by going random only.
 
 - Generate "growing" inputs until the property fails or a threshold is reached.
   This idea is not new, some libs use it as a replacement for random generation.
-  In my opinion, it is a useful approach when combined with other ideas.
+  In my opinion, this is a useful approach when combined with other ideas.
 
 - Generate only edge cases plus a small number of random ones in-between edge cases.
   This is what you would expect from handwritten test cases, but automated.
@@ -241,7 +242,7 @@ Maybe you prefer this style:
 ```java
 @TestDrive
 class FizzBuzzTests {
-    @ForAll @IntRange(min = 1) number;
+    @ForAll @IntRange(min = 1, max = 1_000_000) number;
 	
     @Case
     void normal_numbers() {
