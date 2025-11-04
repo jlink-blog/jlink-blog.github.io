@@ -1,5 +1,5 @@
 ---
-title: "To Gen or Not To Gen: The Ethical Use of Generative AIg"
+title: "To Gen or Not To Gen: The Ethical Use of Generative AI"
 description: "Is it ethical to use hyper-scaled GenAI?"
 status: publish
 categories: []
@@ -8,8 +8,6 @@ tags:
 - GenAI
 - ethics
 ---
-
-__Last Update:__ November 4, 2025.
 
 This blog entry started out as a translation of an article that my colleague [Jakob](#jakob-schnell) and I wrote for a German magazine.
 After that we added more stuff and enriched it by additional references and sources.
@@ -20,6 +18,8 @@ hopefully, the loads of references can lead you to diving in deeper wherever you
 Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
+
+__Last Update:__ November 4, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
