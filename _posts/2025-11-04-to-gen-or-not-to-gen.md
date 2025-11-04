@@ -596,92 +596,92 @@ the ethical way of next generation software development.
 
 [^5]: Joel Becker et. al, "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity". <br>https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/
 
-[^6]: Sichu Zhang, Thoughtworks, "How much faster can coding assistants really make software delivery?". https://www.thoughtworks.com/insights/blog/generative-ai/how-faster-coding-assistants-software-delivery
+[^6]: Sichu Zhang, Thoughtworks, "How much faster can coding assistants really make software delivery?". <br>https://www.thoughtworks.com/insights/blog/generative-ai/how-faster-coding-assistants-software-delivery
 
 [^7]: Peter Naur, (1985). "Programming as theory building". Microprocessing and Microprogramming, 15(5), 253–261.  
 
-[^8]: Ars Technica, "LLMs’ simulated reasoning abilities". https://arstechnica.com/ai/2025/08/researchers-find-llms-are-bad-at-logical-inference-good-at-fluent-nonsense/
+[^8]: Ars Technica, "LLMs’ simulated reasoning abilities". <br>https://arstechnica.com/ai/2025/08/researchers-find-llms-are-bad-at-logical-inference-good-at-fluent-nonsense/
 
-[^9]: Chengshuai Zhao et al., (2025). "Is Chain-of-Thought Reasoning of LLMs a Mirage? A Data Distribution Lens". https://arxiv.org/pdf/2508.01191
+[^9]: Chengshuai Zhao et al., (2025). "Is Chain-of-Thought Reasoning of LLMs a Mirage? A Data Distribution Lens". <br>https://arxiv.org/pdf/2508.01191
 
-[^10]: Thomas Fricke, Ressourcenverbrauch von AI (German). https://thomasfricke.de/post/energy-resource-ai-de/
+[^10]: Thomas Fricke, Ressourcenverbrauch von AI (German). <br>https://thomasfricke.de/post/energy-resource-ai-de/
 
-[^11]: Technology Review, 5/2025. "We did the math on AI’s energy footprint". https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/
+[^11]: Technology Review, 5/2025. "We did the math on AI’s energy footprint". <br>https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/
 
-[^12]: The Atlantic, 3/2024. "AI Is Taking Water From the Desert". https://www.theatlantic.com/technology/archive/2024/03/ai-water-climate-microsoft/677602/
+[^12]: The Atlantic, 3/2024. "AI Is Taking Water From the Desert". <br>https://www.theatlantic.com/technology/archive/2024/03/ai-water-climate-microsoft/677602/
 
-[^13]: Bloomberg, 5/2025. "AI is draining water from the areas that need it most". https://www.bloomberg.com/graphics/2025-ai-impacts-data-centers-water-data/
+[^13]: Bloomberg, 5/2025. "AI is draining water from the areas that need it most". <br>https://www.bloomberg.com/graphics/2025-ai-impacts-data-centers-water-data/
 
-[^14]: Krzysztof Budzyń et. al, The Lancet, 8/2025. "Endoscopist deskilling risk after exposure to artificial intelligence in colonoscopy: a multicentre, observational study". https://www.thelancet.com/journals/langas/article/PIIS2468-1253(25)00133-5/abstract
+[^14]: Krzysztof Budzyń et. al, The Lancet, 8/2025. "Endoscopist deskilling risk after exposure to artificial intelligence in colonoscopy: a multicentre, observational study". <br>https://www.thelancet.com/journals/langas/article/PIIS2468-1253(25)00133-5/abstract
 
-[^15]: Gary Marcus, "GPT-5: Overdue, overhyped and underwhelming". https://garymarcus.substack.com/p/gpt-5-overdue-overhyped-and-underwhelming
+[^15]: Gary Marcus, "GPT-5: Overdue, overhyped and underwhelming". <br>https://garymarcus.substack.com/p/gpt-5-overdue-overhyped-and-underwhelming
 
-[^16]: Iris van Rooij, 8/2025. "AI slop and the destruction of knowledge". https://irisvanrooijcogsci.com/2025/08/12/ai-slop-and-the-destruction-of-knowledge/
+[^16]: Iris van Rooij, 8/2025. "AI slop and the destruction of knowledge". <br>https://irisvanrooijcogsci.com/2025/08/12/ai-slop-and-the-destruction-of-knowledge/
 
-[^17]: 404 Media, 6/2025. "Teachers Are Not OK". https://www.404media.co/teachers-are-not-ok-ai-chatgpt/
+[^17]: 404 Media, 6/2025. "Teachers Are Not OK". <br>https://www.404media.co/teachers-are-not-ok-ai-chatgpt/
 
-[^18]: P.V. Coveney, S. Succi. "The wall confronting large language models". https://arxiv.org/html/2507.19703v1
+[^18]: P.V. Coveney, S. Succi. "The wall confronting large language models". <br>https://arxiv.org/html/2507.19703v1
 
-[^19]: TechCrunch, 01/2025, "How OpenAI's bot crushed this seven-person company's website 'like a DDoS attack'". https://techcrunch.com/2025/01/10/how-openais-bot-crushed-this-seven-person-companys-web-site-like-a-ddos-attack/
+[^19]: TechCrunch, 01/2025, "How OpenAI's bot crushed this seven-person company's website 'like a DDoS attack'". <br>https://techcrunch.com/2025/01/10/how-openais-bot-crushed-this-seven-person-companys-web-site-like-a-ddos-attack/
 
-[^20]: Brian Porte & Edouard Machery. Nature, Scientific Reports, 2024. "AI-generated poetry is indistinguishable from human-written poetry and is rated more favorably". https://www.nature.com/articles/s41598-024-76900-1
+[^20]: Brian Porte & Edouard Machery. Nature, Scientific Reports, 2024. "AI-generated poetry is indistinguishable from human-written poetry and is rated more favorably". <br>https://www.nature.com/articles/s41598-024-76900-1
 
-[^21]: Time, 04/25, "15 Quotes on the Future of AI". https://time.com/partner-article/7279245/15-quotes-on-the-future-of-ai/
+[^21]: Time, 04/25, "15 Quotes on the Future of AI". <br>https://time.com/partner-article/7279245/15-quotes-on-the-future-of-ai/
 
-[^22]: Noema, 09/24, "The human cost of our AI-driven future". https://www.noemamag.com/the-human-cost-of-our-ai-driven-future/
+[^22]: Noema, 09/24, "The human cost of our AI-driven future". <br>https://www.noemamag.com/the-human-cost-of-our-ai-driven-future/
 
-[^23]: Wikipedia article "Reinforcement learning from human feedback". https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback
+[^23]: Wikipedia article "Reinforcement learning from human feedback". <br>https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback
 
-[^24]: "Tech Bro Topia", DLF documentary (German), 2025. https://www.deutschlandfunk.de/tech-bro-topia-f1-mit-der-roten-pille-zur-macht-100.html
+[^24]: "Tech Bro Topia", DLF documentary (German), 2025. <br>https://www.deutschlandfunk.de/tech-bro-topia-f1-mit-der-roten-pille-zur-macht-100.html
 
-[^25]: MIT Technology Review, 2/25, "AI crawler wars threaten to make the web more closed for everyone". https://www.technologyreview.com/2025/02/11/1111518/ai-crawler-wars-closed-web/
+[^25]: MIT Technology Review, 2/25, "AI crawler wars threaten to make the web more closed for everyone". <br>https://www.technologyreview.com/2025/02/11/1111518/ai-crawler-wars-closed-web/
 
-[^26]: Jürgen Geuther, talk at GPN23, 6/25. "Against Tech-Fascism". https://www.youtube.com/watch?v=fOCxosh0cqA
+[^26]: Jürgen Geuther, talk at GPN23, 6/25. "Against Tech-Fascism". <br>https://www.youtube.com/watch?v=fOCxosh0cqA
 
-[^27]: Daniel Stenberg, 07/25, "Death by a thousand slops". https://daniel.haxx.se/blog/2025/07/14/death-by-a-thousand-slops/
+[^27]: Daniel Stenberg, 07/25, "Death by a thousand slops". <br>https://daniel.haxx.se/blog/2025/07/14/death-by-a-thousand-slops/
 
-[^28]: Ketan Joshi, 08/25, "Big tech’s selective disclosure masks AI’s real climate impact". https://ketanjoshi.co/2025/08/23/big-techs-selective-disclosure-masks-ais-real-climate-impact/
+[^28]: Ketan Joshi, 08/25, "Big tech’s selective disclosure masks AI’s real climate impact". <br>https://ketanjoshi.co/2025/08/23/big-techs-selective-disclosure-masks-ais-real-climate-impact/
 
-[^29]: Malwaretech, 08/25, "Every Reason Why I Hate AI and You Should Too". https://malwaretech.com/2025/08/every-reason-why-i-hate-ai.html
+[^29]: Malwaretech, 08/25, "Every Reason Why I Hate AI and You Should Too". <br>https://malwaretech.com/2025/08/every-reason-why-i-hate-ai.html
 
-[^30]: New York Times, 09/25, "How Elon Musk Is Remaking Grok in His Image". https://www.nytimes.com/2025/09/02/technology/elon-musk-grok-conservative-chatbot.html
+[^30]: New York Times, 09/25, "How Elon Musk Is Remaking Grok in His Image". <br>https://www.nytimes.com/2025/09/02/technology/elon-musk-grok-conservative-chatbot.html
 
-[^31]: Wikipedia article "AlphaFold". https://en.wikipedia.org/wiki/AlphaFold
+[^31]: Wikipedia article "AlphaFold". <br>https://en.wikipedia.org/wiki/AlphaFold
 
-[^32]: Stanford Business, 5/25, "When AI-Generated Art Enters the Market, Consumers Win — and Artists Lose". https://www.gsb.stanford.edu/insights/when-ai-generated-art-enters-market-consumers-win-artists-lose
+[^32]: Stanford Business, 5/25, "When AI-Generated Art Enters the Market, Consumers Win — and Artists Lose". <br>https://www.gsb.stanford.edu/insights/when-ai-generated-art-enters-market-consumers-win-artists-lose
 
-[^33]: National Observer, 9/25, "Google deletes net-zero pledge from sustainability website". https://www.nationalobserver.com/2025/09/04/investigations/google-net-zero-sustainability
+[^33]: National Observer, 9/25, "Google deletes net-zero pledge from sustainability website". <br>https://www.nationalobserver.com/2025/09/04/investigations/google-net-zero-sustainability
 
 [^34]: Heated, 07/25, "He helped Microsoft build AI to help the climate. Then Microsoft sold it to Big Oil." https://heated.world/p/he-helped-microsoft-build-ai-to-help
 
-[^35]: Sam Altman, 6/25, "The Gentle Singularity". https://blog.samaltman.com/the-gentle-singularity
+[^35]: Sam Altman, 6/25, "The Gentle Singularity". <br>https://blog.samaltman.com/the-gentle-singularity
 
-[^36]: Google Cloud Blog, 8/26, "How much energy does Google’s AI use?". https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference
+[^36]: Google Cloud Blog, 8/26, "How much energy does Google’s AI use?". <br>https://cloud.google.com/blog/products/infrastructure/measuring-the-environmental-impact-of-ai-inference
 
 [^37]: Footnote free to reuse.
 
-[^38]: Anthropic Research, 10/25, "A small number of samples can poison LLMs of any size". https://www.anthropic.com/research/small-samples-poison
+[^38]: Anthropic Research, 10/25, "A small number of samples can poison LLMs of any size". <br>https://www.anthropic.com/research/small-samples-poison
 
-[^39]: The Register, 10/25, "Climate goals go up in smoke as US datacenters turn to coal". https://www.theregister.com/2025/10/10/datacenter_coal_power/
+[^39]: The Register, 10/25, "Climate goals go up in smoke as US datacenters turn to coal". <br>https://www.theregister.com/2025/10/10/datacenter_coal_power/
 
-[^40]: Futurism, 10/25, "AI Data Centers Are an Even Bigger Disaster Than Previously Thought". https://futurism.com/future-society/ai-data-centers-finances
+[^40]: Futurism, 10/25, "AI Data Centers Are an Even Bigger Disaster Than Previously Thought". <br>https://futurism.com/future-society/ai-data-centers-finances
 
-[^41]: _"All models fell far short of their Maximum Context Window by as much as 99 percent"_.<br> Norman Paulsen, 9/25, "Context Is What You Need: The Maximum Effective Context Window for Real World Limits of LLMs". https://arxiv.org/abs/2509.21361
+[^41]: _"All models fell far short of their Maximum Context Window by as much as 99 percent"_.<br> Norman Paulsen, 9/25, "Context Is What You Need: The Maximum Effective Context Window for Real World Limits of LLMs". <br>https://arxiv.org/abs/2509.21361
 
-[^42]: Lennart Meincke, Ethan Mollick, Lilach Mollick, Dan Shapiro; Wharton Generative AI Labs, 6/25, "The Decreasing Value of Chain of Thought in Prompting". https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/
+[^42]: Lennart Meincke, Ethan Mollick, Lilach Mollick, Dan Shapiro; Wharton Generative AI Labs, 6/25, "The Decreasing Value of Chain of Thought in Prompting". <br>https://gail.wharton.upenn.edu/research-and-insights/tech-report-chain-of-thought/
 
-[^43]: BBC, 10/25, "News Integrity in AI Assistants - An international PSM study". https://www.bbc.co.uk/mediacentre/documents/news-integrity-in-ai-assistants-report.pdf
+[^43]: BBC, 10/25, "News Integrity in AI Assistants - An international PSM study". <br>https://www.bbc.co.uk/mediacentre/documents/news-integrity-in-ai-assistants-report.pdf
 
-[^44]: Gary Marcus argues that LLMs are rather good at interpolating - filling in a few missing points - but very bad at extrapolating - finding or deriving new knowledge. https://cacm.acm.org/opinion/not-on-the-best-path/
+[^44]: Gary Marcus argues that LLMs are rather good at interpolating - filling in a few missing points - but very bad at extrapolating - finding or deriving new knowledge. <br>https://cacm.acm.org/opinion/not-on-the-best-path/
 
-[^45]: Iris van Rooij et al., Computational Brain & Behavior, 9/25. "Reclaiming AI as a Theoretical Tool for Cognitive Science". https://link.springer.com/article/10.1007/s42113-024-00217-5
+[^45]: Iris van Rooij et al., Computational Brain & Behavior, 9/25. "Reclaiming AI as a Theoretical Tool for Cognitive Science". <br>https://link.springer.com/article/10.1007/s42113-024-00217-5
 
-[^46]: The Register, 10/25, "Grounded jet engines take off again as datacenter generators". https://www.theregister.com/2025/10/22/datacenter_jet_engines/
+[^46]: The Register, 10/25, "Grounded jet engines take off again as datacenter generators". <br>https://www.theregister.com/2025/10/22/datacenter_jet_engines/
 
-[^47]: Pivot to AI, 10/25, "AI: powered by old jet turbines, near you!". https://pivot-to-ai.com/2025/10/30/ai-powered-by-old-jet-turbines-near-you/
+[^47]: Pivot to AI, 10/25, "AI: powered by old jet turbines, near you!". <br>https://pivot-to-ai.com/2025/10/30/ai-powered-by-old-jet-turbines-near-you/
 
-[^48]: Courtney C. Radsch, 10/25, "We should all be Luddites". https://www.brookings.edu/articles/we-should-all-be-luddites/
+[^48]: Courtney C. Radsch, 10/25, "We should all be Luddites". <br>https://www.brookings.edu/articles/we-should-all-be-luddites/
 
-[^49]: Korny Sietsma, 10/25, "Agentic AI and Security". https://martinfowler.com/articles/agentic-ai-security.html
+[^49]: Korny Sietsma, 10/25, "Agentic AI and Security". <br>https://martinfowler.com/articles/agentic-ai-security.html
 
-[^50]: OWASP - GenAI Security Project, 2025, "LLM01:2025 Prompt Injection". https://genai.owasp.org/llmrisk/llm01-prompt-injection/ 
+[^50]: OWASP - GenAI Security Project, 2025, "LLM01:2025 Prompt Injection". <br>https://genai.owasp.org/llmrisk/llm01-prompt-injection/ 
