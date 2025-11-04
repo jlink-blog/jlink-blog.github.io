@@ -586,15 +586,15 @@ So maybe we are not the coachmen but the bicycle riders who pave the road for
 the ethical way of next generation software development.
 
 
-[^1]: Wikipedia article "Behavioral Ethics". https://en.wikipedia.org/wiki/Behavioral_ethics
+[^1]: Wikipedia article "Behavioral Ethics". <br>https://en.wikipedia.org/wiki/Behavioral_ethics
 
-[^2]: Wikipedia article "Language of Thought Hypothesis". https://en.wikipedia.org/wiki/Language_of_thought_hypothesis
+[^2]: Wikipedia article "Language of Thought Hypothesis". <br>https://en.wikipedia.org/wiki/Language_of_thought_hypothesis
 
-[^3]: Shojaee, Mirzadeh, Alizadeh et al., Apple Research, "The Illusion of Thinking". https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf
+[^3]: Shojaee, Mirzadeh, Alizadeh et al., Apple Research, "The Illusion of Thinking". <br>https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf
 
-[^4]: Gary Marcus, "Generative AI’s crippling and widespread failure to induce robust models of the world". https://garymarcus.substack.com/p/generative-ais-crippling-and-widespread
+[^4]: Gary Marcus, "Generative AI’s crippling and widespread failure to induce robust models of the world". <br>https://garymarcus.substack.com/p/generative-ais-crippling-and-widespread
 
-[^5]: Joel Becker et. al, "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity". https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/
+[^5]: Joel Becker et. al, "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity". <br>https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/
 
 [^6]: Sichu Zhang, Thoughtworks, "How much faster can coding assistants really make software delivery?". https://www.thoughtworks.com/insights/blog/generative-ai/how-faster-coding-assistants-software-delivery
 
