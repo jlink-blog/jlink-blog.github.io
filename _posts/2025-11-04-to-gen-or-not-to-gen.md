@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ November 4, 2025.
+__Last Update:__ November 7, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
@@ -488,7 +488,8 @@ or simply not to generate any output that could upset the CEO or the president [
 
 Even more serious is the fact that many of the leading minds behind these corporations and their financiers
 adhere to beliefs that can be broadly described as _digital fascism_.
-These include Peter Thiel, Marc Andreessen, Alex Karp, JD Vance, and Elon Musk.
+These include Peter Thiel, Marc Andreessen, Alex Karp, JD Vance, Elon Musk
+and many others on "The Authoritarian Stack" [^51].
 Their ideologies, disguised as rational theories, are called _longtermism_ and _effective altruism_.
 What they have in common is that they consider democracy and the state to be obsolete models, compassion to be ‘woke’,
 and that the current problems of humanity are insignificant, as our future lies in the colonisation of
@@ -685,3 +686,5 @@ the ethical way of next generation software development.
 [^49]: Korny Sietsma, 10/25, "Agentic AI and Security". <br>https://martinfowler.com/articles/agentic-ai-security.html
 
 [^50]: OWASP - GenAI Security Project, 2025, "LLM01:2025 Prompt Injection". <br>https://genai.owasp.org/llmrisk/llm01-prompt-injection/ 
+
+[^51]: The Authoritarian Stack. https://www.authoritarian-stack.info/
