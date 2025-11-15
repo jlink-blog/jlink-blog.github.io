@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ November 13, 2025.
+__Last Update:__ November 15, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
@@ -158,12 +158,13 @@ i.e. to fill in the gaps between training data and speculate beyond the limits o
 Together with the stochastic nature of the training data, this results in some interesting properties:
 - GenAI models ‘invent’ answers; with LLMs, we like to refer to this as ‘hallucinations’.
 - GenAI models do not know what is true or false, good or bad, efficient or effective,
-  only what is statistically probable or improbable in relation to the training data.
+  only what is statistically probable or improbable in relation to training data, context
+  and query (aka _prompt_).
 - GenAI models cannot explain their output; they have no capability of introspection.
   What is sold as introspection is just more output, with the previous output re-injected.
 - GenAI models do not learn from you; they _only_ draw from their training material. 
-  The learning experience is faked by reinjecting prior input into a conversations _context_ [^52].
-- The context, i.e. the set of input parameters provided, is decisive for the accuracy
+  The learning experience is faked by reinjecting prior input into a conversation's context [^52].
+- The _context_, i.e. the set of input parameters provided, is decisive for the accuracy
   of the generated result, but can also steer the model in the wrong direction.
   Increasing the context window makes a query much more computation-intensive - likely in a quadratic way.
   Therefore, the promised increase of "maximum context window" of many models is mostly fake [^41].
