@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ November 15, 2025.
+__Last Update:__ November 17, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
@@ -115,7 +115,7 @@ Ideally, this should be in a way that benefits us all;
 but under no circumstances should it be in a way that benefits a small group and harms the majority.
 
 The crux of the matter is that ethical behaviour does not come for free.
-Ethics are neither efficient nor do they enhance your profit.
+Ethics are neither efficient nor do they enhance your economic profit.
 That means that by acting according to your values you will, at some point, have to give something up.
 If you're not willing to do that, you don't have values - just opinions.
 
