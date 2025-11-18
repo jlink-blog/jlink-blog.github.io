@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ November 17, 2025.
+__Last Update:__ November 18, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
@@ -124,10 +124,11 @@ If you're not willing to do that, you don't have values - just opinions.
 
 When we write ‘generative AI’ (GenAI), we are referring to a very specific subset of the many techniques and approaches
 that fall under the term ‘artificial intelligence’.
-Strictly speaking, these are a variety of approaches in the field of _machine learning (ML)_.
-What these approaches have in common is that they use multi-layered _artificial neural networks_
-to discover _statistical correlations_ based on very large amounts of data – often referred to as ‘training’ –
-and to be able to reproduce them.
+Strictly speaking, these are a variety of very different approaches that range from symbolic logic,
+over automated planning up to the broad field of _machine learning (ML)_.
+Nowadays most effort, hype and money goes into _deep learning (DL)_: a subfield of ML that uses 
+multi-layered _artificial neural networks_ to discover _statistical correlations_ (aka _patterns_) 
+based on very large amounts of training data in order to reproduce those patterns later.
 
 Large language models (LLM) and related methods for generating images, videos and speech
 now make it possible to apply this idea to completely unstructured data.
