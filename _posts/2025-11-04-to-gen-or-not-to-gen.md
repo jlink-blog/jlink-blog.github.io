@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ November 18, 2025.
+__Last Update:__ November 20, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
@@ -263,9 +263,12 @@ Sadly, serious studies on the actual benefits of GenAI in software development a
 The randomised trial by Metr [^5] provides an initial indication,
 measuring a **decline in development speed** for experienced developers.
 An informal study by ThoughtWorks estimates the potential productivity gain
-from using GenAI in software development at around 5-15% [^6] .
+from using GenAI in software development at around 5-15% [^6].
+If "AI coding" were increasing programmers' productivity by any big number, 
+we would see a measurable growth of new software in app stores and OSS repositories.
+But we don't, the numbers are flat at best [^54].
 
-Thus, even if we assume a productivity increase in coding through GenAI,
+But even if we assume a productivity increase in coding through GenAI,
 there are still two points that further diminish this postulated efficiency gain:
 Firstly, the results of the generation must still be cross-checked by human developers.
 However, it is well known that humans are poor checkers and lose both attention and enjoyment in the process.
@@ -274,6 +277,7 @@ The most important part is discovering solutions and learning about the use of t
 Peter Naur calls this ‘programming as theory building’ [^7].
 Even the perfect coding assistant can therefore only take over the coding part of software development.
 For the essential rest, we still need humans.
+
 If we now also consider the finding that using AI can relatively quickly
 lead to a loss of problem-solving skills [^14] or that these skills are not acquired at all,
 then the overall benefit of using GenAI in professional software development is more than questionable.
@@ -699,3 +703,5 @@ the ethical way of next generation software development.
 [^52]: Mark Levison, 10/25, "GenAI vs Human Intelligence - a Reality Check". <br>https://agilepainrelief.com/blog/gen-ai-vs-human-intelligence-a-reality-check/
 
 [^53]: Nature Sustainability, 11/25, "Environmental impact and net-zero pathways for sustainable artificial intelligence servers in the USA". <br>https://www.nature.com/articles/s41893-025-01681-y
+
+[^54]: Mike Judge, 9/25, "Where's the Shovelware? Why AI Coding Claims Don't Add Up". <br>https://mikelovesrobots.substack.com/p/wheres-the-shovelware-why-ai-coding
