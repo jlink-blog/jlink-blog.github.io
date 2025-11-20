@@ -347,6 +347,7 @@ After all, cooling requires clean water in drinking quality in order to not cont
 Already today, new data centre locations are competing with human consumption of drinking water.
 According to Bloomberg News about two-thirds of data-centers that were built or developed in 2022
 are located in areas that are already under "water-stress" [^13].
+In the US alone "AI servers [...] could generate an annual water footprint ranging from 731 to 1,125 million m3" [^53].
 
 
 #### Electronic Waste
@@ -696,3 +697,5 @@ the ethical way of next generation software development.
 [^51]: The Authoritarian Stack. https://www.authoritarian-stack.info/
 
 [^52]: Mark Levison, 10/25, "GenAI vs Human Intelligence - a Reality Check". <br>https://agilepainrelief.com/blog/gen-ai-vs-human-intelligence-a-reality-check/
+
+[^53]: Nature Sustainability, 11/25, "Environmental impact and net-zero pathways for sustainable artificial intelligence servers in the USA". <br>https://www.nature.com/articles/s41893-025-01681-y
