@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ November 20, 2025.
+__Last Update:__ November 23, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
@@ -391,6 +391,8 @@ and the generation of knowledge through understanding and supplementing existing
 The training cycle of schools and universities is fast.
 Teachers are already reporting that pupils and students have acquired noticeably
 less competence in recent years, but have instead become dependent on unreliable ‘tools’ [^17].
+The real problem with using GenAI to do assignments is not cheating, 
+but students "are not just undermining their ability to learn, but to someday lead." [^55]
 
 
 ### GenAI is destroying the free internet.
@@ -705,3 +707,5 @@ the ethical way of next generation software development.
 [^53]: Nature Sustainability, 11/25, "Environmental impact and net-zero pathways for sustainable artificial intelligence servers in the USA". <br>https://www.nature.com/articles/s41893-025-01681-y
 
 [^54]: Mike Judge, 9/25, "Where's the Shovelware? Why AI Coding Claims Don't Add Up". <br>https://mikelovesrobots.substack.com/p/wheres-the-shovelware-why-ai-coding
+
+[^55]: Huffpost, 11/25, "I Set A Trap To Catch My Students Cheating With AI. The Results Were Shocking.". <br>https://www.huffpost.com/entry/history-professor-ai-cheating-students_n_69178150e4b0781acfd62540
