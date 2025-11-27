@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ November 23, 2025.
+__Last Update:__ November 27, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
@@ -585,6 +585,13 @@ We can learn from them in the literal sense as C.C. Radsch puts it [^48]:
 
 For us personally, this means that we no longer use generative AI – neither for private nor professional purposes.
 Unfortunately, the increasing penetration of GenAI into many services is making this increasingly difficult.
+Fiona puts it like that [^56]:
+> _I personally don’t touch LLMs with a stick. I don’t let them near my brain. [...]_
+>
+> _But I think it’s important to acknowledge that we’re in a priviliged situation to be able to do so. 
+> People are forced to use these systems — by UI patterns, bosses expectations, 
+> knowledge polution making it increasingly hard to learn things, or just peer pressure._
+
 But it also means that we constantly raise our voices against the normalisation of the use of this unethical technology;
 both publicly, but also in private and when dealing with our family, friends, colleagues, students or business partners.
 This makes us - from time to time - inconvenient for others and comes with personal consequences.
@@ -709,3 +716,5 @@ the ethical way of next generation software development.
 [^54]: Mike Judge, 9/25, "Where's the Shovelware? Why AI Coding Claims Don't Add Up". <br>https://mikelovesrobots.substack.com/p/wheres-the-shovelware-why-ai-coding
 
 [^55]: Huffpost, 11/25, "I Set A Trap To Catch My Students Cheating With AI. The Results Were Shocking.". <br>https://www.huffpost.com/entry/history-professor-ai-cheating-students_n_69178150e4b0781acfd62540
+
+[^56]: Fiona Fokus Blog, 11/25, "I don't care how well your 'AI' works". <br>https://fokus.cool/2025/11/25/i-dont-care-how-well-your-ai-works.html
