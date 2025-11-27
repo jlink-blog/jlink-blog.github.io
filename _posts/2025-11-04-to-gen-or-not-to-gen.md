@@ -54,7 +54,7 @@ __Last Update:__ November 27, 2025.
   - [Political aspects](#political-aspects)
 - [Conclusion](#conclusion)
   - [Can there be ethical GenAI?](#can-there-be-ethical-genai)
-  - [How to act ethical](#how-to-act-ethical)
+  - [How to act ethically](#how-to-act-ethically)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -558,7 +558,7 @@ Is such a change conceivable? Perhaps.
 Is it likely, given the interest groups and political aspects involved? Probably not.
 
 
-### How to act ethical
+### How to act ethically
 
 The advocates of generative AI, often direct beneficiaries, want to convey to us that this ‘technology of the future’
 is without alternative and inevitable [^21].
