@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ November 27, 2025.
+__Last Update:__ December 3, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
@@ -179,7 +179,8 @@ to acquire the capabilities of the human brain – reasoning, modelling, abstrac
 Some enthusiasts even claim that today's models have already acquired this capability.
 However, recent studies [^3] [^4] show that today's models are neither capable of genuine reasoning
 nor do they build internal models of the world.
-Moreover, there is fundamental scientific doubt that achieving human cognition through computation
+Moreover, "...according to current neuroscience, human thinking is largely independent of human language [^57]"
+and there is fundamental scientific doubt that achieving human cognition through computation
 is achievable in practice let alone by scaling up training of deep networks [^45].
 
 An example of a lack of understanding of the world is the prompt ‘Give me a random number between 0 and 50’.
@@ -718,3 +719,5 @@ the ethical way of next generation software development.
 [^55]: Huffpost, 11/25, "I Set A Trap To Catch My Students Cheating With AI. The Results Were Shocking.". <br>https://www.huffpost.com/entry/history-professor-ai-cheating-students_n_69178150e4b0781acfd62540
 
 [^56]: Fiona Fokus Blog, 11/25, "I don't care how well your 'AI' works". <br>https://fokus.cool/2025/11/25/i-dont-care-how-well-your-ai-works.html
+
+[^57]: Benjamin Riley, The Verge, 11/25, "Large language mistake". <br>https://www.theverge.com/ai-artificial-intelligence/827820/large-language-models-ai-intelligence-neuroscience-problems
