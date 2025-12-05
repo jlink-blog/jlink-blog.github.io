@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ December 3, 2025.
+__Last Update:__ December 5, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
@@ -386,9 +386,12 @@ The researcher under pressure to publish will ‘save’ research time by readin
 of relevant papers – even if they are completely wrong in terms of content [^16].
 Tech companies like OpenAI and Microsoft play on that situation by offering their ‘AI’ for free
 or for little money to students and universities.
+The goal is obvious: Students that get hooked on outsourcing some of their "tedious" task to a service
+will continue to use - and eventually buy - this service after graduation.
 
 What falls by the wayside are problem-solving skills, engagement with complex sources,
 and the generation of knowledge through understanding and supplementing existing knowledge.
+Some even argue that AI is destroying critical education and learning itself [^58].
 The training cycle of schools and universities is fast.
 Teachers are already reporting that pupils and students have acquired noticeably
 less competence in recent years, but have instead become dependent on unreliable ‘tools’ [^17].
@@ -721,3 +724,5 @@ the ethical way of next generation software development.
 [^56]: Fiona Fokus Blog, 11/25, "I don't care how well your 'AI' works". <br>https://fokus.cool/2025/11/25/i-dont-care-how-well-your-ai-works.html
 
 [^57]: Benjamin Riley, The Verge, 11/25, "Large language mistake". <br>https://www.theverge.com/ai-artificial-intelligence/827820/large-language-models-ai-intelligence-neuroscience-problems
+
+[^58]: Ronald Purser, Current Affairs, 12/25, "AI is Destroying the University and Learning Itself". <br>https://www.currentaffairs.org/news/ai-is-destroying-the-university-and-learning-itself
