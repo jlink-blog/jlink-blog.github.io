@@ -391,7 +391,10 @@ will continue to use - and eventually buy - this service after graduation.
 
 What falls by the wayside are problem-solving skills, engagement with complex sources,
 and the generation of knowledge through understanding and supplementing existing knowledge.
-Some even argue that AI is destroying critical education and learning itself [^58].
+Some even argue that AI is destroying critical education and learning itself [^58]:
+
+> _Students aren’t just learning less; their brains are learning not to learn._
+
 The training cycle of schools and universities is fast.
 Teachers are already reporting that pupils and students have acquired noticeably
 less competence in recent years, but have instead become dependent on unreliable ‘tools’ [^17].
