@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ December 5, 2025.
+__Last Update:__ December 8, 2025.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
@@ -353,6 +353,10 @@ Already today, new data centre locations are competing with human consumption of
 According to Bloomberg News about two-thirds of data-centers that were built or developed in 2022
 are located in areas that are already under "water-stress" [^13].
 In the US alone "AI servers [...] could generate an annual water footprint ranging from 731 to 1,125 million m3" [^53].
+
+It's not only an American problem, though. 
+In other areas of the world the water-thirsty data centers also compete with the drinking water supply
+for humans [^59].
 
 
 #### Electronic Waste
@@ -729,3 +733,5 @@ the ethical way of next generation software development.
 [^57]: Benjamin Riley, The Verge, 11/25, "Large language mistake". <br>https://www.theverge.com/ai-artificial-intelligence/827820/large-language-models-ai-intelligence-neuroscience-problems
 
 [^58]: Ronald Purser, Current Affairs, 12/25, "AI is Destroying the University and Learning Itself". <br>https://www.currentaffairs.org/news/ai-is-destroying-the-university-and-learning-itself
+
+[^59]: The Guardian, 12/25, "Thirsty work: how the rise of massive datacentres strains Australia’s drinking water supply". <br>https://www.theguardian.com/environment/2025/dec/04/thirsty-work-how-the-rise-of-massive-datacentres-strains-australias-drinking-water-supply
