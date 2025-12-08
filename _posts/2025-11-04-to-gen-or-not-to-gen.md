@@ -189,11 +189,12 @@ The typical GenAI response to this is ‘27’, and it is significantly more rel
 This is because 27 is the most likely answer in the GenAI training data –
 and not because the model understands what ‘random’ means.
 
-‘Chain of Thought (CoT)’ approaches attempt to improve reasoning
+‘Chain of Thought (CoT)’ approaches and 'Reasoning models' attempt to improve reasoning
 by breaking down a prompt, the query to the model, into individual (logical) steps
 and then delegating these individual steps back to the LLM.
 This allows some well-known reasoning benchmarks to be met, but it also multiplies the necessary
-computational effort and individual errors chain together to form large errors.
+computational effort by a factor between 30 and 700 [^60].
+In addition, multistep reasoning lets individual errors chain together to form large errors.
 And yet, CoT models do not seem to possess any real reasoning abilities [^8] [^9]
 and improve the overall accuracy of LLMs only marginally [^42].
 
@@ -735,3 +736,5 @@ the ethical way of next generation software development.
 [^58]: Ronald Purser, Current Affairs, 12/25, "AI is Destroying the University and Learning Itself". <br>https://www.currentaffairs.org/news/ai-is-destroying-the-university-and-learning-itself
 
 [^59]: The Guardian, 12/25, "Thirsty work: how the rise of massive datacentres strains Australia’s drinking water supply". <br>https://www.theguardian.com/environment/2025/dec/04/thirsty-work-how-the-rise-of-massive-datacentres-strains-australias-drinking-water-supply
+
+[^60]: Hugging Face's AI Energy Score v2, 12/25, "AI Energy Score v2: Refreshed Leaderboard, now with Reasoning". <br>https://huggingface.co/blog/sasha/ai-energy-score-v2
