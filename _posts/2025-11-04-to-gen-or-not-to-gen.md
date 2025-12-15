@@ -268,7 +268,7 @@ An informal study by ThoughtWorks estimates the potential productivity gain
 from using GenAI in software development at around 5-15% [^6].
 If "AI coding" were increasing programmers' productivity by any big number, 
 we would see a measurable growth of new software in app stores and OSS repositories.
-But we don't, the numbers are flat at best [^54].
+But we don't, the numbers are flat at best [^54][^61].
 
 But even if we assume a productivity increase in coding through GenAI,
 there are still two points that further diminish this postulated efficiency gain:
@@ -738,3 +738,5 @@ the ethical way of next generation software development.
 [^59]: The Guardian, 12/25, "Thirsty work: how the rise of massive datacentres strains Australia’s drinking water supply". <br>https://www.theguardian.com/environment/2025/dec/04/thirsty-work-how-the-rise-of-massive-datacentres-strains-australias-drinking-water-supply
 
 [^60]: Hugging Face's AI Energy Score v2, 12/25, "AI Energy Score v2: Refreshed Leaderboard, now with Reasoning". <br>https://huggingface.co/blog/sasha/ai-energy-score-v2
+
+[^61]: Jason Gorman's Blog, 12/25, "The Gorman Paradox: Where Are All The AI-Generated Apps?". <br>https://codemanship.wordpress.com/2025/12/14/the-gorman-paradox-where-are-all-the-ai-generated-apps/
