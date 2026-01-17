@@ -19,7 +19,7 @@ Since we are both software developers our views are biased and distorted.
 Keep also in mind that any writing about a "hot" topic like this is nothing but a snapshot of what we think to know today.
 By the time you read it the authors' knowledge and opinions have already changed.
 
-__Last Update:__ December 8, 2025.
+__Last Update:__ January 17, 2026.
 
 
 <!-- doctoc --maxlevel 4 --update-only 2025-11-04-to-gen-or-not-to-gen.md -->
