@@ -456,6 +456,18 @@ People no longer have a common factual basis, which is necessary for all social 
 If you don't agree on at least some basic facts, arguing about policies and measures to take is pointless.
 Without negotiations democracy will be dying; in many parts of the world it already is.
 
+But AI put even more pressure on democracy. 
+Hartzog and Silbey, two professors from Boston University's School of Law,
+lay out how AI systems undermine crucial properties of our civic institutions [^62]:
+
+> "Civic institutions are the backbone of democratic life. [...]
+> The real superpower of institutions is their ability to evolve and adapt within a hierarchy of authority and a framework for roles and rules while maintaining legitimacy in the knowledge produced and the actions taken. [...]
+> AI systems are built to function in ways that degrade and are likely to destroy our crucial civic institutions.
+> The affordances of AI systems have the effect of eroding expertise, short-circuiting decision-making, and isolating people from each other."
+
+Welcome to a world with intransparent, arbitrary and non-negotiable actions by the state.
+If this feels like a dystopia, it probably is.
+
 
 ### GenAI versus human creativity
 
@@ -740,3 +752,5 @@ the ethical way of next generation software development.
 [^60]: Hugging Face's AI Energy Score v2, 12/25, "AI Energy Score v2: Refreshed Leaderboard, now with Reasoning". <br>https://huggingface.co/blog/sasha/ai-energy-score-v2
 
 [^61]: Jason Gorman's Blog, 12/25, "The Gorman Paradox: Where Are All The AI-Generated Apps?". <br>https://codemanship.wordpress.com/2025/12/14/the-gorman-paradox-where-are-all-the-ai-generated-apps/
+
+[^62]:  Hartzog, Woodrow and Silbey, Jessica M., 12/25, "How AI Destroys Institutions". 77 UC Law Journal (forthcoming 2026), Boston Univ. School of Law Research Paper No. 5870623. <br>https://ssrn.com/abstract=5870623 
